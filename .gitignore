@@ -76,5 +76,5 @@ _local
 *.sublime-project
 *.sublime-workspace
 _note
-
+_specs.py
 
