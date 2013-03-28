@@ -75,5 +75,6 @@ dump.rdb
 _local
 *.sublime-project
 *.sublime-workspace
+_note
 
 
