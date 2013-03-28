@@ -1,0 +1,51 @@
+{% extends "email_templates/inc_email_base.html" %}
+
+
+{% block title %} {{ _("Account Activation") }} {% endblock %}
+
+
+{% block description %}
+	<p>{{ _("Activate Your Account and Start Hanging Out with Your Friends") }}</p>
+{% endblock %}
+
+
+{% block body %}
+
+<td colspan="2">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+	
+	<td width="17%"></td>
+	
+	<td align="left">
+		<b><font size="2" color="#988162">
+		<p>{{ _("Thank you for signing up for an account with us") }}. <br>
+		{{ _("Please click this") }} <a href="http://{{ addr }}">{{ _("link") }}</a> {{ _("to activate your account") }}.<br>
+		</p>
+		
+		<p>
+		{% trans %}
+			"After activation, you can" <br>
+			- "Blah"<br>
+			- "Blah"<br>
+		{% endtrans %}
+		</p>
+		<p>
+		{{ _("We hope you will enjoy site!") }}
+		</p>
+		<p>
+		{{ _("Sincerely,<br><br>The site Team") }}
+		</p>	</font></b>
+	</td>
+	
+	</tr>
+</table>
+
+</td>
+
+
+ 
+
+
+{% endblock %}
+

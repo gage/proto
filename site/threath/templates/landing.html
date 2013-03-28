@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+{% block body_content %}
+<div>
+	<ng-view></ng-view>
+</div>
+
+<script type="text/ng-template" id="agl_landing_page.html">
+{% include "angular/agl_landing_page.html" %}
+</script>
+
+<script type="text/ng-template" id="agl_index_page.html">
+{% include "angular/agl_index_page.html" %}
+</script>
+
+{% endblock %}
+
+{% block init_js %}
+InitData['user'] = 'Hello';
+{% endblock %}

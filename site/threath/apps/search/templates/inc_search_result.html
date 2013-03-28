@@ -1,0 +1,32 @@
+
+<div class="wall_item">
+    <ul class="wall_profile_list wall_list">
+    {% for result in results %}
+    {% if result.model_name == 'place' %}
+        <li>
+            {% include "inc_search_result_place.html" %}
+        </li>
+    {% endif %}
+    {% if result.model_name == 'dish' %}
+        <li>
+            {% include "inc_search_result_dish.html" %}
+        </li>
+    {% endif %}
+    {% if result.model_name == 'user' %}
+        <li class="wall_user_list">
+            {% include "inc_search_result_user.html" %}
+        </li>
+    {% endif %}
+    {% if result.model_name == 'event' %}
+        <li>
+            {% include "inc_search_result_event.html" %}
+        </li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+     
+    <div class="btn_group"> 
+        <input type="button" value="{{ _('MORE' ) }}" class="btn_1_s more_btn"> 
+    </div> 
+
+</div>

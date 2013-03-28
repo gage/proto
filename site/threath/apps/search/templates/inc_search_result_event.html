@@ -1,0 +1,49 @@
+
+<div class="wall_profile_group"> 
+    <div class="wall_profile_pic"> <a href="{{ result.object.get_absolute_url() }}" class="pic_frame"><img src="{{ result.object.place.get_display_photo().image105x105.url }}" alt="" /></a> </div> 
+    <div class="wall_profile_info"> 
+        <table> 
+            <tr> 
+                <th colspan="2" class="first"><a title="{{ result.name }}" href="{{ result.object.get_absolute_url() }}">{{ result.name }}</a></th> 
+            </tr>
+            <tr> 
+                <th>{{ _("Type") }}</th> 
+                <td>{{ _("Event") }}</td> 
+            </tr>
+            <tr>
+                <th>{{ _("Location") }}</th>
+                <td><b><a href="{{ result.object.place.get_absolute_url() }}" title="{{ result.object.place.get_display_name() }}">{{ result.object.place.get_display_name() }}</a></b></td>
+            </tr>
+            <tr>
+                <th>{{ _("Host") }}</th>
+                <td><b><a href="{{ result.object.creator.get_profile().get_absolute_url() }}" title="{{ result.object.creator.get_profile().get_display_name() }}">{{ result.object.creator.get_profile().get_display_name() }}</a></b></td>
+            </tr>
+            <tr> 
+                <th>{{ _("Time") }}</th> 
+                <td>{{ jinja.formatted_datetime(value=result.object.time.datetime) }}</td> 
+            </tr> 
+            <tr> 
+                <th>{{ _("Note") }}</th> 
+                <td><p>{{ result.object.notes }}</p></td> 
+            </tr> 
+        </table> 
+    </div> 
+</div> 
+<div class="user_guest">
+    <div class="bd">
+        <h3>{{ _("Guests") }}</h3>
+        <div class="pic">
+            {% for guest in result.object.get_site_user() %}
+            {% if loop.index0 < 10 %}
+            <a href="{{ guest.get_profile().get_absolute_url() }}"><img src="{{ guest.get_profile().get_display_photo().image26x26.url }}" alt="{{ guest.get_profile().get_display_name() }}"></a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% if result.object.get_site_user()|length > 10 %}
+        <div class="others">
+        {{ _("and") }} <b>{{ result.object.get_site_user()|length|add("-10") }}</b> {{ _("other guest") }}
+        </div>
+        {% endif %}
+    </div>
+    <div class="bg"></div>
+</div>

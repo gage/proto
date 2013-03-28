@@ -1,0 +1,207 @@
+{% extends "new_base.html" %}
+
+
+{% block bodyclass %}public photo{% endblock %}
+
+{% block main %}
+{% block main_header %}
+{% endblock %}
+<div id="main_body">
+<div class="col_main">
+    
+    <div class="col_left">
+        <div class="poster">
+            <div class="avatar">
+                <img class="user_pic_small" src="{{ content_object.user.get_profile().get_my_photo(request).image50x50.url }}" width="50" height="50">
+                <div class="user_name"><a href="{{content_object.user.get_profile().get_absolute_url()}}">{{ content_object.user.get_profile().get_nickname(request) }}</a></div>
+            </div>
+            <div class="post_text">
+                <span class="message_box_left_triangle"></span>
+                <div>{{ content_object.content }}</div>
+            </div>
+        </div>
+        
+        <div class="photo_container pic_frame gallery_group">
+            <div class="gallery_show">
+	            <img class="public_main_img on {{ photo.id }}" src="{{ photo.image424x424.url }}" width="424" height="424">
+	            {% if next_p and pre_p and next_p.id != photo.id and pre_p.id != photo.id %}
+	            <img class="public_main_img {{ next_p.id }}" src="{{ next_p.image424x424.url }}" width="424" height="424">
+	            <img class="public_main_img {{ pre_p.id }}" src="{{ pre_p.image424x424.url }}" width="424" height="424">
+	            <span pid="{{pre_p.id}}" class="arrow_l"></span>
+                <span pid="{{next_p.id}}" class="arrow_r"></span>
+	            {% endif %}
+            </div>    
+        </div>
+        
+        <div class="post_detail">
+            <div class="title">
+                {% if content_object.dish %}
+                <h2>{{ content_object.dish.name }}</h2>
+                <span>@</span>
+                {% endif %}
+                {% if content_object.place %}
+                <h1><a href="{{content_object.place.get_absolute_url()}}">{{ content_object.place.name }}</a></h1>
+                {% else %}                
+                <h1><a href="{{content_object.place.get_absolute_url()}}">{{ content_object.place.name }}</a></h1>
+                {% endif %}
+                {#<button class="map btn_2_s">{{ _("MAP") }}</button>#}
+            </div>
+            <div class="separator_dashed"></div>
+            <div class="place_info">
+            <h1>{{ content_object.place.name }}</h1>
+            {% if content_object.place %}
+                {% set place=content_object.place %}
+                {% include "inc_place_info.html" %}
+            {% else %}
+                {% set place=content_object.place %}
+                {% include "inc_place_info.html" %}
+            {% endif %}
+            </div>
+            <ul class="add_todo">
+                <li>{{ jinja.show_like_btn_h(request, content_object)|safe }} · </li>
+                <li>{% if content_object.place %}{{ jinja.show_todo_button_h(request, content_object.place)|safe }}{% else %}{{ jinja.show_todo_button_h(request, content_object.place)|safe }}{% endif %}</li>
+            </ul>
+            <div id="{{ content_type.id }}_{{ content_object.pk }}_like_info" class="show_likes">
+                {{ jinja.show_likes_info_h(request, content_object) }}
+            </div>
+        </div>
+    </div>
+    {% set comment_list = jinja.get_comment_list(content_object) %}
+    <div id="{% if comment_list %}comment_{{comment_list.0.content_object.pk}}{% endif %}" allow_comment="1" site:rtobject="{{content_object.pk}}" class="show_comments glchat_rt_object top_down">
+        <div class="form">
+            <h3 class="guest_name">{{ user_name }}</h3>
+	        {% set form = jinja.get_comment_form(content_object) %}
+			<form class="comment_form" action="{{ jinja.get_comment_form_target() }}" method="post">
+			    {% autoescape False %}
+			    {% csrf_token %}
+			    {{ form.content_type }}
+			    {{ form.object_pk }}
+			    {{ form.timestamp }}
+			    {{ form.security_hash }}
+			    <input type="hidden" name="name" value="{{user_name}}"/>
+			    <input type="hidden" name="email" value="{{email}}"/>
+			    <input type="hidden" name="site_user_id" value="{{site_user.id}}"/>
+			    <input type="hidden" name="guuid" value="{{gUUID}}"/>
+			    <div class="text_field cf">
+			        <div class="text cf">
+			        {{ form.comment }}
+			        </div>
+			        <div class="display_none">
+			            {{ form.honeypot.label_tag }} {{ form.honeypot }}
+			        </div>
+			        <input class="btn_post fright display_none" type="submit" name="post" class="submit-post" value="" />
+			    </div>
+			    {% endautoescape %}
+			</form>
+		</div>
+		<div class="separator_dashed"></div>
+		
+		<div class="nothing_data comment" style="{%if comment_list|length > 0%}display:none{% else %}display:block{% endif %}">
+		    <span class="icon_error"></span>
+		    <br>
+		    <br>
+		    <b class="text">{{ _("be the first friend to comment") }}</b>
+		</div>
+		
+		<div class="comment_list">
+            {% for comment in comment_list|reverse %}
+                {% if loop.index <= 7 %}
+                {% include "inc_gcomments_comment.html" %}
+                {% else %}
+                <div class="more_comments">
+                    {% include "inc_gcomments_comment.html" %}
+                </div>
+                {% endif %}
+            {% endfor %}
+            {% if comment_list|length > 7 %}
+            <div class="comment_box view_all_comments">
+                <div class="comment_bd">
+                <a href="#" onclick="$(this).parents('.show_comments').find('.more_comments').fadeIn('slow');$(this).parents('.show_comments').find('.comment_box.view_all_comments').hide();return false;">
+                    {% set comment_count = comment_list|length %}
+                    {% trans %}
+                    View all 
+                    <span>{{ comment_count }}</span> 
+                    comments
+                    {% endtrans %}
+                </a>
+                </div>
+            </div>
+            {% endif %}
+		</div>
+    </div>
+    
+</div>
+</div>
+{% endblock %}
+
+{% block bottom_script %}
+<script type="text/javascript">
+{% minifyjs %}
+    var gCometURL = "/runtime";
+    var lockPage = function(){
+        $('.nothing_data').css('display','block');
+        $('.comment_list').css('display','none');
+        $('.comment_form input').attr("disabled", true);
+    };
+    
+    $(function(){
+        $('#footer .bd').hide();
+        $('.glchat_rt_object').globjectnotify();
+        $.fn.glchat.startComet();
+        
+        {% if state == 1 %}
+            $('.nothing_data .text').text('{{ _("facebook connect and start chatting!") }}')
+            lockPage();
+            systemTxt('{{ _("Log in to find out where your friends want to go") }}<br><br><br><input type="button" class="btn_fb_l wantto">',{'hasbtn':false})
+            var site_fb = new Facebook();
+            $('.btn_fb_l.wantto').click(function(){
+                site_fb.doLogin("{% url facebook-connect %}?next=/post/p/{{target.id}}");
+            });
+        {% else %}{% if state == 2 %}
+            $('.nothing_data .text').text('{{ _("facebook connect or sign up to start chatting!") }}')
+            lockPage();
+            $('#signup_popup_anchor').click();
+        
+        {% endif %}{% endif %}
+        
+{% if next_p and pre_p and next_p.id != photo.id and pre_p.id != photo.id %}
+        var photos = 
+            [
+                {% for p_photo in preload_list %}
+                    "{{ p_photo.id }}"{% if not loop.last %},{% endif %}
+                {% endfor %}            
+            ] 
+        
+        var index = 0;
+        
+        $(".arrow_l, .arrow_r").click(function(){
+            var pid = $(this).attr('pid');
+            $(this).parent().find('img').removeClass('on');
+            $('.public_main_img.'+pid).addClass('on');
+            if($(this).hasClass('arrow_l')){
+                index = index - 1;
+                if(index < 0) index = index + photos.length;
+            }else{
+                index = index + 1;
+                if(index > 2) index = index - photos.length;
+            }
+            var l_index = (index - 1 < 0)? index-1+photos.length:index-1;
+            var r_index = (index + 1 > 2)? index+1-photos.length:index+1;
+            $(".arrow_l").attr('pid', photos[l_index]);
+            $(".arrow_r").attr('pid', photos[r_index]);
+            return false; 
+        });
+        
+        $('.public_main_img').click(function(){
+            $('.arrow_r').click();
+        });
+{% endif %}
+		var comment = new GComments.Commenter({
+		    container : $('.show_comments'),
+		    new_on_top: true
+		});
+    });
+
+{% endminifyjs %}
+</script>
+{% endblock %}

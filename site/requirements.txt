@@ -1,0 +1,67 @@
+### Requirements
+###
+### Please use comments to label which app(s) your requirements are used in.
+
+# infrastructure
+fabric==1.0.1
+python-memcached
+pymongo
+#django-mongodb-engine==0.4.0
+twisted
+pysolr
+python-dateutil==1.5
+#boto==2.0b4
+pytz
+django-rosetta
+txredis
+redis
+oauth
+jsmin
+raven #logging
+django-sentry #logging
+django-cache-machine
+django_concurrent_test_server
+django-devserver
+
+# documentation
+Sphinx
+sphinxcontrib-httpdomain # for HTTP API documentation
+
+# testing
+nose
+django-nose
+coverage
+nosexcover
+django-nose-selenium
+BeautifulSoup			# html parser
+CherryPy
+
+# asynchronous tasks
+celery<3.0
+django-celery==2.5.4
+# celery==2.5.5
+#django-celery==3.0.1
+
+# app-specific requirements
+django-imagekit          # photos
+httplib2                 # api
+MultipartPostHandler            # mixi
+ngram                           # search
+oauth2                          # api
+PIL                             # photos
+poster==0.8.1                   # api
+pyapns                          # notify
+caldav==0.1.12			# gcalendar, caldav client
+radicale			#gcalendar, caldav server
+jinja2
+google-api-python-client		# api
+flickrapi			#api
+xmpppy
+#python-twitter			#api #you should install python-twitter in lib directory manually
+tweetstream			#api
+lxml
+py-pretty			#pretty time format
+beautifulsoup4			#html parser
+readability-lxml		#html cleanup and summary tool
+chardet				#Universal encoding detector
+simplejson

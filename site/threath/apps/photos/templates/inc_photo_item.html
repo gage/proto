@@ -1,0 +1,14 @@
+
+<li id="{% if photo.place %}{% if photo in photo.place.best_photos.all %}best{% else %}unbest{% endif %}{% endif %}{{ photo.id }}" class="photo_item cf fleft {% get_random photos_frame_l photos_frame_h photos_frame_r %}">
+    <a href="{% url photos-place-view request.content_object.id photo.id %}">
+       <span class="photo_frame"></span>
+       <div class="photo_item_bd">
+           <img src="{{ photo.image190x125.url }}" />
+       </div>
+    </a>
+    {% if request.content_object.best_photos %}
+    <div class="operation cf">
+        <button class="{% if photo.place %}{% if photo in photo.place.best_photos.all %}best{% else %}unbest{% endif %}{% endif %}"></button>
+    </div>
+    {% endif %}
+</li>

@@ -1,0 +1,23 @@
+
+<div>
+    <h2>{% trans "Places" %}</h2>
+    <ul>
+	    {% for place in places %}
+	       <li>
+	           <h3>{{ place.name }}</h3>
+	           <h4>{{ place.city }}, {{ place.region }}</h4>
+	       </li>
+	    {% endfor %}
+    </ul>
+</div>
+<div>
+    <h2>{% trans "Dishes" %}</h2>
+    <ul>
+        {% for dish in dishes %}
+        <li>
+            <h3>{{ dish.name }} ({{ dish.place.name }})</h3>
+            <h4>{{ dish.place.city }}, {{ dish.place.region }}</h4>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

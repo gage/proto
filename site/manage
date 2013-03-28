@@ -1,0 +1,2 @@
+#!/bin/sh
+python ./threath/configs/${DEPLOYMENT_TARGET:="common"}/manage.py $*

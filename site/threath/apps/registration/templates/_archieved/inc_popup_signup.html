@@ -1,0 +1,110 @@
+<div class="ui_popup signup">
+	<input type="button" value="x" class="bind_close close" />
+	{% if msg != '' %}
+	<h3>{{ _("System Information") }}</h3>
+	<div class="ui_site_signup">
+	{{ msg }}
+	</div>
+	{% else %}
+	<div class="ui_site_signup">
+        <h3>{{ _("Sign Up Options") }}</h3>
+		<ul class="num_list">
+			<li>
+				<div><a href="{% url weibo-connect %}" class="btn_weibo_l"></a></div>
+			</li>
+			<li>
+				<div><input type="button" id="fb_button" class="btn_fb_l" /></div>
+			</li>
+		</ul>
+		<div class="signup">
+            <div class="bd">
+                <form id="signup_form" class="form_style_2" action="">
+                    <div>
+                        {{ registration_form.username|safe }}
+                        {{ registration_form.username.errors|safe }}
+                    </div>
+                    <div>
+                        {{ registration_form.email|safe }}
+                        {{ registration_form.email.errors|safe }}
+                    </div>
+                    <div>
+                        {{ registration_form.password|safe }}
+                        {{ registration_form.password.errors|safe }}
+                    </div>
+                    <div>
+                        {{ registration_form.password_confirm|safe }}
+                        {{ registration_form.password_confirm.errors|safe }}
+                    </div>
+                    <!--label class="chkbox"><input type="checkbox" name="" value="" /> <span>{{ _("Share my place recommendation with site community any public") }}</span></label>
+                    <label class="chkbox"><input type="checkbox" name="" value="" /> <span>{{ _("Allow friends to find you") }}</span></label>
+                    <label class="chkbox"><input type="checkbox" name="" value="" /> <span>{{ _("Accept Terms &amp; Privacy Policy") }}</span></label-->
+                    <div class="desc">
+                        {{ _("By signing up or logging in, you have agreed to site. com's privacy agreement and terms of services") }}.
+                    </div>
+                    <input id="submit_registration" type="button" value="{{ _('SIGN UP' ) }}" class="btn_1_m fR" />
+                </form>
+            </div>
+            <span class="bg"></span>
+        </div>
+	</div>
+    {% endif %}
+</div>
+<div id="fb-root"></div>
+<script type="text/javascript">
+{% minifyjs %}
+$(document).ready(function(){
+	{% if msg == '' %}
+    var signup_fields = [];
+    signup_fields[0] = new Site.DefaultValueField($('#id_username'), "{{ _('Username' ) }}");
+    signup_fields[1] = new Site.DefaultValueField($('#id_email'), "{{ _('Email address' ) }}");
+    signup_fields[2] = new Site.DefaultValueField($('#id_password'), "{{ _('Password' ) }}");
+    signup_fields[3] = new Site.DefaultValueField($('#id_password_confirm'), "{{ _('Confirm password' ) }}");
+    
+    var fm = $('#signup_form');
+    fm.find("input:checkbox").autoConvertUI({
+        type: "checkbox",
+        hook_event_1: function() {
+            // callback function write here
+        }
+    });
+    $('#submit_registration').click(function(){
+        for (var i=0; i<signup_fields.length; i++){
+            if (signup_fields[i].isDefault()){
+                signup_fields[i].input_field.val('');
+            }
+        }
+
+        $.ajax({
+            url: '/registration/ajax/process_sign_up_form/',
+            type: "POST",
+            data: {
+                username: $('#id_username').val(),
+                email: $('#id_email').val(),
+                password: $('#id_password').val(),
+                password_confirm: $('#id_password_confirm').val(),
+                template_type: 'popup'
+            },
+            dataType: "json",
+            success: function(data){
+            	$('.ui_popup').remove();
+            	$('.sys_anchor').remove();
+            	$('.ui_dialog_bg').remove();
+                $('.ui_dialog').prepend(data['html']);
+                if (data['registration_id']!=''){
+                    $.ajax({
+                        url: '/registration/ajax/send_activation_mail/'+data['registration_id']+'/',
+                        type: "POST"
+                    });
+                }
+            }
+        });
+    });
+    {% endif %}
+    $('.bind_close').click(function(){
+    	$('.ui_dialog').remove();
+    	$('.sys_anchor').remove();
+    	$('.ui_dialog_bg').remove();
+    });
+});
+{% endminifyjs %}
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Test Runner</title>
+  <link rel="stylesheet" type="text/css" href="lib/testingtools/vendor/jasmine-1.2.0/jasmine.css">
+  <script type="text/javascript">
+    var require = {
+      baseUrl: './',
+      paths: {
+        lib: 'lib',
+        jquery: 'lib/jquery-min',
+        backbone: 'lib/backbone-min',
+        underscore: 'lib/underscore-min',
+        jasmine: 'lib/testingtools/vendor/jasmine-1.2.0/jasmine',
+        jasminehtml: 'lib/testingtools/vendor/jasmine-1.2.0/jasmine-html',
+        consolerunner: 'lib/testingtools/lib/console-runner'
+      },
+      shim: {
+        backbone: {
+          deps: ['underscore', 'jquery'],
+          exports: 'Backbone'
+        },
+        underscore: {
+          exports: '_'
+        },
+        jasminehtml:{
+          deps: ['jasmine']
+        },
+        jasmine: {
+          exports: 'jasmine'
+        },
+        consolerunner: {
+          deps: ['jasmine', 'jasminehtml']
+        }
+      }
+    };
+  </script>
+  <script type="text/javascript" src="lib/testingtools/lib/require.js"></script>
+  <script type="text/javascript">
+    var console_reporter = {};
+    require(
+      [ 
+        //includ testing library
+        'jquery',
+        'underscore', 
+        'backbone',
+        'jasmine',
+        'jasminehtml',
+        "consolerunner",
+
+        //include modele spec to be tested below
+        "site/spec",
+        "chatRoom/spec",
+      ], 
+      function($ , _, Backbone){
+        var reporter = new jasmine.ConsoleReporter();
+        console_reporter = reporter;
+        jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+        jasmine.getEnv().addReporter(console_reporter);
+        jasmine.getEnv().execute();
+      }
+    );
+  </script>
+</head>
+<body>
+</body>
+</html>
+

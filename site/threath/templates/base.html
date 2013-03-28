@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    
+    <title>{% block title %}{{ _("Threath") }}{% endblock %}</title>
+    {% block head_css %}
+    {% endblock %}
+    {% block head_js %}
+    {% endblock %}
+    <script>
+    {% autoescape off %}
+    {% include "bigpipe.js" %}
+    {% include "require.js" %}
+    {% endautoescape %}
+    </script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+{% block body_content %}
+{% endblock %}
+
+{# InitData & Controler #}
+<script>
+    var InitData = {};
+	define("initData",
+		function() {
+			InitData = {};
+			{% block init_js %}
+    		{% endblock %}
+			return InitData;
+		}
+	);
+    var Ctrls = {};
+    define("ctrls",
+        function() {
+            return Ctrls;
+        }
+    );
+</script>
+
+{% csrf_token %}
+
+{% block page_end %}
+{% if not BIG_PIPE %}
+{% include "bp_page_end.html" %}
+{% endif %}
+{% endblock %}

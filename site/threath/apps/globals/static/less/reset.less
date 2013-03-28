@@ -1,0 +1,96 @@
+
+@selection_color: #CDD0D4;
+@default_font_size:14px;
+@default_line_height:16px;
+@main_font: normal @default_font_size "helvetica neue",helvetica,arial,sans-serif;
+@main_font_color: #818486;
+@main_sprite_url: "/static/images/main_sprite.png";
+@color_1: #1492D6;
+::selection {
+    background: @selection_color;
+    text-shadow: none;
+}
+*, ::after, ::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+html{
+    height:100%;
+}
+body{
+    color: @main_font_color;
+    height: 100%;
+}
+body, table, input, textarea, select, button {
+    font: @main_font;
+    line-height: @default_line_height;
+}
+input, select, textarea{
+    font: @main_font;
+    color: @color_1;
+    outline:none;
+}
+textarea {
+    resize:none;
+}
+input::-moz-focus-inner{ 
+    border: 0;
+    padding: 0;
+}
+input[type="submit"], input[type="button"] {
+    /* fix ios can't styleing */
+    -webkit-appearance:none;
+}
+table{
+    border-spacing: 0px;
+}
+.tb{display:table}
+.tr{display:table-row}
+.td{display:table-cell}
+
+table, tr, th, td {
+    margin:0; padding:0;
+    border-collapse:collapse;
+    vertical-align:top;
+}
+td {
+    &.vb {
+        vertical-align:bottom;
+    }
+    &.ar {
+        text-align:right;
+    }
+}
+:link, visited, ins{
+    text-decoration: none;
+}
+a{
+    outline: 0;
+    text-decoration: none;
+    color: @color_1;
+    &:visited, &.visited{
+        color: @color_1;
+    }
+    &:hover, &.hover{
+        color: @color_1;
+        outline:none;    
+    }
+    &:link{
+        -webkit-tap-highlight-color: @color_1;
+    }
+}
+ul, ol, li{
+    list-style: none;
+}
+
+
+

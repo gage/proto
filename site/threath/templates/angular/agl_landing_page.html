@@ -1,0 +1,10 @@
+<div id="pageContainer">
+      <div ng-controller="Ctrls.Photo.PhotoCtrl">
+      	Show photos
+        <div ng-repeat="photo in photos">
+            <img ng-src="{[photo.original_raw]}">
+        </div>
+        <a href="" ng-click="addPhoto()">add</a>
+        <a ng-href="/">To Index</a>
+      </div>
+</div>

@@ -1,0 +1,60 @@
+<div id="id_place_search_small" class="place_search small no_results">
+    <form id="place_picker_form_small" class="hd cf">
+        <input class="sp place_query" type="text" name="place_query" id="id_place_query_small" value="">
+        <input class="sp address_query" type="text" name="address_query" id="id_address_query_small" value="">
+        <input type="submit" class="btn_search_s" name="search" id="id_search" value="Search">
+    </form>
+    <div id="select_result_small" class="select_result">
+        {% if place_result_html %}{{ place_result_html }}{% endif %}
+    </div>
+    <div class="bd">
+        <div class="search_result" id="search_result_small">
+            <ul>
+                {% include 'inc_place_picker_results_small.html' %}
+            </ul>
+            <div id="id_place_picker_more_small" class="more cf"><div class="center"><div class="fleft">更多菜色</div><span class="fleft more_arrow_down"></span></div></div>
+        </div>
+    </div>
+    <div class="ft cf">
+        <input type="button" class="fright btn_black_s" id="id_ok_small" value="Pick">
+        <input type="button" class="fright btn2_1" id="id_cancel_small" value="Cancel">
+    </div>
+</div>
+
+{% comment %}
+<!-- add following code and assign specified field in template where include this html -->
+<script>
+$(document).ready(function(){
+    
+    /* place picker */
+    var place_picker = new Search.PlacePicker({
+        place_search: $('#id_place_search'),
+        place_input: $('#id_place_query'),
+        place_default: 'Place Keywords',
+        location_input: $('#id_address_query'),
+        location_default: 'Location',
+        container: $('#search_result ul'),
+        search_form: $('#place_picker_form'),
+        more: $('#id_place_picker_more'),
+        select_items: $('.place_result_items'),
+        error: null,
+        cancel: $('#id_cancel'),
+        ok: $('#id_ok'),
+        select_result: $('#select_result'),
+        picked_function: function(id){
+            $('.add_task_pop #id_place').val(id);
+            $('.is_dish .error_msg').html('');
+            var dish_autocomplete = new Search.AutoComplete({
+                input: $('#id_dish_name'),
+                model: 'dish',
+                place: id,
+                select: function(event, ui){
+                    $('.add_task_pop #id_dish').val(ui.item.id);
+                }
+            });
+            $('.error_msg.task_error').hide();
+        }
+    });
+});
+</script>
+{% endcomment %}

@@ -1,0 +1,82 @@
+
+
+<!--
+    Photo list container
+-->
+
+{% if events or photos %}
+    <div id="photo_list_container" class="gallery_group">
+        
+        <!--
+            Skip this block temporary.
+        -->
+        {#% comment %}
+        <div>
+        <strong>{{ _("You & Your Friends Here") }}</strong>
+        <a href="" class="view_all">{{ _("View All") }}</a>
+        </div>
+        <div>
+        <ul>
+        {% for i in 1234|make_list %}
+            <li><a href="" class="gallery_box"><img src="{{ request.content_object.main_profile_pic.image107x107.url }}" alt="Penguins"></a></li>
+        {% endfor %}
+        </ul>
+        </div>
+        
+        <div class="separator_dashed"></div>
+        {% endcomment %#}
+        
+        
+        <!--
+            Event Photo
+        -->
+
+        {% if events %}
+        <div>
+        <strong>{{ _("Event Photos") }}</strong>
+        {{ jinja.view_all_btn_h(request, request.content_object, "event_photos_btn", "event_photos", view_all_btn_config)|safe }}
+        </div>
+        <div>
+        <ul id="event_photos">
+            {% include "inc_event_photos.html" %}
+        </ul>
+        </div>
+        
+        <div class="separator_dashed"></div>
+        {% endif %}
+        
+        
+        <!-- 
+            Place Photos / My Photos 
+        -->
+        {% set title = title %}
+        {% set item_template = item_template %}
+        {% include "inc_photos_boilerplate.html" %}
+        
+    </div>
+{% else %}
+    <div class="nothing_data">
+       <span class="icon_error"></span><br /><br /> 
+       {% trans %}
+       No photo for this {{ content_type }} yet.
+       {% endtrans %}
+    </div>    
+{% endif %}
+
+
+
+<!--
+    Photo detail container
+-->
+<div id="photo_detail_container">
+{% if photo_detail %}
+{{ photo_detail }}        
+{% endif %}    
+</div>
+
+
+<!--
+    Event detail container
+-->
+<div id="event_detail_container">
+</div>

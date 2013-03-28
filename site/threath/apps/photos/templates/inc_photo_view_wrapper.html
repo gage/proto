@@ -1,0 +1,38 @@
+
+
+<div class="photo_view_wrapper">
+    <div class="title cf">
+        <h3 class="fleft">
+            {% if object.place %}
+                {% if object.dish %}
+                    {{ object.user }} {{ object.dish.name }} @ {{ object.place.name }}
+                {% else %}
+                    {{ object.user }} @ {{ object.place.name }}
+                {% endif %}
+            {% else %}
+            {% endif %}
+        </h3>
+    </div>
+    {% if object.photo %}
+    <div class="show_photo">
+        <img src="{{ object.photo.image622x417.url }}" />
+        <span class="photo_frame"></span>
+    </div>
+    {% endif %}
+    <p>{{ object.content }}</p>
+    <div class="share_buttons">{% like object %}</div>
+    <div class="detail_comments">
+	{% comments_form object %}
+	</div>
+</div>
+
+
+<script>
+{% minifyjs %}
+$(document).ready(function(){
+    var comment = new GComments.Commenter({
+        container : $(".detail_comments")
+    });
+});
+{% endminifyjs %}
+</script>

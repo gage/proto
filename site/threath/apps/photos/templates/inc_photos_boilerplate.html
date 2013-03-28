@@ -1,0 +1,20 @@
+
+
+<!--
+parameters:
+title           => section title
+item_template   => photo list
+-->
+
+{% if photos %}
+<strong>{{ title }}{{ _("'s photos") }}</strong>
+<div>
+<ul id="photos_container">
+    {% include item_template %}
+</ul>
+</div>
+
+{{ jinja.more_btn_h(request, request.content_object, "more_btn", "photos_container", moreBtn_config)|safe }}
+
+<div class="separator_dashed"></div>
+{% endif %}

@@ -1,0 +1,22 @@
+<div id="pageContainer">
+	<div ng-controller="Ctrls.User.UserCtrl">
+		This is Index Page: Users
+		<div ng-repeat="user in users">
+			<a href="/user/{[user.id]}/" ng-class="user.class" user-info="{[user]}">{{_("User")}} {[user.username]}</a>
+		</div>
+		<br/>
+		<a href="/landing/">To Landing Page</a>
+	</div>
+	<br/>
+	<div ng-controller="Ctrls.User.TabCtrl">
+		Tabs:
+		<div ng-repeat="tab in tabs">
+			<div ng-click="changeContent(tab)">{[tab.name]}</div>
+		</div>
+
+		<div class="tab-wrap">
+			{[tabContent]}
+		</div>
+		<br/>
+	</div>
+</div>

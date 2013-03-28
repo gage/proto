@@ -1,0 +1,1 @@
+require(['chatRoom/chatRoom'] , function(){});

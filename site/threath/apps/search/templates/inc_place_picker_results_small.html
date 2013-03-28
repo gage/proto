@@ -1,0 +1,21 @@
+{% if results %}
+{% for result in results %}
+{% if result.object %}
+<li id="id_select_{{ result.object.pk }}" class="place_result_items">
+{% endif %}
+    <div class="places cf">
+        <div class="pic"><img class="small_frame" src="{% if result.object %}{{ result.object.main_profile_pic.image60x37.url }}{% else %}{{ result.main_profile_pic.image60x37.url }}{% endif %}"></div>
+        <div class="information">
+	        <span class="name">{% if result.object %}{{ result.object.name }}{% else %}{{ result.name }}{% endif %}</span>
+	        <span class="address">{% if result.object %}{{ result.object.address }}{% else %}{{ result.address }}{% endif %}</span>
+        </div>
+    </div>
+{% if result.object %}
+</li>
+{% endif %}
+{% endfor %}
+{% else %}
+<li class="place_result_items empty_results">
+    無搜尋結果
+</li>
+{% endif %}

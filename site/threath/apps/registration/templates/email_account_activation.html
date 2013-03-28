@@ -1,0 +1,12 @@
+Dear {{ name }},
+        {% if add_email%}
+
+        Please visit http{% if ssl%}s{% endif %}://{{ activation_url }} to verify your E-mail account.
+        {% else %}
+
+        To complete your registration, please visit http{% if ssl%}s{% endif %}://{{ activation_url }} to activate your account.
+        {% endif %}
+
+Best Regards
+
+

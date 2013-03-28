@@ -1,0 +1,53 @@
+
+
+{% block user_profile_content %}
+    <div class="_hd ui_main_hd_info">
+		<a id="back_to_referer" href="#"><span class="arrow_left"></span> {{ _("Back to Photo List") }}</a>
+	</div>
+	
+    <div class="separator_dashed"></div>
+	
+    <div class="gallery_group">
+    	<div class="gallery_show">
+			<span photo_id="{{pre_pid}}" object_id="{{object_id}}" class="arrow_l"></span>
+			<span photo_id="{{next_pid}}" object_id="{{object_id}}" class="arrow_r"></span>
+			<div class="bd">
+				<div class="hide_con">
+					<ul id="gallery_show_ul">
+						<li>
+						    <a id="photo_big" href="{{ url_4_html5 }}" class="pic_frame_shadow" photo_id="{{next_pid}}" object_id="{{object_id}}">
+						        <img src="{% if review %}{{ review.get_display_photo().image450x450.url }}{% else %}{{photo.image450x450.url}}{% endif %}" width="450" height="450" alt="">
+                            </a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="bg"></div>
+		</div>
+    </div>
+    {% include "inc_post_boilerplate.html" %}
+{% endblock %}
+
+
+{% block bottom_script %}
+    <script type="text/javascript">
+    {% minifyjs %}
+        $(function(){
+            function preload(arrayOfImages) {
+                $(arrayOfImages).each(function(){
+                    $('<img/>')[0].src = this;
+                });
+            }
+            
+            var preload_list = 
+            [
+                {% for p_photo in preload_list %}
+                    "{{ p_photo.image450x450.url }}"{% if not loop.last %},{% endif %}
+                {% endfor %}            
+            ] 
+            
+            preload( preload_list );
+        });
+    {% endminifyjs %}
+    </script>
+{% endblock %}

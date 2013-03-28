@@ -1,0 +1,41 @@
+
+
+{% block user_profile_content %}
+    <div class="_hd ui_main_hd_info">
+        <a id="back_to_photo_list" href="#"><span class="arrow_left"></span> {{ _("Back to Photo List") }}</a>
+    </div>
+    
+    <div class="separator_dashed"></div>
+	
+	<div class="info_data mix_photo">
+	    {% set place=event.place %}
+	    {% if place %}
+		<div class="pic_frame"><a href="{{place.get_absolute_url()}}"><img src="{{place.get_display_photo().image50x50.url}}" alt=""></a></div>
+		{% endif %}
+		<dl> 
+			<dt class="first">Title</dt> 
+			<dd><a href="{{event.get_absolute_url()}}">{{event.title}}</a></dd> 
+			<dt>{{ _('Creator') }}</dt> 
+			<dd><a href="{{event.creator.get_profile().get_absolute_url()}}">{{ event.creator.get_profile().get_nickname(request) }}</a></dd> 
+			<dt>{{ _('Place') }}</dt> 
+			<dd>{% if place %}<a href="{{place.get_absolute_url()}}">{{place}}</a>{% else %}-{% endif %}</dd> 
+			<dt>{{ _('Time') }}</dt> 
+			<dd>{{event.time}}</dd> 
+			<dt>{{ _('Participant') }}</dt> 
+			<dd class="end">{% for participant in participants %}<a href="{{participant.get_profile().get_absolute_url()}}">{{ participant.get_profile().get_nickname(request) }}</a> {% endfor %}</dd> 
+		</dl>
+	</div> 
+	
+	<div class="separator_dashed"></div>
+	    
+    <div class="gallery_group">
+        <ul>
+        {% for photo in photos %}
+            <li>
+                <a href="#" photo_id="{{photo.id}}" object_id="{{event.id}}" class="event_photo_detail gallery_box"><img src="{{ photo.image105x105.url }}" alt=""></a>
+            </li>
+        {% endfor %}
+        </ul>
+    <div class="gallery_group">
+    
+{% endblock %}

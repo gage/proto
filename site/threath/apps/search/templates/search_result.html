@@ -1,0 +1,194 @@
+{% extends "new_base_profile.html" %}
+
+{% block title %}{{ _("Search Results") }}: {{q}}{% endblock %}
+{% block bodyclass %}search{% endblock %}
+
+{% block main_header %}
+<div id="main_header_two_col">
+    <!-- profile title -->
+    <h1 class="profile_title">
+        <a href="">
+        {% block profile_title %}{{ _("Search Results") }}{% endblock %}
+        </a>
+    </h1>
+</div>
+{% endblock %}
+
+{% block has_profile_pic %}{% endblock %}
+
+{% block col_lef_center %}
+<div class="search_result_list">
+    <input type="hidden" name="user_query" id="user_query" value="{{q}}">
+	<div class="pin_right"></div>
+	<ul class="search_nav">
+		<li><a id="filter_all" title="all" href="" class="on">{{ _("All") }}</a></li>
+		<li><a id="filter_place" title="place"  href="">{{ _("Place") }}</a></li>
+		<li><a id="filter_dish" title="dish"  href="">{{ _("Dish") }}</a></li>
+		<li><a id="filter_user" title="user"  href="">{{ _("User") }}</a></li>
+		<li><a id="filter_event" title="event"  href="">{{ _("Event") }}</a></li>
+	</ul>
+	<div class="search_area">
+        <div class="area_info">
+            <strong>{%if search_city %}{{search_city}}{%else%}Default{%endif%}</strong> <a href="#" id="id_btn_chane_area">{{ _("change") }}</a>
+        </div>
+        <div class="change_area">
+            <input type="text" name="area" id="id_change_area" value="">
+            <input type="button" id="id_btn_ok_area" class="btn_2" value="OK">
+        </div>
+	</div>
+	<div class="separator_dashed"></div>
+
+	<div class="search_result_wrapper">
+	{% include "inc_search_result.html" %}
+	</div>
+</div>
+{% endblock %}
+
+{#% block col_right_width %}wide{% endblock %#}
+
+{% block col_right %}
+{% include "inc_right_side_contact_list_chatrooms.html" %}
+{% endblock %}
+
+{% block bottom_script %}
+<script>
+{% minifyjs %}
+$(function(){
+    var num_index = {{ default_num }}
+    var m_now = 'all'
+    
+    function change_tab_callback(data,container){
+        if(data.status == 1) {
+            var result = $(data.html);
+            container.html(result);
+            var search_city = data.search_city; 
+            if ($('.area_info').find('strong').text() != search_city){
+                $('.area_info').find('strong').hide().text(search_city).fadeIn();
+            }
+            
+        }
+        else{
+            console.log(data.msg);
+        }
+    
+    }
+    
+    function more_btn_callback(data,container){
+        if(data.status == 1) {
+            var result = $(data.html).find("ul.wall_profile_list.wall_list").html();
+            
+            $(".wall_profile_list.wall_list ").append(result);
+            var search_city = data.search_city; 
+            if ($('.area_info').find('strong').text() != search_city){
+                $('.area_info').find('strong').hide().text(search_city).fadeIn();
+            }
+        }
+        else{
+            console.log(data.msg);
+        }
+    }
+    
+    function ajax_search_result(q,m,c,name,n,to_n,container,fun){
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: '/search/ajax/search_filter/',
+            data: {
+                'q': q,
+                'm': m,
+                'c': c,
+                'name': name,
+                'n': n,
+                'to_n':to_n
+            },
+            success: function(data) {
+                fun(data,container);
+            }
+         });
+    }
+    var q = '{{q}}';
+    $('.search_nav li a').each(function(){
+        $(this).click(function(){
+            num_index = {{ default_num }}
+            m = $(this).attr('title');
+            m_now = m;
+            console.log(m);
+            c = null;
+            var name = null;
+            ajax_search_result(q,m,c,name,0,num_index,$('.search_result_wrapper'),change_tab_callback);
+            $('.search_nav li a').filter(function(){
+                $(this).removeClass('on');
+            });
+            $(this).addClass('on')
+            return false;
+        })
+    })
+    
+    $(".btn_2.more_btn").live('click',function(){
+        //TODO: ADD MORE
+        
+        m = m_now;
+        c = null;
+        var name = null;
+        ajax_search_result(q,m,c,name,num_index, num_index+{{ default_num }},$('.search_result_wrapper'),more_btn_callback);
+        num_index = num_index+ {{ default_num }}
+        return false;
+    });
+    
+    
+
+    $('.area_info').click(function(){
+        $(this).hide();
+        $('.change_area').show();
+        $('#id_change_area').val($('.area_info').find('strong').text()).focus();
+        return false;
+    });
+    $('#id_btn_ok_area').bind('click',function(){
+        $("#id_change_area").search();
+        // $('.area_info').find('strong').text($('#id_change_area').val());
+        // $('.area_info').show();
+        // $('.change_area').hide();
+    })
+    $('#id_change_area').keypress(function(event){
+        if(event.keyCode == 13 && $('.change_area').visible()){                 
+            $('#id_change_area').blur();
+            $('#id_btn_ok_area').click();                                       
+        }
+    });
+    $("#id_change_area").SearchAutoComplete({
+        max: 16,
+        highlight: false,
+        selectFirst: true,
+        scroll: false,
+        width:110,
+        formatResult:function(data, value){
+            return data[1];
+        },
+        formatItem:function(data, n, max, value, term){
+            return data[1];
+        }
+    },{
+        url:"/search/ajax/auto_complete_city/",
+        result: function(info, data){
+        if (data){
+            $('.area_info').find('strong').text(data[1]);
+            $('.area_info').attr('id', data[0]);
+            c = data[0];
+            name = data[1];
+        }
+        else{
+            c = '';
+        }               
+        m = $('.search_nav li a.on').attr('title');
+        m_now = m;
+        num_index={{ default_num }};
+        ajax_search_result(q,m,c,name,0,num_index,$('.search_result_wrapper'),change_tab_callback);
+        $('.area_info').show();
+        $('.change_area').hide();
+        // return false;
+        }
+    });
+})
+{% endminifyjs %}
+</script>
+{% endblock %}

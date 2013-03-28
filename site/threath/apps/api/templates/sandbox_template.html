@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _("Test Sandbox") }}{% endblock %}
+
+{% block body_class %}testing{% endblock %}
+
+{% block main_id_prefix %}new_project_{% endblock %}
+
+{% block main_class %}new_project_{% endblock %}
+
+{% block header_id_prefix %}new_project_{% endblock %}
+
+{% block head_js %}
+{#}NON-BIGPIPE JS LOAD USING REQUIRE JS{#}
+{#}if base.css gets big, use request instead of include{#}
+<script data-main="{{ STATIC_URL }}js/main-sandbox" >
+{% autoescape off %}
+{% include "require.js" %}
+{% include "bigpipe.js" %}
+{% endautoescape %}
+</script>
+{# <script src="{{ STATIC_URL }}js/controllers/photo.js"></script> #}
+{% endblock %}
+
+
+{% block body_content %}
+<ng-view></ng-view>
+{% endblock %}
+
+{# This block content is js code #}
+{% block init_js %}
+InitData.photoCollection  = {{photo_collection|safe}};
+{% endblock %}

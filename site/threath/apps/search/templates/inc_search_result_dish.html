@@ -1,0 +1,50 @@
+
+<div class="wall_profile_group"> 
+    <div class="wall_profile_pic"> <a href="{{ result.object.get_absolute_url() }}" class="pic_frame"><img src="{{ result.object.get_display_photo().image105x105.url }}" alt="" /></a> </div> 
+    <div class="wall_profile_info"> 
+        <table> 
+            <tr> 
+                <th colspan="2" class="first"><a href="{{ result.object.get_absolute_url() }}">{{result.name}}</a></th> 
+            </tr>
+            <tr>
+                <th colspan="2" class="align_left">
+                    <a href="{{ result.object.place.get_absolute_url() }}">{{result.object.place.name}}</a>
+                </th>
+            </tr> 
+            <tr> 
+                <th>{{ _("Type") }}</th> 
+                <td>{{ _("Dish") }}</td> 
+            </tr> 
+            <tr> 
+                <th>{{ _("Address") }}</th> 
+                <td>{{result.object.place.address}}</td> 
+            </tr> 
+            <tr> 
+                <th>{{ _("Tel") }}</th>
+                <td>{{result.object.place.phone}}</td>
+            </tr>
+            <!--tr>
+                <th>{{ _("Price") }}</th>
+                <td>NTD$ {{result.object.price}}</td>
+            </tr-->
+            <tr>
+                <th>{{ _("Review") }}</th>
+                <td>
+                    <p>Place Reviews for the Bay Area. jatbar is  an independent food review site.</p>
+                </td> 
+            </tr> 
+        </table> 
+    </div> 
+</div> 
+{% if result.object.user %}
+<div class="user_post_by">
+    <div class="bd">
+        <h3>{{ _("Post By") }}</h3>
+        <div class="pic">
+            <a href="{{ result.object.user.get_profile().get_absolute_url() }}" title="{{ result.object.user.get_profile().get_display_name() }}"><img src="{{ jinja.get_my_photo(request, result.object.user.get_profile(), 'image50x50') }}" alt="{{ result.object.user.get_profile().get_display_name() }}"></a>
+        </div>
+        <div class="user_name"><strong><a href="{{ result.object.user.get_profile().get_absolute_url() }}">{{ result.object.user.get_profile().get_display_name() }}</a></strong></div>
+    </div>
+    <div class="bg"></div>
+</div> 
+{% endif %}

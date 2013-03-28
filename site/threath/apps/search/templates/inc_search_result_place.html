@@ -1,0 +1,29 @@
+
+<div class="wall_profile_group">
+    <div class="wall_profile_pic"> <a href="{{ result.object.get_absolute_url() }}" class="pic_frame"><img src="{{ result.object.main_profile_pic.image105x105.url }}" alt="" /></a> </div> 
+    <div class="wall_profile_info"> 
+        <table>
+            <tr> 
+                <th colspan="2" class="first"><a href="{{ result.object.get_absolute_url() }}">{{ result.object.name }}</a></th> 
+            </tr>
+            <tr> 
+                <th>{{ _("Type") }}</th> 
+                <td>{{ _("Place") }}</td> 
+            </tr>
+            <tr> 
+                <th>{{ _("Score") }}</th> 
+                <td>{{ result.object.score }}</td> 
+            </tr> 
+            <tr> 
+                <th>{{ _("Address") }}</th> 
+                <td>{{ result.object.address }}</td> 
+            </tr> 
+            <tr> 
+                <th>{{ _("Tel") }}</th>
+                <td>{{ result.object.phone }}</td>
+            </tr>
+            {{ jinja.favorite_users_h(request, result.object)|safe }}
+        </table> 
+    </div> 
+</div>
+{{ jinja.place_friend_review_h(request, result.object)|safe }}

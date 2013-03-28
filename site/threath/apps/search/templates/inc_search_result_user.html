@@ -1,0 +1,22 @@
+
+<div class="user">
+    <div class="pic">
+        <a href="{{ result.object.get_profile().get_absolute_url() }}"><img src="{{ jinja.get_my_photo(request, result.object.get_profile(), 'image50x50') }}" alt="{{ result.object.get_profile().get_display_name() }}"></a>
+    </div>
+    <strong>{{ result.object.get_profile().get_display_name() }}</strong>
+</div>
+
+{% if not request.user == result.object %}
+
+{{ jinja.mutual_friends_h(request, result.object)|safe }}
+
+<div class="btn_option">
+    <!--  <input type="button" value="Favorite" class="fav btn_1_s"> --> 
+    <!--  <input type="button" value="+Friend" class="add_friend btn_1_s"> -->
+    
+    {#{ jinja.favorite_btn_h(request, result.object, "favorite btn_1_s")|safe }#}
+    {{ jinja.plus_friend_h(request, result.object, "add_friend btn_1_s")|safe }} 
+    
+</div>
+
+{% endif %}

@@ -1,0 +1,6 @@
+*.pyc
+
+load/GeoIPCountryWhois.csv
+load/GeoLiteCity-Blocks.csv
+load/GeoLiteCity-Location.csv
+

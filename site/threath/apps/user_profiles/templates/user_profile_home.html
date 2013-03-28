@@ -1,0 +1,8 @@
+{% extends "user_profile_base.html" %}
+
+
+{% block bodyclass %}userprofile-home{% endblock %}
+
+{% block user_profile_content %}
+    {{request.user.username}}
+{% endblock %}
