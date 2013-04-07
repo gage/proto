@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block app_name %}"sc"{% endblock app_name %}
+{% block body_content %}
+
+{# This level is for different angular app -- like Signin & Main are two different apps. #}
+<body class="loading" ng-controller="bodyCtrl">
+    <div id="header" class="gradient">
+        <div class="inner">
+            <div class="left">
+                <a href="/" class="logo"></a>
+            </div>
+            <div class="right">
+                <ul class="navigation">
+                    <li class="nav logout">Log out</li>
+                    <li class="nav menu"><span class="txt">Menu</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="pageContent" >
+        <div id="viewContent">
+            <div id="viewContentInner">
+                <div class="ng-view"></div>
+            </div>
+        </div>
+        {% include "footer.html" %}
+    </div>
+
+    <script src="{{ STATIC_URL }}js/lib/jquery-1.8.3.min.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/underscore-min.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/browser_detect.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery.ui.widget.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery.iframe-transport.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery.fileupload.js"></script>
+
+    <script src="{{ STATIC_URL }}js/lib/angular.min.js"></script>
+
+    <!-- Modules -->        
+    <script src="{{ STATIC_URL }}js/lib/angular-resource.min.js"></script>
+    <script src="{{ STATIC_URL }}js/modules/remoteData.js"></script>
+    <script src="{{ STATIC_URL }}js/main.js"></script>
+
+
+    <!-- Controllers -->
+    <script src="{{ STATIC_URL }}js/controllers/bodyCtrls.js"></script>
+    <script src="{{ STATIC_URL }}js/controllers/chatListCtrls.js"></script>
+    <script src="{{ STATIC_URL }}js/controllers/chatRoomCtrls.js"></script>
+    <script src="{{ STATIC_URL }}js/controllers/testCtrls.js"></script>
+    
+
+    <!-- Directives -->
+    <script src="{{ STATIC_URL }}js/directives/directives.js"></script>
+
+    <!-- Services -->
+    <script src="{{ STATIC_URL }}js/services/currentUser.js"></script>
+    <script src="{{ STATIC_URL }}js/services/chatRoom.js"></script>
+    <script src="{{ STATIC_URL }}js/services/utils.js"></script>
+    
+    <!-- Init Data -->
+    <script> 
+        app.value('initData',{
+            currentUser: {{ currentUser|safe }}
+        });
+    </script>
+
+<script type="text/ng-template" id="index.html">
+{% include "index.html" %}
+</script>
+
+{% endblock %}

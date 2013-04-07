@@ -1,0 +1,6 @@
+//to compile: cd threath/apps/globals/static   and  run: compass compile --force
+@import "compass/utilities/sprites";
+$icons-clean-up: true;
+$icons-sprite-dimensions:true;
+@import "icons/*.png";
+@include all-icons-sprites;

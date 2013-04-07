@@ -1,7 +1,0 @@
-//need to install compass
-//to compile: cd site/apps/globals/static   and  run: compass compile --force
-@import "compass/utilities/sprites";
-$main-sprite-clean-up: true;
-$main-sprite-sprite-dimensions:true;
-@import "main-sprite/*.png";
-@include all-main-sprite-sprites;

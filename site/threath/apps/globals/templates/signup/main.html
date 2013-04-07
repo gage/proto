@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block app_name %}"scSignup"{% endblock app_name %}
+{# This level is for different angular app -- like Signin & Main are two different apps. #}
+{% block bodyclass %}signup{% endblock bodyclass %}
+{% block body_content %}
+{# This level is for different angular page -- Use routing to control. #}
+
+
+<div id="pageContent" flexbox>  
+    <div id="viewContent">
+        <div id="signupWrap">
+            <div class="pageContainer">
+                <div id="scLogo"></div>
+                <ng-view></ng-view>
+           </div>
+        </div>
+    </div>
+    
+    {% include "footer.html" %}
+</div>
+
+<script src="{{ STATIC_URL }}js/lib/browser_detect.js"></script>
+<script src="{{ STATIC_URL }}js/lib/jquery-1.8.3.min.js"></script>
+<script src="{{ STATIC_URL }}js/lib/jquery-throttle.min.js"></script>
+
+<script src="{{ STATIC_URL }}js/lib/underscore-min.js"></script>
+<script src="{{ STATIC_URL }}js/lib/flexie.js"></script>
+<script src="{{ STATIC_URL }}js/lib/angular.min.js"></script>
+<script src="{{ STATIC_URL }}js/app/signup/main.js"></script>
+<script src="{{ STATIC_URL }}js/app/signup/signupCtrls.js"></script>
+<script src="{{ STATIC_URL }}js/controllers/bodyCtrls.js"></script>
+<script src="{{ STATIC_URL }}js/directives/directives.js"></script>
+<!-- Services -->
+<script src="{{ STATIC_URL }}js/services/currentUser.js"></script>
+<script src="{{ STATIC_URL }}js/services/utils.js"></script>
+<script src="{{ STATIC_URL }}js/services/errors.js"></script>
+<script src="{{ STATIC_URL }}js/services/fbConnect.js"></script>
+<!-- Init Data -->
+<div id="fb-root"></div>
+<script> 
+    app.value('initData',{
+        currentUser: {{ currentUser|safe }}
+    });
+
+    window.fbAsyncInit = function() {
+        // init the FB JS SDK
+        FB.init({
+            appId      : '{{ FACEBOOK_APP_ID }}', // App ID from the App Dashboard
+            status     : true, // check the login status upon init?
+            cookie     : true, // set sessions cookies to allow your server to access the session?
+            xfbml      : true  // parse XFBML tags on this page?
+        });
+    };
+      
+    (function(d){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+
+
+</script>
+
+<script type="text/ng-template" id="signup_tpl.html">
+    {% include "signup/signup_tpl.html" %}
+</script>
+<script type="text/ng-template" id="login_tpl.html">
+    {% include "signup/login_tpl.html" %}
+</script>
+
+<script type="text/ng-template" id="test_tpl.html">
+    {% include "test_tpl.html" %}
+</script>
+
+{% endblock %}

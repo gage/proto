@@ -123,7 +123,7 @@ class CheckEmailHandler(BaseHandler):
     def read_validate(self, query_dict, request, **kwargs):
         email = query_dict.get('email')
         user = request.session.get('user', None)
-        validate_email(email, exclude_user = user)
+        validate_email(email, exclude_user=user, exclude_inactive=True)
 
     def read(self, request, **kwargs):
         return {}
@@ -144,20 +144,23 @@ class CheckPasswordHandler(BaseHandler):
 
 # === Checked ===
 class SignupHandler(BaseHandler):
-    required_fields = ('fullname', 'email', 'password')
-    create_kwargs = required_fields + ('username',)
+    required_fields = ('email', 'password')
+    create_kwargs = required_fields + ('username', 'fullname')
     create_auth_exempt = True
 
     def create_validate(self, query_dict, request, **kwargs):
         if request.user.is_authenticated():
             raise api_errors.APIException(api_errors.ERROR_AUTH_USER_ALREADY_LOGIN)
+
+        validate_email(query_dict['email'], None, True)
+        validate_password(query_dict['password'])
         if not query_dict['username']:
             # Auto generate username
-            query_dict['username'] = email.split('@')[0]
+            query_dict['username'] = query_dict['email'].split('@')[0]
         else:
             validate_username(query_dict['username'])
-        validate_email(query_dict['email'])
-        validate_password(query_dict['password'])
+        if not query_dict['fullname']:
+            query_dict['fullname'] = query_dict['username']
         
 
     def create(self, request, **kwargs):
@@ -166,6 +169,14 @@ class SignupHandler(BaseHandler):
         email = request.CLEANED['email']
         password = request.CLEANED['password']
         username = request.CLEANED['username']
+        # Prevent repeatly create user with the SAME email
+        if User.objects.filter(email=email, is_active=False).exists():
+            user = User.objects.filter(email=email, is_active=False)[0]
+            user.set_password(password)
+            user.save()
+            registration = Registration.objects.get(user=user)
+            registration.send_activation_mail()
+            return registration.to_json()
 
         slug_name = Slug.objects.sluggify(username)
         user = sign_up(slug_name, password, request)
@@ -177,28 +188,22 @@ class SignupHandler(BaseHandler):
 
         registration = Registration.objects.get(user=user)
         registration.send_activation_mail()
-        login_method = 'normal'
 
-        rtn = {
-            'user_id': user.pk,
-            "login_method": login_method,
-            "status": registration.status,
-        }
-        return rtn
+        return registration.to_json()
 
 
 # === Checked ===
 class SendForgetPasswordEmailHandler(BaseHandler):
     allowed_methods = ('POST', )
-    required_fields = ('username',)
+    required_fields = ('email',)
     create_auth_exempt = True
 
     def create_validate(self, query_dict, request, **kwargs):
-        username =  query_dict.get('username').lower()
+        email =  query_dict.get('email').lower()
         try:
-            user = User.objects.get(username__iexact=username)
+            user = User.objects.get(email__iexact=email)
         except:
-            raise APIException(api_errors.ERROR_REGISTRATION_INVALID_USERNAME)
+            raise api_errors.APIException(api_errors.ERROR_GENERAL_USER_NOT_FOUND)
         query_dict['user'] = user
 
     def create(self, request, **kwargs):
@@ -216,22 +221,30 @@ class SendForgetPasswordEmailHandler(BaseHandler):
 # === Checked ===
 class ResendAccountActivationCodeHandler(BaseHandler):
     allowed_methods = ('POST', )
-    required_fields = ('email',)
+    required_fields = ('registration_id', )
+    create_kwargs = required_fields+('email',)
     create_auth_exempt = True
 
     def create_validate(self, query_dict, request, **kwargs):
-        email = query_dict['email']
-        user = User.objects.get(email=email)
-        query_dict['user'] = user
+            if request.user.is_active:
+                raise api_errors.APIException(api_errors.ERROR_AUTH_USER_ALREADY_ACTIVATED)
 
     def create(self, request, **kwargs):
-        user = request.CLEANED['user']
-        if user:
-            registration = Registration.objects.get(user=user)
+        rid = request.CLEANED['registration_id']
+        email = request.CLEANED.get('email', None)
+
+        try:
+            registration = Registration.objects.get(id=rid)
+            user = registration.user
+            if email:
+                if validate_email(email, None, True):
+                    user.email = email
+                    user.save()
             registration.send_activation_mail()
-        else:
-            raise APIException(api_errors.ERROR_AUTH_BAD_CREDENTIALS)
-        return {}
+        except:
+            raise api_errors.APIException(api_errors.ERROR_REGISTRATION_INVALID_ID)
+
+        return registration.to_json(request=request)
 
 
 class ActivateHandler(BaseHandler):

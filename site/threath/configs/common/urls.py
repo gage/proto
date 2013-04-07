@@ -10,7 +10,10 @@ urlpatterns = patterns('',
 
     # Groupint the single page app url
     url(r'^$', 'globals.views.home', name="globals-home"),
-    url(r'^landing/?$', 'globals.views.home', name="globals-home"),
+    url(r'^signup/', 'globals.views.signup', name="globals-signup"),
+    url(r'^login/', 'globals.views.signup', name="globals-login"),
+    url(r'^tpl/(?P<template>.*)', 'globals.views.render_tpl'),
+    # url(r'^landing/?$', 'globals.views.home', name="globals-home"),
 
 
 

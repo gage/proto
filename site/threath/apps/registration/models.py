@@ -70,6 +70,14 @@ class Registration(models.Model):
     def __unicode__(self):
         return self.id
 
+    def to_json(self, request=None, detail=False, **kwargs):
+        rtn = {
+            'id': self.id,
+            'user_id': self.user_id,
+            'created': self.created
+        }
+        return rtn
+
     def need_user_info(self):
         return self.status == Registration.STATUS_NEED_USER_INFO
 

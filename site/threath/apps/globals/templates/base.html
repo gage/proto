@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app={% block app_name %}"sc"{% endblock %}>
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <title>{% block title %}{{ _("Share City") }}{% endblock %}</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/app.css" type="text/css" />
+</head>
+
+<body class="loading {% block bodyclass %}{% endblock bodyclass %}" ng-controller="bodyCtrl">
+    {% block body_content %}
+	{% endblock %}    
+	
+</body> 
+
+{% csrf_token %}
+
+</html>
+
+
+
+

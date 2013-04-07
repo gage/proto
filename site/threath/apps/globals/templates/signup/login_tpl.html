@@ -1,0 +1,64 @@
+<div id="loginPage" ng-controller="loginCtrl">
+	<form id="loginForm" ng-hide="onResendMode" class="panel showError" name="loginForm" ng-submit="submit()" ng-class="{sending: sending}">
+		<div class="title">Login</div>
+		<div class="body">
+			<div class="id-wrap field">
+				<input name="userId" type="text" placeholder="ID" ng-model="formData.user_identity" autofocus required>
+			</div>
+			<div class="password-wrap field">
+				<input name="password" type="password" placeholder="Password" ng-model="formData.password" required>
+				<a href="/login/resend"><div class="forgetPassword">?<div class="forget-tip">Forget Password?</div></div></a>
+				<div class="error" ng-show="errCode==errors.ERROR_USER_PASSWORD_NOT_MATCH">
+				          Password is not correct.</div>
+				<div class="error" ng-show="errCode==errors.ERROR_REGISTRATION_NOT_ACTIVATE">
+				          This user has not been activated.</div>
+				<div class="error" ng-show="errCode==errors.ERROR_REGISTRATION_NOT_REGIST_YET">
+				          This user does not exist.</div>
+			</div>
+			<div class="submitWrap">
+				<input class="btn" type="submit" id="submit" value="Log In" ng-disabled="sending" ng-hide="sending"/>
+				<div class="sending-wrap" ng-show="sending">
+					Sending...
+				</div>
+			</div>
+		</div>	
+	</form>
+	<form id="resendForm" ng-show="onResendMode" ng-controller="resendEmailCtrl" class="panel showError" name="resendForm" ng-submit="resend()" ng-class="{sending: sending}">
+		<div class="title">Resend Password</div>
+		<div class="body">
+			<div class="email-wrap field">
+				<input name="email" type="email" placeholder="e-mail address" ng-model="formData.email" required>
+				<div class="error" ng-show="errCode==errors.ERROR_GENERAL_USER_NOT_FOUND">
+				          The email has not been registed yet.</div>
+			</div>
+			<div class="submitWrap">
+				<input class="btn" type="submit" value="Send" ng-disabled="sending" ng-hide="sending || completeSubmit"/>
+				<div class="sending-wrap" ng-show="sending && !completeSubmit">
+					Sending...
+				</div>
+				<div class="complete-wrap" ng-show="completeSubmit">
+					The email has been sent. <br>Please Check your mailbox.
+				</div>
+			</div>
+		</div>	
+	</form>
+	<div class="page-foot">
+		<div class="hlineLabel">
+		    <div class="hline"></div>
+		    <div class="txt">or</div>
+		    <div class="hline"></div>
+		</div>
+		<div class="method-wrap">
+			<div class="signup-wrap wrap">
+				<a href="/signup/">
+					<div class="txt"><span>Sign up using</span></div>
+					<div class="icon signup"></div>
+				</a>
+			</div>
+			<div class="facebook-wrap wrap">
+				<div class="txt"><span ng-class="{loading:fbConnecting}">Connect with</span></div>
+				<div class="icon facebook" ng-click="fbConnect()"></div>
+			</div>
+		</div>
+	</div>
+</div>

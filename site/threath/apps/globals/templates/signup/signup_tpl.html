@@ -1,0 +1,73 @@
+<div id="signupPage" ng-controller="signupCtrl">
+	<form id="signupForm" class="panel" name="signupForm" ng-submit="submit()" ng-class="{showError: afterSubmit, sending: sending}">
+		<div class="title" ng-hide="completeSubmit">Sign up</div>
+		<div class="body" ng-hide="completeSubmit">
+			<div class="email-wrap field">
+				<div class="label">E-mail Address</div>
+				<input type="email" name="email" ng-model="formData.email" server-email-validate autofocus required> 
+				<div class="error" ng-show="signupForm.email.$error.required">
+				          This Field is Required.</div>
+				<div class="error" ng-show="signupForm.email.$error.email">
+				          Invalid Email.</div>
+				<div class="error show" ng-show="signupForm.email.$error.duplicate">Email has been taken.</div>
+
+			</div>
+			<div class="password-wrap field">
+				<div class="label">Password</div>
+				<input type="password" ng-model="formData.password" name="password" required>
+				<div class="error" ng-show="signupForm.password.$error.required">
+				          Password Required.</div>
+				<div class="error" ng-show="signupForm.password.$error.invalid || errCode==errors.ERROR_AUTH_PASSWORD_INVALID">
+				          Password should be between 6 to 20 characters.</div>
+			</div>
+			<div class="comfirm-password-wrap field">
+				<div class="label">Comfirm Password</div>
+				<input type="password" name="passwordConfirm" password="formData.passwordConfirm" ng-model="password" password-verify="formData.password" required>
+				<div class="error" ng-show="signupForm.passwordConfirm.$error.passwordVerify || errCode==errors.ERROR_AUTH_PASSWORD_CONFIRM_NOT_MATCH">
+				          The password does not match.</div>
+			</div>
+			<div class="submitWrap">
+				<input class="btn" type="submit" id="submit" value="Sign Up" ng-disabled="sending" ng-hide="sending"/>
+				<div class="sending-wrap" ng-show="sending">
+					Sending...
+				</div>
+			</div>
+		</div>
+		<div class="activationComponents form" ng-show="completeSubmit">
+		    <div class="signupSuccessMsg">
+		        The verification e-mail has been sent to
+		        <div class="emailAddr">{[formData.email]}</div>
+		        please check your inbox to verify the account.
+		    </div>
+		    <div class="resendBlock">
+		        <div class="txt">Didn't receive the verification E-mail?</div>
+		        
+		        <div class="resendVerificationBtn">
+		            <div class="resendVerification" ng-click="resend()" ng-hide="sending">Resend</div>
+		            <div class="sending-wrap" ng-show="sending">
+		            	Sending...
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</form>
+	<div class="page-foot">
+		<div class="hlineLabel">
+		    <div class="hline"></div>
+		    <div class="txt">or</div>
+		    <div class="hline"></div>
+		</div>
+		<div class="method-wrap">
+			<div class="login-wrap wrap">
+				<a href="/login/">
+					<div class="txt"><span>Log In</span></div>
+					<div class="icon login"></div>
+				</a>
+			</div>
+			<div class="facebook-wrap wrap">
+				<div class="txt"><span ng-class="{loading:fbConnecting}">Connect with</span></div>
+				<div class="icon facebook" ng-click="fbConnect()"></div>
+			</div>
+		</div>
+	</div>
+</div>

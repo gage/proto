@@ -181,7 +181,7 @@ def process_request(cls, request, *args, **kwargs):
 
     # For Backbone post data
     _post_json_dict = {}
-    if request.META.get('CONTENT_TYPE')=="application/json":
+    if "application/json" in request.META.get('CONTENT_TYPE', ''):
         _post_json_dict = simplejson.loads(request.raw_post_data)
 
     _resource_dict = cls.auth_resource(request=request, json_dict=_post_json_dict, **kwargs)
@@ -198,8 +198,8 @@ def process_request(cls, request, *args, **kwargs):
         # POST parameters
 
         # For Json
-        content_type = request.META.get('CONTENT_TYPE', None)
-        if content_type == "application/json" or content_type == None:
+        content_type = request.META.get('CONTENT_TYPE', '')
+        if "application/json" in content_type or content_type == '':
             if request.raw_post_data:
                 json_dict = simplejson.loads(request.raw_post_data)
                 for kwarg in cls.create_kwargs:

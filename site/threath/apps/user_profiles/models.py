@@ -223,11 +223,23 @@ class UserProfile(models.Model):
         except IndexError:
             return self.get_display_photo()
 
+    def has_set_photo(self):
+        if object.__getattribute__(self, 'main_profile_pic'):
+            return True
+        else:
+            return False
+
     def get_display_name(self):
         if self.full_name:
             return self.full_name
         else:
             return "%s %s" % (self.user.first_name, self.user.last_name)
+
+    def get_fb_profile(self):
+        try:
+            return FacebookProfile.objects.filter(user=self.user)[0]
+        except:
+            return None
 
     def get_display_photo(self):
         return self.main_profile_pic

@@ -7,7 +7,7 @@ from django.conf import settings
 from facebook.graph_api import GraphAPI, GraphAPIError
 from facebook.models import FacebookProfile
 from photos.threads import PhotoDownloadThread
-from photos.models import Photo
+from photos.models import Photo, get_picture_from_url
 
 
 class FacebookAPIError(Exception):
@@ -67,26 +67,36 @@ class FacebookAPI(GraphAPI):
         created = False
         fb_profile = self.get_profile()
         local_fb_profile = self.get_local_profile()
-
+        user = None
         # Existing user, already connected
         if local_fb_profile:
-            return local_fb_profile.user, False
+            user = local_fb_profile.user
 
-        # New user, or first FB connect
-        if not username:
-            username = self._generate_unique_username(fb_profile)
+        if not user:
+            # New user, or first FB connect
+            try:
+                user = User.objects.get(email=fb_profile['email'])
+            except User.DoesNotExist:
+                user = User(username = self._generate_unique_username(fb_profile), email = fb_profile['email'] )
+                user.set_password(self._generate_fake_password())
+                created = True
 
-        try:
-            user = User.objects.get(email=fb_profile['email'])
-        except User.DoesNotExist:
-            user = User(username=username, email=fb_profile['email'])
-            user.set_password(self._generate_fake_password())
-            user.save()
-            created = True
-            self.build_user_fb_img(user)
+        if not user.first_name:
+            user.first_name = fb_profile['first_name']
+        if not user.last_name:
+            user.last_name = fb_profile['last_name']
 
-        self.create_local_profile(user)
         user.save()
+        up = user.get_profile()
+        if not up.full_name:
+            up.full_name = fb_profile['name']
+        if not up.has_set_photo():
+            photo = get_picture_from_url(fb_profile['image'])
+            up.main_profile_pic = photo
+        up.save()
+
+        if not local_fb_profile:
+            self.create_local_profile(user)
 
         return user, created
 

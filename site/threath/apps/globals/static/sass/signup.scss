@@ -1,0 +1,273 @@
+body.signup {
+	#footer {
+		.inner{
+			.wrapper{
+				width: 100%;
+			}
+		}
+	}
+}
+
+#signupWrap {
+	text-align: center;
+	padding-top: 40px;
+	min-height: 300px;
+	height: 100%;
+	width: 100%;
+	color: #888;
+
+	.pageContainer {
+		width: 312px;
+		text-align: center;
+		display: inline-block;
+	}
+	.panel {
+		&.showError {
+			.error {
+				display: block;
+			}
+		}
+		.error {
+			display: none;
+			&.show {
+				display: block;
+			}
+		}
+		padding: 25px;
+		border: 1px solid #ddd;
+		width: 312px;
+		display: inline-block;
+		margin-top: 25px;
+		@include border-radius(5px);
+		@include box-shadow(rgba(0,0,0,.15) 0 3px 3px -2px);
+		.title {
+			font-size: 21px;
+			color: $site-color;
+			font-family: Myriad Pro;
+			margin-bottom: 10px;
+		}
+		.body {
+			text-align: left;
+			input {
+				width: 100%;
+			}
+			.submitWrap {
+				margin-top: 8px;
+				text-align: center;
+				position: relative;
+				.btn {
+					@include text-btn-3();
+					width: 100px;
+				}
+			}
+		}
+		.sending-wrap {
+			padding: 10px 0 0 22px;
+			position: relative;
+			display: inline-block;
+
+			&:before {
+				@extend .icon_loading3;
+				content: '';
+				margin-right: 5px;
+				position: absolute;
+				left: 0;
+				top: 12px;
+			}
+		}
+		.activationComponents {
+			height: 200px;
+			font-size: 14px;
+			text-align: left;
+			margin-top: 30px;
+			.emailAddr {
+				font-size: 14px;
+				text-align: center;
+				color: $color1;
+				margin: 6px 0px;
+				@include text_ellipsis();
+			}
+			.resendBlock {
+				margin-top: 40px;
+			}
+			.resendVerificationBtn {
+				margin-top: 40px;
+				text-align: center;
+				.resendVerification {
+					@include btn1();
+					// height: 20px;
+					display: inline-block;
+					padding: 4px 10px;
+				}
+			}
+		}
+	}
+	.field {
+		margin-top: 5px;
+		.label {
+			font-size: 12px;
+			color: $site-color;
+		}
+		input {
+			width: 250px;
+			height: 35px;
+			@include border-radius(5px);
+			border: 1px solid #ddd;
+			@include box-shadow(rgba(0,0,0,.15) 0 2px 5px -1px inset);
+			margin: 5px 0 3px;
+			font-size: 12px;
+			line-height: 12px;
+			padding: 5px 8px;
+
+			&::-webkit-input-placeholder {
+				padding: 1px;
+			}
+
+			&:-moz-placeholder { /* Firefox 18- */
+				padding: 1px;
+			}
+
+			&::-moz-placeholder {  /* Firefox 19+ */
+				padding: 1px;
+			}
+
+			&:-ms-input-placeholder {  
+				padding: 1px;
+			}
+		}
+	}
+
+	.page-foot {
+		margin-top: 20px;
+	}
+
+	.method-wrap {
+		margin-bottom: 30px;
+		.wrap {
+
+			width: 49%;
+			display: inline-block;
+			vertical-align: middle;
+			margin-top: 8px;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+		.txt {
+			font-size: 12px;
+			line-height: 12px;
+			color: #888;
+			span.loading {
+				position: relative;
+				&:before {
+					position: absolute;
+					content: '';
+					@extend .icon_loading3;
+					right: -25px;
+					top: 2px;
+				}
+			}
+		}
+		.icon {
+			cursor: pointer;
+			margin-top: 7px;
+			display: inline-block;
+			vertical-align: middle;
+			&.login {
+				@extend .icons-signin_icon;
+			}
+			
+			&.facebook {
+				@extend .icons-facebook_circle;
+			}
+
+			&.signup {
+				@extend .icons-email_circle;
+			}
+			
+		}
+	}
+
+	.hlineLabel{
+        text-align: center;
+        width: 100%;
+        height: 14px;
+        .hline{
+        	display: inline-block;
+        	vertical-align: middle;
+        	width: 140px;
+            border-top: solid 1px #cccccc;
+            height: 1px;
+        }
+        .txt{
+        	width: 22px;
+        	display: inline-block;
+        	vertical-align: middle;
+            padding:0 5px;
+            color: #aaaaaa;
+        }
+    }
+}
+
+
+#loginForm {
+	.password-wrap {
+		position: relative;
+		.forgetPassword {
+			$length: 20px;
+			position: absolute;
+			width: $length;
+			height: $length;
+			line-height: $length;
+			text-align: center;
+			color:white;
+			background: #CCCCCC;
+			@include border-radius(2px);
+			right: 8px;
+			top: 13px;
+			cursor: pointer;
+			.forget-tip {
+				opacity: 0;
+				position: absolute;
+				height: 0;
+				overflow: hidden;
+				background: #FAFFBD;
+				color: #888;
+				border: 1px solid #ddd;
+				padding: 5px 10px;
+				&:hover {
+					text-decoration: underline;
+				}
+				right: -130px;
+				top: -5px;
+				// visibility: hidden;
+				@include transition-property(height, opacity);
+				@include transition-duration(0, .3s);
+				@include transition-delay(.5s, 0);
+
+			}
+			&:hover {
+				.forget-tip {
+					height: 33px;
+					// visibility: visible;
+					opacity: 1;
+					@include transition-property(height, opacity);
+					@include transition-duration(0, .5s);
+					@include transition-delay(0);
+					
+				}
+			}
+		}
+	}
+}
+
+#scLogo {
+	display: inline-block;
+	background: url(../images/sharecity.png) 0 0 no-repeat;
+	width: 250px;
+	height: 51px;
+}
+
+.hello {
+	margin: 0;
+}
