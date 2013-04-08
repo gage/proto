@@ -2,7 +2,8 @@
 #mainView {
 	width: 100%;
 	max-width: $main_max_width;
-	min-width: $main_min_width;
-	margin: 10px auto;
-	background: $block-color;
+	// min-width: $main_min_width;
+	margin: 20px auto;
+	// background: $block-color;
+	overflow: hidden;
 }

@@ -199,7 +199,7 @@ input {
     @include gradient1();
     z-index: 100;
     .inner{
-        width: $main_width_1;
+        // width: $main_width_1;
         margin:0 auto;
         padding:0 11px;
         .left{
@@ -280,7 +280,7 @@ input {
         display: table-cell;
         
         .wrapper{
-            width: $main_width_1;
+            // width: $main_width_1;
             margin:0 auto;
             padding:0 11px;
             .left{

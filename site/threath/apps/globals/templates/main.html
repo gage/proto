@@ -5,8 +5,8 @@
 
 {# This level is for different angular app -- like Signin & Main are two different apps. #}
 <body class="loading" ng-controller="bodyCtrl">
-    <div id="header" class="gradient">
-        <div class="inner">
+    <div id="header" class="gradient container">
+        <div class="inner row">
             <div class="left">
                 <a href="/" class="logo"></a>
             </div>
@@ -54,7 +54,7 @@
 
     <!-- Services -->
     <script src="{{ STATIC_URL }}js/services/currentUser.js"></script>
-    <script src="{{ STATIC_URL }}js/services/chatRoom.js"></script>
+    <script src="{{ STATIC_URL }}js/services/remotePhoto.js"></script>
     <script src="{{ STATIC_URL }}js/services/utils.js"></script>
     
     <!-- Init Data -->

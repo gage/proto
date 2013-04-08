@@ -1,0 +1,18 @@
+$layout-padding: 20px;
+$main-layout-min-height: 800px;
+
+.mainBody {
+	float: left;
+	border: 1px solid #ddd;
+	padding: $layout-padding;
+	min-height: $main-layout-min-height;
+	background: $block-color;
+}
+
+.sideBar {
+	float: left;
+	padding: $layout-padding;
+	border: 1px solid #ddd;
+	min-height: $main-layout-min-height;
+	background: $block-color;
+}

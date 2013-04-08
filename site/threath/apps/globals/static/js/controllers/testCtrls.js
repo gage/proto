@@ -1,4 +1,4 @@
-app.controller('testUpload', ['$scope', '$compile', '$element', 'currentUser', function ($scope, $compile, $element, currentUser){
+app.controller('testCtrls.testUpload', ['$scope', '$compile', '$element', 'currentUser', function ($scope, $compile, $element, currentUser){
     $scope.uploadingImg = false;
     $scope.groupImg = '';
     $scope.photoId = null;
@@ -33,5 +33,19 @@ app.controller('testUpload', ['$scope', '$compile', '$element', 'currentUser', f
         });
     });
 
-    
 }])
+
+app.controller('testCtrls.testRemote', ['$scope', '$compile', '$element', 'currentUser', 'remotePhoto', function ($scope, $compile, $element, currentUser, remotePhoto){
+    $scope.loading = false;
+    $scope.remotePhotos = remotePhoto.initCollection();
+    var remotePhotoPromise = remotePhoto.query().then(function(resolved){
+        $scope.remotePhotos = resolved;
+        console.log($scope.remotePhotos);
+        $scope.loading = false;
+
+    }, function(errmsg){
+        console.log(errmsg);
+        $scope.loading = false;
+    });
+}])
+

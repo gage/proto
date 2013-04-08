@@ -1,3 +1,4 @@
+@import url(../css_lib/1140.css);
 /*
     https://github.com/murtaugh/HTML5-Reset
     HTML5 Reset :: style.css
@@ -525,7 +526,6 @@ input {
 }
 /* line 201, ../sass/common.scss */
 #header .inner {
-  width: 1024px;
   margin: 0 auto;
   padding: 0 11px;
 }
@@ -622,7 +622,6 @@ input {
 }
 /* line 282, ../sass/common.scss */
 #footer .inner .wrapper {
-  width: 1024px;
   margin: 0 auto;
   padding: 0 11px;
 }
@@ -779,6 +778,24 @@ input {
 .isLoading:before {
   content: '';
   display: inline-block;
+}
+
+/* line 4, ../sass/layout.scss */
+.mainBody {
+  float: left;
+  border: 1px solid #dddddd;
+  padding: 20px;
+  min-height: 800px;
+  background: #f1f1f1;
+}
+
+/* line 12, ../sass/layout.scss */
+.sideBar {
+  float: left;
+  padding: 20px;
+  border: 1px solid #dddddd;
+  min-height: 800px;
+  background: #f1f1f1;
 }
 
 /* line 4, ../sass/signup.scss */
@@ -1296,7 +1313,6 @@ body.signup #footer .inner .wrapper {
 #mainView {
   width: 100%;
   max-width: 1140px;
-  min-width: 755px;
-  margin: 10px auto;
-  background: #f1f1f1;
+  margin: 20px auto;
+  overflow: hidden;
 }

@@ -1,15 +1,34 @@
-<div id="mainView">
+<div id="mainView" class="container">
+	<div class="row">
+
+
+	<div class="mainBody eightcol">
+
     <button ng-click="insertLightbox('/tpl/lightbox_test.html', true)">
         lightbox demo
     </button>
-	<div ng-controller="testUpload">
+	<div ng-controller="testCtrls.testUpload">
 	    <div class="editImg" ng-class="{loading:uploadingImg}" >
 	        <img class="groupImg" ng-src="{[groupImg]}" ng-show="groupImg!=''" />
 	        <span class="text-btn-3 editLabel fileinput-button">Upload Image<input class="id_file" type="file" size="1" name="file" accept="image/x-png, image/gif, image/jpeg, image/png"></sapn>
 	    </div>
     </div>
 
-     <div class="dummy" style="height:2000px; width: 1000px;"></div>
+    <div ng-controller="testCtrls.testRemote">
+	    <div class="" ng-repeat="photo in remotePhotos.models">
+	    	<img ng-src="{[photo.getUrl()]}" alt="" width="50" style="float: left;">
+	    </div>
+    </div>
+
+	</div>
+
+     <div class="sideBar fourcol last">
+     	This is Side bar
+     </div>
+
+
+
+     </div>
  </div>
 
  <script type="text/ng-template" id="attachCards.html">
