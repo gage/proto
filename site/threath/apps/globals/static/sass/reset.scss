@@ -117,6 +117,10 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+textarea{
+    resize: none;
+}
+
 /* make buttons play nice in IE */
 button {width: auto; overflow: visible;}
  

@@ -1,0 +1,829 @@
+/*
+    https://github.com/murtaugh/HTML5-Reset
+    HTML5 Reset :: style.css
+    ----------------------------------------------------------
+    We have learned much from/been inspired by/taken code where offered from:
+    
+    Eric Meyer                  :: http://ericmeyer.com
+    HTML5 Doctor                :: http://html5doctor.com
+    and the HTML5 Boilerplate   :: http://html5boilerplate.com
+    
+-------------------------------------------------------------------------------*/
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+/* line 16, ../sass/reset.scss */
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 23, ../sass/reset.scss */
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 33, ../sass/reset.scss */
+article, aside, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+/* line 40, ../sass/reset.scss */
+img,
+object,
+embed {
+  max-width: 100%;
+}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+/* line 43, ../sass/reset.scss */
+html {
+  overflow-y: scroll;
+}
+
+/* we use a lot of ULs that aren't bulleted. 
+    don't forget to restore the bullets within content. */
+/* line 47, ../sass/reset.scss */
+ul {
+  list-style: none;
+}
+
+/* line 49, ../sass/reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 54, ../sass/reset.scss */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+/* line 56, ../sass/reset.scss */
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 58, ../sass/reset.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* line 60, ../sass/reset.scss */
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted black;
+  cursor: help;
+}
+
+/* tables still need cellspacing="0" in the markup */
+/* line 63, ../sass/reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 64, ../sass/reset.scss */
+th {
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+/* line 65, ../sass/reset.scss */
+td {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+/* line 67, ../sass/reset.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 69, ../sass/reset.scss */
+input, select {
+  vertical-align: middle;
+}
+
+/* line 71, ../sass/reset.scss */
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */
+}
+
+/* line 78, ../sass/reset.scss */
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+/* line 79, ../sass/reset.scss */
+input[type="checkbox"] {
+  vertical-align: bottom;
+  *vertical-align: baseline;
+}
+
+/* line 80, ../sass/reset.scss */
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+/* line 82, ../sass/reset.scss */
+select, input, textarea {
+  font: 99% sans-serif;
+}
+
+/* line 84, ../sass/reset.scss */
+table {
+  font-size: inherit;
+  font: 100%;
+}
+
+/* Accessible focus treatment
+    people.opera.com/patrickl/experiments/keyboard/test */
+/* line 88, ../sass/reset.scss */
+a:hover, a:active {
+  outline: none;
+}
+
+/* line 90, ../sass/reset.scss */
+small {
+  font-size: 85%;
+}
+
+/* line 92, ../sass/reset.scss */
+strong, th {
+  font-weight: bold;
+}
+
+/* line 94, ../sass/reset.scss */
+td, td {
+  vertical-align: top;
+}
+
+/* line 95, ../sass/reset.scss */
+img {
+  vertical-align: middle;
+}
+
+/* Make sure sup and sub don't screw with your line-heights
+    gist.github.com/413930 */
+/* line 99, ../sass/reset.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+/* line 100, ../sass/reset.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 101, ../sass/reset.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* standardize any monospaced elements */
+/* line 104, ../sass/reset.scss */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif;
+}
+
+/* hand cursor on clickable elements */
+/* line 111, ../sass/reset.scss */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+button {
+  cursor: pointer;
+}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+/* line 114, ../sass/reset.scss */
+button, input, select, textarea {
+  margin: 0;
+}
+
+/* line 116, ../sass/reset.scss */
+textarea:focus, input:focus {
+  outline: none;
+}
+
+/* line 120, ../sass/reset.scss */
+textarea {
+  resize: none;
+}
+
+/* make buttons play nice in IE */
+/* line 125, ../sass/reset.scss */
+button {
+  width: auto;
+  overflow: visible;
+}
+
+/* scale images in IE7 more attractively */
+/* line 128, ../sass/reset.scss */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* prevent BG image flicker upon hover */
+/* line 131, ../sass/reset.scss */
+.ie6 html {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true));
+}
+
+/* let's clear some floats */
+/* line 134, ../sass/reset.scss */
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+/* line 135, ../sass/reset.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 136, ../sass/reset.scss */
+.clearfix {
+  zoom: 1;
+}
+
+/* Ok, this is where the fun starts.
+-------------------------------------------------------------------------------*/
+/* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
+/* line 144, ../sass/reset.scss */
+body {
+  font: 12px Helmet, Freesans, sans-serif;
+}
+
+/* using local fonts? make sure to read up on Paul Irish's 
+    Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
+/* we like off-black for text */
+/* line 150, ../sass/reset.scss */
+body, select, input, textarea {
+  color: #333;
+}
+
+/* line 154, ../sass/reset.scss */
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 155, ../sass/reset.scss */
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 156, ../sass/reset.scss */
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+/* line 157, ../sass/reset.scss */
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+/* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
+/*  j.mp/webkit-tap-highlight-color */
+/* line 164, ../sass/reset.scss */
+a:link {
+  -webkit-tap-highlight-color: #fcd700;
+}
+
+/* line 166, ../sass/reset.scss */
+ins {
+  background-color: #fcd700;
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 167, ../sass/reset.scss */
+mark {
+  background-color: #fcd700;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Print styles!
+-------------------------------------------------------------------------------*/
+/* Media queries!
+-------------------------------------------------------------------------------*/
+/* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@-webkit-keyframes fadeIn {
+  /* line 105, ../sass/mixins.scss */
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  /* line 109, ../sass/mixins.scss */
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  /* line 113, ../sass/mixins.scss */
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  /* line 105, ../sass/mixins.scss */
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  /* line 109, ../sass/mixins.scss */
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  /* line 113, ../sass/mixins.scss */
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  /* line 105, ../sass/mixins.scss */
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  /* line 109, ../sass/mixins.scss */
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  /* line 113, ../sass/mixins.scss */
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  /* line 105, ../sass/mixins.scss */
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  /* line 109, ../sass/mixins.scss */
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  /* line 113, ../sass/mixins.scss */
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* line 82, landing_icons/*.png */
+.landing_icons-sprite, .landing_icons-android, #content .section.three .platforms .android:before, .landing_icons-iphone, #content .section.three .platforms .iphone:before, .landing_icons-login_logo, #header .inner .logo, .landing_icons-mac, #content .section.three .platforms .mac:before, .landing_icons-web, #content .section.three .platforms .web:before, .landing_icons-win, #content .section.three .platforms .win:before {
+  background: url('/static/images/landing_icons-s941d1f15bf.png') no-repeat;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.landing_icons-android, #content .section.three .platforms .android:before {
+  background-position: 0 -91px;
+  height: 36px;
+  width: 30px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.landing_icons-iphone, #content .section.three .platforms .iphone:before {
+  background-position: 0 -128px;
+  height: 36px;
+  width: 20px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.landing_icons-login_logo, #header .inner .logo {
+  background-position: 0 0;
+  height: 20px;
+  width: 101px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.landing_icons-mac, #content .section.three .platforms .mac:before {
+  background-position: 0 -54px;
+  height: 36px;
+  width: 30px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.landing_icons-web, #content .section.three .platforms .web:before {
+  background-position: 0 -165px;
+  height: 32px;
+  width: 36px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.landing_icons-win, #content .section.three .platforms .win:before {
+  background-position: 0 -21px;
+  height: 32px;
+  width: 36px;
+}
+
+/* line 29, ../sass/landing.scss */
+html {
+  background: white;
+}
+
+/* line 36, ../sass/landing.scss */
+body {
+  font-family: "Droid Sans", sans-serif;
+}
+
+/* line 43, ../sass/landing.scss */
+#header {
+  height: 50px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  -webkit-box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
+  -moz-box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
+  box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
+  background: #444444;
+  /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQ0NDQ0NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzMzMzMzMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, #444444 0%, #333333 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #444444), color-stop(100%, #333333));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #444444 0%, #333333 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #444444 0%, #333333 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #444444 0%, #333333 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #444444 0%, #333333 100%);
+  /* W3C */
+  z-index: 903;
+}
+/* line 52, ../sass/landing.scss */
+#header .inner {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 0 11px;
+  text-align: center;
+  position: relative;
+  height: 100%;
+}
+/* line 59, ../sass/landing.scss */
+#header .inner .logo {
+  margin-top: 20px;
+  display: inline-block;
+}
+/* line 67, ../sass/landing.scss */
+#header .inner .left {
+  float: left;
+  padding-left: 10px;
+}
+/* line 72, ../sass/landing.scss */
+#header .inner .right {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+}
+/* line 78, ../sass/landing.scss */
+#header .inner .right .navigation {
+  overflow: hidden;
+}
+/* line 80, ../sass/landing.scss */
+#header .inner .right .navigation .nav {
+  float: left;
+  color: white;
+  text-shadow: 0px -1px 0px black;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 15px;
+  padding: 0 22px;
+  border-left: solid 1px #666666;
+  height: 15px;
+  margin-top: 12px;
+  vertical-align: top;
+  position: relative;
+}
+/* line 93, ../sass/landing.scss */
+#header .inner .right .navigation .nav a {
+  text-decoration: none;
+  color: white;
+}
+/* line 96, ../sass/landing.scss */
+#header .inner .right .navigation .nav a:hover {
+  color: #a0bf5d;
+}
+/* line 100, ../sass/landing.scss */
+#header .inner .right .navigation .nav .txt {
+  position: relative;
+}
+/* line 104, ../sass/landing.scss */
+#header .inner .right .navigation .nav.language .txt:before {
+  position: absolute;
+  content: '';
+  border-color: #a0bf5d transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  display: block;
+  height: 0;
+  width: 0;
+  top: 4px;
+  right: -20px;
+}
+/* line 113, ../sass/landing.scss */
+#header .inner .right .navigation .nav:first-child {
+  border-left: none;
+}
+/* line 116, ../sass/landing.scss */
+#header .inner .right .navigation .nav:last-child {
+  padding-right: 0px;
+}
+/* line 119, ../sass/landing.scss */
+#header .inner .right .navigation .nav:hover {
+  color: #a0bf5d;
+}
+
+/* line 128, ../sass/landing.scss */
+#content {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 78px 2px;
+}
+/* line 132, ../sass/landing.scss */
+#content .section {
+  width: 100%;
+  position: relative;
+}
+/* line 135, ../sass/landing.scss */
+#content .section .introVideoWrapper {
+  background: #eeeeee;
+  width: 100%;
+  padding: 10px;
+}
+/* line 140, ../sass/landing.scss */
+#content .section h1 {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+/* line 146, ../sass/landing.scss */
+#content .section p {
+  font-size: 16px;
+  color: #222;
+  line-height: 24px;
+}
+/* line 151, ../sass/landing.scss */
+#content .section .description {
+  position: absolute;
+}
+/* line 154, ../sass/landing.scss */
+#content .section.one {
+  margin-top: 70px;
+}
+/* line 156, ../sass/landing.scss */
+#content .section.one .secBg {
+  width: 1017px;
+  height: 633px;
+  margin: 0 auto;
+}
+/* line 162, ../sass/landing.scss */
+#content .section.one .description {
+  top: 0px;
+  right: 0px;
+  width: 730px;
+}
+/* line 168, ../sass/landing.scss */
+#content .section.two {
+  margin-top: 85px;
+}
+/* line 170, ../sass/landing.scss */
+#content .section.two .secBg {
+  width: 1100px;
+  height: 550px;
+  margin: 0 auto;
+  margin-left: -40px;
+}
+/* line 177, ../sass/landing.scss */
+#content .section.two .description {
+  top: 50px;
+  left: 0px;
+  width: 500px;
+}
+/* line 184, ../sass/landing.scss */
+#content .section.three {
+  margin-top: 100px;
+}
+/* line 186, ../sass/landing.scss */
+#content .section.three .secBg {
+  width: 518px;
+  height: 290px;
+  margin: 0 0 0 auto;
+}
+/* line 192, ../sass/landing.scss */
+#content .section.three .description {
+  top: 0px;
+  left: 0px;
+  width: 480px;
+}
+/* line 196, ../sass/landing.scss */
+#content .section.three .description h1 {
+  line-height: 20px;
+  margin-bottom: 35px;
+}
+/* line 200, ../sass/landing.scss */
+#content .section.three .description h1.first {
+  margin-bottom: 0px;
+}
+/* line 204, ../sass/landing.scss */
+#content .section.three .platforms {
+  position: absolute;
+  height: 80px;
+  overflow: hidden;
+  bottom: 0px;
+  left: 0px;
+}
+/* line 210, ../sass/landing.scss */
+#content .section.three .platforms li {
+  border-right: solid 1px #cccccc;
+  height: 100%;
+  width: 101px;
+  float: left;
+  cursor: pointer;
+  position: relative;
+}
+/* line 217, ../sass/landing.scss */
+#content .section.three .platforms li:first-child {
+  border-left: solid 1px #cccccc;
+  width: 102px;
+}
+/* line 221, ../sass/landing.scss */
+#content .section.three .platforms li .txt {
+  color: #444;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}
+/* line 231, ../sass/landing.scss */
+#content .section.three .platforms .iphone:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  right: auto;
+  bottom: auto;
+}
+/* line 235, ../sass/landing.scss */
+#content .section.three .platforms .android:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 36px;
+  right: auto;
+  bottom: auto;
+}
+/* line 239, ../sass/landing.scss */
+#content .section.three .platforms .mac:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 35px;
+  right: auto;
+  bottom: auto;
+}
+/* line 243, ../sass/landing.scss */
+#content .section.three .platforms .win:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 35px;
+  right: auto;
+  bottom: auto;
+}
+/* line 247, ../sass/landing.scss */
+#content .section.three .platforms .web:before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 32px;
+  right: auto;
+  bottom: auto;
+}
+
+/* line 261, ../sass/landing.scss */
+#footer {
+  height: 220px;
+  padding-top: 20px;
+  border-top: solid 2px #a0bf5d;
+}
+/* line 266, ../sass/landing.scss */
+#footer .inner {
+  width: 960px;
+  height: 100%;
+  margin: 0 auto;
+}
+/* line 270, ../sass/landing.scss */
+#footer .inner a:link {
+  color: white;
+  text-decoration: none;
+}
+/* line 271, ../sass/landing.scss */
+#footer .inner a:visited {
+  color: white;
+  text-decoration: none;
+}
+/* line 272, ../sass/landing.scss */
+#footer .inner a:hover {
+  color: white;
+  text-decoration: underline;
+}
+/* line 273, ../sass/landing.scss */
+#footer .inner a:active {
+  color: white;
+  text-decoration: none;
+}
+/* line 275, ../sass/landing.scss */
+#footer .inner .col {
+  float: right;
+  height: 100%;
+  width: 134px;
+  color: white;
+  font-size: 12px;
+}
+/* line 281, ../sass/landing.scss */
+#footer .inner .col.about {
+  float: left;
+  width: 410px;
+}
+/* line 284, ../sass/landing.scss */
+#footer .inner .col.about p {
+  margin-top: 15px;
+  line-height: 18px;
+}
+/* line 289, ../sass/landing.scss */
+#footer .inner .col .title {
+  font-size: 14px;
+  color: #a0bf5d;
+}
+/* line 293, ../sass/landing.scss */
+#footer .inner .col ul {
+  margin-top: 10px;
+}
+/* line 295, ../sass/landing.scss */
+#footer .inner .col ul li {
+  line-height: 24px;
+}

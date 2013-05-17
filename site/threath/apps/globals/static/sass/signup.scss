@@ -43,7 +43,6 @@ body.signup {
 		.title {
 			font-size: 21px;
 			color: $site-color;
-			font-family: Myriad Pro;
 			margin-bottom: 10px;
 		}
 		.body {
@@ -67,7 +66,7 @@ body.signup {
 			display: inline-block;
 
 			&:before {
-				@extend .icon_loading3;
+				@extend .green_bar_loading;
 				content: '';
 				margin-right: 5px;
 				position: absolute;
@@ -162,7 +161,7 @@ body.signup {
 				&:before {
 					position: absolute;
 					content: '';
-					@extend .icon_loading3;
+					@extend .green_bar_loading;
 					right: -25px;
 					top: 2px;
 				}

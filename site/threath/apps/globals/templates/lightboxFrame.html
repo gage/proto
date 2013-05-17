@@ -1,0 +1,12 @@
+<div class="lightboxPadding" ng-controller="lightboxFrameCtrl" ng-style="lightboxFrameOptions.style" ng-init="setDefaultTitle('{% block lightbox_title %}{% endblock lightbox_title %}');setDefaultWidth({% block lightbox_width %}340{% endblock lightbox_width %});">
+    <div class="lightboxBorder">
+        <div class="lightboxHeader">
+            <div class="closeBtn" ng-click="close()"></div>
+            <div class="title lightboxTitle"><div class="txt">{[lightboxFrameOptions.title]}</div></div>
+        </div>
+        <div class="lightboxBody">
+        {% block lightbox_content %}
+        {% endblock lightbox_content %}
+        </div>
+    </div>
+</div>

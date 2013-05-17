@@ -10,17 +10,23 @@ app.factory('remotePhoto', ['$remoteData', function($remoteData){
         }
     });
 
-    remotePhoto.loadMore = function(){
+    var modelProto = {
+        available: true,
+        getUrl: function(){
+            if (this.available) {
+                return this.original_raw;    
+            }
+            else {
+                return '';
+            }
+            
+        }
     };
+    _.extend(remotePhoto.prototype,  modelProto);
 
-    remotePhoto.prototype.getUrl = function(){
-        console.log(this.original_raw);
-        return this.original_raw;
+    var collectionProto = {
     };
-
-
-    
-
+    _.extend(remotePhoto.collection.prototype,  collectionProto);
 
     return remotePhoto;
 }]);

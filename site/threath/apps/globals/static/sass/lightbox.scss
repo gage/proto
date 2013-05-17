@@ -1,20 +1,58 @@
+
+
+.lightboxWrap{
+    position: fixed;
+    width: 100%;
+    
+    top: 0px;
+    height: 100%;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
 .lightbox{
     display:none;
+    z-index: 1001;
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    left:0px;
+    table-layout: fixed;
+
+    
     .lightboxBg{
-        z-index: 1001;
-        position:fixed;
+        display: table-cell;
+        table-layout: fixed;
+        vertical-align: middle;
         background: rgba(black,0.5);
         width:100%;
         height:100%;
-        top:0px;
-        left:0px;
+        text-align: center;
         overflow:auto;
-        @include display-box();
-        @include box-pack(center);
-        @include box-align(center);
+
         .lightboxContent{
-            // background:white;
-            margin:0 auto;
+            text-align: left;
+            display: inline-block;
+            margin:15px auto;
+            
+            &:before{
+                content: '';
+                width: 100%;
+                height:400px;
+
+            };
+        }
+        &.loading {
+            &:before {
+                content: "";
+                /* style */
+                @extend .black_bar_loading;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+            }
         }
     }   
 }
@@ -26,17 +64,31 @@
     width: 340px;
     .lightboxHeader {  
         overflow: hidden;
-        background: #222222;
+        background: $color4;
         height: 38px;
         width: 100%;
+        position: absolute;
+        top: 0px;
+        left:0px;
         .title {
             text-align: center;
             width: 100%;    
             color: white;
             height: 38px;
-            line-height: 38px;
+            border-right:solid 38px transparent;
+            border-left:solid 38px transparent;    
+            .txt{
+                width: 100%;
+                height: 100%;
+                line-height: 38px;
+                @include text_ellipsis();
+                
+            }
         }
         .closeBtn {
+            position: absolute;
+            top:0px;
+            right:0px;
             &:before {
                 content: '';
                 vertical-align: middle;
@@ -60,24 +112,59 @@
     }
     .lightboxBorder {
         border: 1px solid #222222;
+        height: 100%;
+        position: relative;
     }
+
     .lightboxBody {
-        &.text {
-            &:before {
-                content: '';
-                display: inline-block;
-                vertical-align: middle;
-            }            
-        }
-        min-height: 150px;
-        background: white;
-        text-align: center;
-        position: relative;   
+        background: #F4F4F4;
+        height: 100%;
+        border-top: 38px solid transparent;
+        // overflow-y:auto;
     }
 }
 
-.test{
-    width:300px;
-    height:500px;
-    background: red;
+.contextMenu{
+    .contextMenuBg{
+        z-index: 901;
+        position:fixed;
+        //background: rgba(red,0.3);
+        width:100%;
+        height:100%;
+        top:0px;
+        left:0px;
+        overflow:auto;
+    }
+    .contextMenuList{
+        z-index: 902;
+        background: white;
+        border: solid 1px #cccccc;
+        @include border-radius(3px);
+        @include box-shadow(rgba(black, 0.3) 0px 3px 10px);
+        color:#222222;
+        font-size: 12px;
+        display: inline-block;
+        padding: 5px 0;
+        min-width: 148px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        .menuItem{
+            height: 26px;
+            line-height: 26px;
+            margin-bottom: 10px;
+            cursor:pointer;
+            padding: 0px 10px;
+            &:last-child{
+                margin-bottom: 0px;
+            };
+            &:hover{
+                background:#eeeeee;
+            };
+        }
+
+    }
 }
+
+
+

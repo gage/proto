@@ -139,7 +139,12 @@ class Resource(PistonResource):
             else:
                 resp = stream
 
+            # For ie cache
+            resp['Cache-Control'] = 'no-cache'
             resp.streaming = self.stream
+            user_agent = request.META.get('HTTP_USER_AGENT', '')
+            if 'MSIE' in user_agent:
+                resp['Content-Type'] = 'text/plain'
 
             return resp
         except HttpStatusCode, e:

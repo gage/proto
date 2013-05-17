@@ -122,7 +122,7 @@ class BaseIndexHandler(BaseHandler):
         elif self.default_order:
             results = results.order_by(self.default_order)
 
-        fields = {k: request.CLEANED[k] for k in ('detail', 'to_card', 'create_card')}
+        fields = {k: request.CLEANED[k] for k in ('detail', )}
 
         if kwargs.get('all') and kwargs.get('raw'):
             return [r for r in results]
@@ -152,7 +152,7 @@ class BaseObjectHandler(BaseHandler):
         else:
             result = self.query_model.objects.get(id=object_id)
 
-        fields = {k: request.CLEANED[k] for k in ('detail', 'to_card', 'create_card')}
+        fields = {k: request.CLEANED[k] for k in ('detail', )}
         return result.to_json(request=request, **fields)
 
     def delete(self, request, object_id, **kwargs):
@@ -179,7 +179,7 @@ class BaseObjectHandler(BaseHandler):
             else:
                 result.save()
         # return ','.join(changed_fields)
-        fields = {k: request.CLEANED[k] for k in ('detail', 'to_card', 'create_card')}
+        fields = {k: request.CLEANED[k] for k in ('detail', )}
         fields['detail'] = True
         return result.to_json(request=request, **fields)
 
@@ -291,7 +291,7 @@ class BaseAttributeHandler(BaseHandler):
         offset = request.CLEANED['offset']
         endpoint = request.CLEANED['endpoint']
         results = self.field_model.objects.filter(id__in=values)
-        fields = {k: request.CLEANED[k] for k in ('detail', 'to_card', 'create_card')}        
+        fields = {k: request.CLEANED[k] for k in ('detail', )}
         return [r.to_json(request=request, **fields) for r in results[offset:endpoint]]
 
     def delete(self, request, object_id, attr):

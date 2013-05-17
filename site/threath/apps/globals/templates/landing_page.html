@@ -1,0 +1,116 @@
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/landing.css" />
+    <!--[if lte IE 9]>
+    <style>
+        #header{
+            background: #444444;
+        }
+    </style>    
+    <![endif]-->
+</head>
+<body>
+    <div id="header" class="gradient">
+        <div class="inner">
+            <div class="left">
+                <a href="/" class="logo"></a>
+            </div>
+            <div class="right">
+                <ul class="navigation">
+                    <li class="nav web"><a href="/login">Web</a></li>
+                    <li class="nav iphone">iPhone</li>
+                    <li class="nav android">Android</li>
+                    <li class="nav Desktop">Desktop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="section">
+            <div class="introVideoWrapper">
+                <img src="{{ STATIC_URL }}images/landing_page/video_cover.jpg" alt="" width="1000" height="560">
+            </div>
+        </div>
+        <div class="section one">
+            <div class="secBg" style="background:url({{ STATIC_URL }}images/landing_page/01.png) no-repeat;"></div>
+            <div class="description">
+                <h1>Getting friends together has never been easier</h1>
+                <p>
+                    Get your friends together with free, private, one-on-one and group chat. Want to get together with friends for a bite or a night on the town? You can find a nearby restaurant or bar and share the details to your friends, right in the app. You can even find a good movie to see, and buy tickets without ever leaving the chat with your friends.
+                </p>
+            </div>
+        </div>
+        <div class="section two">
+            <div class="secBg" style="background:url({{ STATIC_URL }}images/landing_page/02.png) no-repeat;"></div>
+            <div class="description">
+                <h1>Group chat, evolved</h1>
+                <p>
+                    All the features you've come to expect in a great group messaging app, and more: One-on-one and group chat, photo and video sharing, plus sharing files and documents from your phone, tablet, desktop computer or Dropbox. The most complete restaurant and movie integration in a messaging app ever. Fun emoticons and stickers to spice up the conversation.
+                </p>
+            </div>
+        </div>
+        <div class="section three">
+            <div class="secBg" style="background:url({{ STATIC_URL }}images/landing_page/03.png) no-repeat;"></div>
+            <div class="description">
+                <h1 class="first">Wherever you are</h1><br>
+                <h1>Wherever your friends are</h1>
+                <p>
+                    Socialites.IM works on iPhone and Android devices, on computers running Mac OS and Windows, and on the web. So wherever you and your friends are, Socialites.IM is right at your reach.
+                </p>
+            </div>
+            <ul class="platforms">
+                <li class="platform iphone"><div class="txt">iPhone</div></li>
+                <li class="platform android"><div class="txt">Android</div></li>
+                <li class="platform mac"><div class="txt">Mac OSX</div></li>
+                <li class="platform win"><div class="txt">Windows</div></li>
+                <li class="platform web"><div class="txt">On the web</div></li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer" style="background:url({{ STATIC_URL }}images/landing_page/footer_bg.jpg);">
+        <div class="inner">
+            <div class="col about">
+                <div class="title">About</div>
+                <p>
+                    Socialites.IM is a free, private, one-on-one and group messaging application. It's made specifically to fit the messaging app needs of people who like to get out and socialize.
+                    <br><br><br>
+                    <span class="copy">&copy; 2013 Socialites</span>
+                </p>
+            </div>
+            <div class="col socialites">
+                <div class="title">Socialites</div>
+                <ul>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col contact">
+                <div class="title">Contact</div>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                
+            </div>
+            <div class="col download">
+                <div class="title">Download</div>
+                <ul>
+                    <li><a href="#">iPhone</a></li>
+                    <li><a href="#">Android</a></li>
+                    <li><a href="#">Mac OSX</a></li>
+                    <li><a href="#">Windows</a></li>
+                    <li><a href="#">Windows8</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

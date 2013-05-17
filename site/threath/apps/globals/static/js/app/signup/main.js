@@ -1,12 +1,34 @@
 var app = angular.module("scSignup", []);
 
 app.config(function($routeProvider, $locationProvider, $interpolateProvider){
-	var appRoot = '/signup';
+	var appRoot = '/signup/';
     $locationProvider.html5Mode(true);
     // Changet the syntex
     $interpolateProvider.startSymbol('{[');
     $interpolateProvider.endSymbol(']}');
+    var handleRoot = {
+        redirectTo: function (routeParams, path, search) {
+            // Redirect to other app
+            window.location = '/';
+        } 
+    };
+
+    if(BrowserDetect.browser == 'MSIE' || BrowserDetect.browser == 'Explorer'){
+        handleRoot = {
+            redirectTo: function (routeParams, path, search) {
+                // Redirect to other app
+                window.location = '/?landing=true';
+            }
+        };
+    }
+
     $routeProvider
+        .when('',
+            handleRoot
+        )
+        .when('/',
+            handleRoot
+        )
         .when(appRoot,
         {
             templateUrl: "signup_tpl.html"
@@ -19,10 +41,6 @@ app.config(function($routeProvider, $locationProvider, $interpolateProvider){
         {
             templateUrl: "login_tpl.html"
         })
-        .when(appRoot+'/test',
-        {
-            templateUrl: "test_tpl.html"
-        }) 
         .when(appRoot+'/:anything', {
             templateUrl: "/static/html/page_not_found.html"
         })

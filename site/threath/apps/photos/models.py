@@ -25,9 +25,14 @@ from imagekit.lib import Image
 from photos.imagespecs import *
 
 
+def imagespecfilter(x, baseclass):
+    return issubclass(x.__class__, baseclass)
+
+
 def get_photo_upload_path(instance, filename):
     name_hash = hashlib.md5(filename).hexdigest()
     return os.path.join('photos',name_hash[0:2], name_hash[2:4], name_hash[4:6], name_hash[6:8], filename)
+
 
 class BasePhoto(models.Model):
     """ Abstract photo base class """
@@ -75,6 +80,8 @@ class BasePhoto(models.Model):
 
     i98             = Image98x98()
     original        = ImageJpeg()
+
+    img_list = [k for (k, v) in locals().items() if imagespecfilter(v, ImageSpecField)]
 
     def __unicode__(self):
         return "%s %s" % (self.pk, self.title)
@@ -156,12 +163,12 @@ class Photo(BasePhoto):
             except User.DoesNotExist:
                 self.user = User.objects.create_user("AnonymousUser", "anonymoususer@example.com", "4a9Dadf123ad8A")
 
-        self.ensure_cache = True
         if self.image:
             self.width = self.image.width
             self.height = self.image.height
             self.get_title()
             self.get_filesize()
+            self._ensure_cache()
 
         super(BasePhoto, self).save(*args, **kwargs)
 
@@ -177,9 +184,19 @@ class Photo(BasePhoto):
     def photo_source(self):
         return dict(self.SOURCE_CHOICES)[self.source]
 
-    @classmethod
-    def get_msg_field(cls):
-        return ('id', 'original_raw', 'original_width', 'original_height', 'custom', 'album_id')
+
+    def _ensure_cache(self, force=False):
+        if self.ensure_cache and not force:
+            return
+
+        for key in self.img_list:
+            obj = getattr(self, key)
+            if not os.path.exists(obj.path):
+                obj.generate()
+                
+        self.ensure_cache = True
+        self.ensure_fit = True
+        self.__class__.objects.filter(id=self.id).update(ensure_cache=True)
 
     def to_json(self, detail=False, fields=None, **kwargs):
         request = kwargs.get('request', None)

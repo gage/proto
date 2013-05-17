@@ -2,8 +2,27 @@
 #mainView {
 	width: 100%;
 	max-width: $main_max_width;
-	// min-width: $main_min_width;
 	margin: 20px auto;
-	// background: $block-color;
 	overflow: hidden;
+
+	#consultantSec {
+		.item {
+			height: 80px;
+			padding: 10px;
+		}
+	}
+
+	.sec {
+		margin-top: 10px;
+		overflow: hidden;
+		padding-bottom: 10px;
+		border-bottom: 3px solid silver;
+		// border: 1px solid #ddd;
+		.title {
+			font-size: 26px;
+			padding: 10px;
+		}
+	}
 }
+
+

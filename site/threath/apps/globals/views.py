@@ -12,13 +12,19 @@ from globals.utils import slugreverse
 # Main App
 def home(request):
     if not request.user.is_authenticated():
-        return HttpResponsePermanentRedirect(reverse('globals-login'))
-
-    current_user_ctx = simplejson.dumps(request.user.to_json())
-    context = {
-        'currentUser': current_user_ctx
-    }
-    return render_to_response("main.html", context, context_instance=RequestContext(request))
+        user_agent = request.META.get('HTTP_USER_AGENT', '')
+        if 'MSIE' in user_agent:
+            if request.GET.get('landing'):
+                return landing(request)
+            else:
+                return signup(request)
+        return landing(request)
+    else:
+        current_user_ctx = simplejson.dumps(request.user.to_json())
+        context = {
+            'currentUser': current_user_ctx
+        }
+        return render_to_response("main.html", context, context_instance=RequestContext(request))
 
 
 # Signup App
@@ -31,6 +37,11 @@ def signup(request):
         'FACEBOOK_APP_ID': settings.FACEBOOK_APP_ID
     }
     return render_to_response("signup/main.html", context, context_instance=RequestContext(request))
+
+
+def landing(request):
+    context = {}
+    return render_to_response("landing_page.html", context, context_instance=RequestContext(request))
 
 
 def render_tpl(request, template):

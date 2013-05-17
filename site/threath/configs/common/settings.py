@@ -269,7 +269,8 @@ SSL = False
 SEND_EMAIL = True
 
 ### IMAGEKIT
-IMAGEKIT_DEFAULT_IMAGE_CACHE_BACKEND = 'imagekit.imagecache.celery.CeleryImageCacheBackend'
+# IMAGEKIT_DEFAULT_IMAGE_CACHE_BACKEND = 'imagekit.imagecache.celery.CeleryImageCacheBackend'
+IMAGEKIT_DEFAULT_IMAGE_CACHE_BACKEND = 'imagekit.imagecache.NonValidatingImageCacheBackend'
 
 
 ### Haystack

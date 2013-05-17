@@ -1,0 +1,23 @@
+{% extends "lightboxFrame.html" %}
+
+{% block lightbox_width %}300{% endblock lightbox_width %}
+{% block lightbox_title %}Dialog{% endblock lightbox_title %}
+
+{% block lightbox_content %}
+
+<div id="confirmDialog" style="position: relative;" ng-controller="confirmDialogCtrls">
+    <div class="content" style="padding: 20px;">
+        <div class="message" style="font-size: 16px; text-align: center;">
+            {[message]}
+        </div>
+    </div>
+    <div class="functions">
+        <div class="centerBox">
+            <div class="btn" ng-click="confirm()"><span>Yes</span></div>
+            <div class="btn" ng-click="reject()"><span>No</span></div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock lightbox_content %}

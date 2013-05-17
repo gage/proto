@@ -71,8 +71,7 @@ class IndexHandler(BaseIndexHandler):
             photo.save()
             uploaded_file.close()
 
-        fields = {k: request.CLEANED[k] for k in ('to_card', 'create_card')}
-        return photo.to_json(request=request, detail=request.CLEANED['detail'], **fields) if not raw else photo
+        return photo.to_json(request=request, detail=request.CLEANED['detail']) if not raw else photo
         
 
 # ============== Object Handler =============

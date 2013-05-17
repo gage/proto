@@ -1,0 +1,29 @@
+{% extends "lightboxFrame.html" %}
+
+{% block lightbox_width %}500{% endblock lightbox_width %}
+{% block lightbox_title %}{% endblock lightbox_title %}
+
+{% block lightbox_content %}
+
+<div class="detailWindow" ng-controller="detailCtrls.window">
+    <div id="photoDetail" class="detailView">
+        <div id="imageWrapper">
+            <div id="imageDiv" img-detail>
+            </div>
+            <div class="magnify" ng-show="showMagnify" ng-click="openInNewTab()"></div>
+        </div>
+        <div class="functions">
+            <div class="centerBox">
+                <button class="share">Share</button>
+            </div>
+            <div class="progressBar">
+                <div class="loadingBar">
+                    <div class="inner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock lightbox_content %}

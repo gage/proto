@@ -1,0 +1,7 @@
+//to compile: cd gulu/apps/globals/static   and  run: compass compile --force
+@import "compass/utilities/sprites";
+$landing_icons-clean-up: true;
+$landing_icons-spacing: 1px;
+$landing_icons-sprite-dimensions:true;
+@import "landing_icons/*.png";
+@include all-landing_icons-sprites;

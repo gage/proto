@@ -32,8 +32,6 @@ def create_sys_request(user, query_dict=None):
         query_dict['offset'], query_dict['limit'] = parse_pagination()
         query_dict['endpoint'] = query_dict['offset'] + query_dict['limit']
         query_dict['order_by'] = None
-        query_dict['to_card'] = False
-        query_dict['create_card'] = False
         
     sys_request = SysRequest(user=user, CLEANED=query_dict)
     return sys_request
@@ -183,6 +181,8 @@ def process_request(cls, request, *args, **kwargs):
     _post_json_dict = {}
     if "application/json" in request.META.get('CONTENT_TYPE', ''):
         _post_json_dict = simplejson.loads(request.raw_post_data)
+    else:
+        _post_json_dict = request.POST
 
     _resource_dict = cls.auth_resource(request=request, json_dict=_post_json_dict, **kwargs)
     if not _resource_dict:
@@ -192,10 +192,8 @@ def process_request(cls, request, *args, **kwargs):
     # Validate Create Args
     if request.method == 'POST':
         _post = QueryDict('', mutable=True)
-        _post['detail'] = request.POST.get('detail')=='true'
-        _post['to_card'] = request.POST.get('to_card')=='true'
-        _post['create_card'] = request.POST.get('create_card')=='true'
         # POST parameters
+        _post['detail'] = request.POST.get('detail')=='true'
 
         # For Json
         content_type = request.META.get('CONTENT_TYPE', '')
@@ -206,6 +204,7 @@ def process_request(cls, request, *args, **kwargs):
                     if json_dict.get(kwarg) == None and kwarg in cls.required_fields:
                         raise APIException(api_errors.ERROR_GENERAL_BAD_SIGNATURE, "'%s' is missing in params." % kwarg)
                     _post[kwarg] = json_dict.get(kwarg)
+                _post['detail'] = json_dict.get('detail')==True
 
         # For XML
         else:
@@ -228,8 +227,6 @@ def process_request(cls, request, *args, **kwargs):
         _get['order_by'] = request.GET.get('order_by')
         _get['endpoint'] = _get['offset'] + _get['limit']
         _get['detail'] = request.GET.get('detail') == 'true'
-        _get['to_card'] = request.GET.get('to_card') == 'true'
-        _get['create_card'] = request.GET.get('create_card') == 'true'
 
         for required_field in cls.required_fields_for_read:
             if required_field not in request.GET:

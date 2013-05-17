@@ -1,4 +1,49 @@
 @import url(../css_lib/1140.css);
+/* line 1, ../sass/scBox.scss */
+.scBoxParent {
+  display: table;
+}
+
+/* line 4, ../sass/scBox.scss */
+.scBox {
+  display: table-cell;
+  position: relative;
+  vertical-align: top;
+  height: 100%;
+}
+/* line 10, ../sass/scBox.scss */
+.scBox .scBoxCell {
+  display: table-cell;
+  position: relative;
+  vertical-align: top;
+}
+/* line 16, ../sass/scBox.scss */
+.scBox .scBoxInnerWrap {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+/* line 22, ../sass/scBox.scss */
+.scBox .scBoxInner {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+/* line 28, ../sass/scBox.scss */
+.scBox .scBoxInner.scroll {
+  overflow-y: auto;
+}
+
+/* line 34, ../sass/scBox.scss */
+.scBoxRow {
+  display: table-row;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
 /*
     https://github.com/murtaugh/HTML5-Reset
     HTML5 Reset :: style.css
@@ -238,27 +283,32 @@ textarea:focus, input:focus {
   outline: none;
 }
 
+/* line 120, ../sass/reset.scss */
+textarea {
+  resize: none;
+}
+
 /* make buttons play nice in IE */
-/* line 121, ../sass/reset.scss */
+/* line 125, ../sass/reset.scss */
 button {
   width: auto;
   overflow: visible;
 }
 
 /* scale images in IE7 more attractively */
-/* line 124, ../sass/reset.scss */
+/* line 128, ../sass/reset.scss */
 .ie7 img {
   -ms-interpolation-mode: bicubic;
 }
 
 /* prevent BG image flicker upon hover */
-/* line 127, ../sass/reset.scss */
+/* line 131, ../sass/reset.scss */
 .ie6 html {
   filter: expression(document.execCommand("BackgroundImageCache", false, true));
 }
 
 /* let's clear some floats */
-/* line 130, ../sass/reset.scss */
+/* line 134, ../sass/reset.scss */
 .clearfix:before, .clearfix:after {
   content: "\0020";
   display: block;
@@ -266,12 +316,12 @@ button {
   overflow: hidden;
 }
 
-/* line 131, ../sass/reset.scss */
+/* line 135, ../sass/reset.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 132, ../sass/reset.scss */
+/* line 136, ../sass/reset.scss */
 .clearfix {
   zoom: 1;
 }
@@ -279,7 +329,7 @@ button {
 /* Ok, this is where the fun starts.
 -------------------------------------------------------------------------------*/
 /* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
-/* line 140, ../sass/reset.scss */
+/* line 144, ../sass/reset.scss */
 body {
   font: 12px Helmet, Freesans, sans-serif;
 }
@@ -287,30 +337,30 @@ body {
 /* using local fonts? make sure to read up on Paul Irish's 
     Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
 /* we like off-black for text */
-/* line 146, ../sass/reset.scss */
+/* line 150, ../sass/reset.scss */
 body, select, input, textarea {
   color: #333;
 }
 
-/* line 150, ../sass/reset.scss */
+/* line 154, ../sass/reset.scss */
 a:link {
   color: black;
   text-decoration: none;
 }
 
-/* line 151, ../sass/reset.scss */
+/* line 155, ../sass/reset.scss */
 a:visited {
   color: black;
   text-decoration: none;
 }
 
-/* line 152, ../sass/reset.scss */
+/* line 156, ../sass/reset.scss */
 a:hover {
   color: black;
   text-decoration: underline;
 }
 
-/* line 153, ../sass/reset.scss */
+/* line 157, ../sass/reset.scss */
 a:active {
   color: black;
   text-decoration: none;
@@ -318,19 +368,19 @@ a:active {
 
 /* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
 /*  j.mp/webkit-tap-highlight-color */
-/* line 160, ../sass/reset.scss */
+/* line 164, ../sass/reset.scss */
 a:link {
   -webkit-tap-highlight-color: #fcd700;
 }
 
-/* line 162, ../sass/reset.scss */
+/* line 166, ../sass/reset.scss */
 ins {
   background-color: #fcd700;
   color: #000;
   text-decoration: none;
 }
 
-/* line 163, ../sass/reset.scss */
+/* line 167, ../sass/reset.scss */
 mark {
   background-color: #fcd700;
   color: #000;
@@ -423,7 +473,47 @@ mark {
   }
 }
 
-/* line 20, ../sass/common.scss */
+/* line 74, icons/*.png */
+.icons-sprite, .icons-aaa, .icons-email_circle, #signupWrap .method-wrap .icon.signup, .icons-facebook_circle, #signupWrap .method-wrap .icon.facebook, .icons-magnify_icn, .detailView .magnify, .icons-x_white, .lightboxPadding .lightboxHeader .closeBtn:after {
+  background: url('/static/images/icons-sf2f4dc47fb.png') no-repeat;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-aaa {
+  background-position: 0 -94px;
+  height: 16px;
+  width: 17px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-email_circle, #signupWrap .method-wrap .icon.signup {
+  background-position: 0 -30px;
+  height: 32px;
+  width: 32px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-facebook_circle, #signupWrap .method-wrap .icon.facebook {
+  background-position: 0 -62px;
+  height: 32px;
+  width: 32px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-magnify_icn, .detailView .magnify {
+  background-position: 0 0;
+  height: 30px;
+  width: 30px;
+}
+
+/* line 60, ../../../../../../../../../../Applications/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.icons-x_white, .lightboxPadding .lightboxHeader .closeBtn:after {
+  background-position: 0 -110px;
+  height: 10px;
+  width: 10px;
+}
+
+/* line 22, ../sass/common.scss */
 html {
   width: 100%;
   height: 100%;
@@ -431,40 +521,41 @@ html {
   background: white;
 }
 
-/* line 28, ../sass/common.scss */
+/* line 30, ../sass/common.scss */
 body {
   width: 100%;
   height: 100%;
-  font-family: \5FAE\8EDF\6B63\9ED1\9AD4, "Helvetica Neue", Helvetica, Arial, monospace, sans-serif;
+  font-family: "Droid Sans", sans-serif;
 }
 
-/* line 34, ../sass/common.scss */
+/* line 37, ../sass/common.scss */
 body.loading {
   opacity: 0;
 }
 
-/* line 38, ../sass/common.scss */
+/* line 41, ../sass/common.scss */
 body.signup #header {
   display: none;
 }
 
-/* line 47, ../sass/common.scss */
-input {
-  font-family: Myriad Pro;
-}
-
-/* line 51, ../sass/common.scss */
+/* line 53, ../sass/common.scss */
 .error {
   color: #ce3030;
 }
 
-/* line 56, ../sass/common.scss */
+/* line 58, ../sass/common.scss */
 .ng-view {
   height: 100%;
   width: 100%;
 }
 
-/* line 187, ../sass/common.scss */
+/* line 190, ../sass/common.scss */
+.rflc {
+  border: 1px solid #dddddd;
+  border-top: 1px solid white;
+}
+
+/* line 195, ../sass/common.scss */
 .text-btn-3 {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -498,20 +589,20 @@ input {
   font-family: Myriad Pro;
   padding: 5px 16px;
 }
-/* line 176, ../sass/common.scss */
+/* line 178, ../sass/common.scss */
 .text-btn-3:hover {
   color: #333;
 }
-/* line 179, ../sass/common.scss */
+/* line 181, ../sass/common.scss */
 .text-btn-3.disabled {
   opacity: 0.5;
 }
-/* line 181, ../sass/common.scss */
+/* line 183, ../sass/common.scss */
 .text-btn-3.disabled:active {
   background: gray;
 }
 
-/* line 192, ../sass/common.scss */
+/* line 200, ../sass/common.scss */
 #header {
   height: 35px;
   top: 0px;
@@ -524,30 +615,30 @@ input {
   border-bottom: 1px solid black;
   z-index: 100;
 }
-/* line 201, ../sass/common.scss */
+/* line 209, ../sass/common.scss */
 #header .inner {
   margin: 0 auto;
   padding: 0 11px;
 }
-/* line 205, ../sass/common.scss */
+/* line 213, ../sass/common.scss */
 #header .inner .left {
   float: left;
   padding-left: 10px;
 }
-/* line 208, ../sass/common.scss */
+/* line 216, ../sass/common.scss */
 #header .inner .left .logo {
   margin-top: 8px;
   display: inline-block;
 }
-/* line 214, ../sass/common.scss */
+/* line 222, ../sass/common.scss */
 #header .inner .right {
   float: right;
 }
-/* line 216, ../sass/common.scss */
+/* line 224, ../sass/common.scss */
 #header .inner .right .navigation {
   overflow: hidden;
 }
-/* line 218, ../sass/common.scss */
+/* line 226, ../sass/common.scss */
 #header .inner .right .navigation .nav {
   float: left;
   color: #cccccc;
@@ -562,11 +653,11 @@ input {
   vertical-align: top;
   position: relative;
 }
-/* line 231, ../sass/common.scss */
+/* line 239, ../sass/common.scss */
 #header .inner .right .navigation .nav .txt {
   position: relative;
 }
-/* line 235, ../sass/common.scss */
+/* line 243, ../sass/common.scss */
 #header .inner .right .navigation .nav.menu .txt:before {
   position: absolute;
   content: '';
@@ -579,28 +670,28 @@ input {
   top: 4px;
   right: -20px;
 }
-/* line 244, ../sass/common.scss */
+/* line 252, ../sass/common.scss */
 #header .inner .right .navigation .nav:first-child {
   border-left: none;
 }
-/* line 247, ../sass/common.scss */
+/* line 255, ../sass/common.scss */
 #header .inner .right .navigation .nav:hover {
   color: white;
 }
 
-/* line 255, ../sass/common.scss */
+/* line 263, ../sass/common.scss */
 #pageContent {
   height: 100%;
   width: 100%;
   display: table;
 }
 
-/* line 261, ../sass/common.scss */
+/* line 269, ../sass/common.scss */
 #viewContent {
   display: table-row;
   position: relative;
 }
-/* line 265, ../sass/common.scss */
+/* line 273, ../sass/common.scss */
 #viewContent #viewContentInner {
   display: table-cell;
   position: relative;
@@ -608,7 +699,7 @@ input {
   height: 100%;
 }
 
-/* line 274, ../sass/common.scss */
+/* line 282, ../sass/common.scss */
 #footer {
   width: 100%;
   height: 34px;
@@ -616,44 +707,44 @@ input {
   background-color: #2d2d2d;
   border-bottom: 1px solid black;
 }
-/* line 279, ../sass/common.scss */
+/* line 287, ../sass/common.scss */
 #footer .inner {
   display: table-cell;
 }
-/* line 282, ../sass/common.scss */
+/* line 290, ../sass/common.scss */
 #footer .inner .wrapper {
   margin: 0 auto;
   padding: 0 11px;
 }
-/* line 286, ../sass/common.scss */
+/* line 294, ../sass/common.scss */
 #footer .inner .wrapper .left {
   float: left;
 }
-/* line 288, ../sass/common.scss */
+/* line 296, ../sass/common.scss */
 #footer .inner .wrapper .left .links {
   overflow: hidden;
 }
-/* line 290, ../sass/common.scss */
+/* line 298, ../sass/common.scss */
 #footer .inner .wrapper .left .links a:link {
   color: white;
   text-decoration: none;
 }
-/* line 291, ../sass/common.scss */
+/* line 299, ../sass/common.scss */
 #footer .inner .wrapper .left .links a:visited {
   color: white;
   text-decoration: underline;
 }
-/* line 292, ../sass/common.scss */
+/* line 300, ../sass/common.scss */
 #footer .inner .wrapper .left .links a:hover {
   color: white;
   text-decoration: underline;
 }
-/* line 293, ../sass/common.scss */
+/* line 301, ../sass/common.scss */
 #footer .inner .wrapper .left .links a:active {
   color: white;
   text-decoration: none;
 }
-/* line 294, ../sass/common.scss */
+/* line 302, ../sass/common.scss */
 #footer .inner .wrapper .left .links .link {
   float: left;
   color: white;
@@ -661,14 +752,36 @@ input {
   padding: 0px 8px;
   cursor: pointer;
 }
-/* line 303, ../sass/common.scss */
+/* line 311, ../sass/common.scss */
 #footer .inner .wrapper .right {
   float: right;
   color: white;
   line-height: 34px;
 }
 
-/* line 314, ../sass/common.scss */
+/* line 321, ../sass/common.scss */
+.inputTextarea {
+  background: #f4f4f4;
+  display: block;
+  font-size: 12px;
+  width: 100%;
+  line-height: 16px;
+  height: 30px;
+  padding: 6px;
+  border: solid 1px #222222;
+  color: #222222;
+  resize: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px, rgba(0, 0, 0, 0.3) 0px 2px 5px inset;
+  -moz-box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px, rgba(0, 0, 0, 0.3) 0px 2px 5px inset;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px, rgba(0, 0, 0, 0.3) 0px 2px 5px inset;
+}
+
+/* line 336, ../sass/common.scss */
 .searchInput {
   background: #a0bf5d;
   /* Old browsers */
@@ -694,7 +807,7 @@ input {
   padding: 8px;
   position: relative;
 }
-/* line 320, ../sass/common.scss */
+/* line 342, ../sass/common.scss */
 .searchInput input {
   border: solid 1px #476300;
   -webkit-border-radius: 5px;
@@ -712,7 +825,7 @@ input {
   padding-left: 23px;
   vertical-align: bottom;
 }
-/* line 331, ../sass/common.scss */
+/* line 353, ../sass/common.scss */
 .searchInput:before {
   content: '';
   position: absolute;
@@ -721,12 +834,12 @@ input {
   left: 13px;
 }
 
-/* line 342, ../sass/common.scss */
+/* line 364, ../sass/common.scss */
 .fileinput-button {
   position: relative;
   overflow: hidden;
 }
-/* line 345, ../sass/common.scss */
+/* line 367, ../sass/common.scss */
 .fileinput-button input {
   position: absolute;
   top: 0;
@@ -741,43 +854,252 @@ input {
   cursor: pointer;
 }
 
-/* line 360, ../sass/common.scss */
-.icon_loading {
-  background: url("/static/images/loading2.gif") no-repeat;
+/* line 383, ../sass/common.scss */
+.orange_bar_loading {
+  background: url("/static/images/orange_bar_loading.gif") no-repeat;
   width: 16px;
   height: 11px;
 }
 
-/* line 366, ../sass/common.scss */
-.icon_loading3, #signupWrap .panel .sending-wrap:before, #signupWrap .method-wrap .txt span.loading:before {
-  background: url("/static/images/loading3.gif") no-repeat;
+/* line 390, ../sass/common.scss */
+.black_bar_loading, .lightbox .lightboxBg.loading:before {
+  background: url("/static/images/black_bar_loading.gif") no-repeat;
   width: 16px;
   height: 11px;
 }
 
-/* line 372, ../sass/common.scss */
-.icon_loading4 {
-  background: url("/static/images/loading4.gif") no-repeat;
+/* line 396, ../sass/common.scss */
+.green_bar_loading, #signupWrap .panel .sending-wrap:before, #signupWrap .method-wrap .txt span.loading:before {
+  background: url("/static/images/green_bar_loading.gif") no-repeat;
+  width: 16px;
+  height: 11px;
+}
+
+/* line 402, ../sass/common.scss */
+.green_circle_loading {
+  background: url("/static/images/green_circle_loading.gif") no-repeat;
   width: 32px;
   height: 32px;
 }
 
-/* line 378, ../sass/common.scss */
-.icon_loading5, .isLoading:before {
-  background: url("/static/images/loading5.gif") no-repeat center;
+/* line 408, ../sass/common.scss */
+.black_circle_loading, .isLoading:before, .coverLoadingMask:after {
+  background: url("/static/images/black_circle_loading.gif") no-repeat center;
   width: 32px;
   height: 32px;
 }
 
-/* line 384, ../sass/common.scss */
+/* line 414, ../sass/common.scss */
 .isLoading {
   text-align: center;
   padding-top: 50%;
 }
-/* line 387, ../sass/common.scss */
+/* line 417, ../sass/common.scss */
 .isLoading:before {
   content: '';
   display: inline-block;
+}
+
+/* line 424, ../sass/common.scss */
+.id_file {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* line 434, ../sass/common.scss */
+.dragCover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  z-index: 3;
+}
+/* line 442, ../sass/common.scss */
+.dragCover:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: 'Drop to share';
+  color: #fff;
+  font-size: 18px;
+}
+/* line 449, ../sass/common.scss */
+.dragCover:after {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  content: '';
+}
+
+/* line 458, ../sass/common.scss */
+.progressBarSlim {
+  -webkit-box-shadow: #dddddd 0px -1px 2px;
+  -moz-box-shadow: #dddddd 0px -1px 2px;
+  box-shadow: #dddddd 0px -1px 2px;
+  width: 100%;
+  display: none;
+}
+/* line 462, ../sass/common.scss */
+.progressBarSlim .msgTxt {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  color: #444;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+/* line 470, ../sass/common.scss */
+.progressBarSlim.downloading {
+  display: block;
+}
+/* line 473, ../sass/common.scss */
+.progressBarSlim.completing {
+  display: block;
+  -webkit-box-shadow: #dddddd 0px 0px 0px;
+  -moz-box-shadow: #dddddd 0px 0px 0px;
+  box-shadow: #dddddd 0px 0px 0px;
+}
+/* line 476, ../sass/common.scss */
+.progressBarSlim.completing .loadingBar {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+/* line 481, ../sass/common.scss */
+.progressBarSlim.completing .msgTxt {
+  opacity: 1;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+/* line 487, ../sass/common.scss */
+.progressBarSlim .loadingBar {
+  width: 100%;
+  height: 9px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  background: #666666;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 10px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 10px inset;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 10px inset;
+  padding: 1px;
+}
+/* line 494, ../sass/common.scss */
+.progressBarSlim .loadingBar .innerProcess {
+  height: 7px;
+  width: 0%;
+  -webkit-transition-property: width;
+  -moz-transition-property: width;
+  -o-transition-property: width;
+  transition-property: width;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  background: #9fbe5d;
+  /* Old browsers */
+  @-webkit-keyframes pb {
+    /* line 501, ../sass/common.scss */
+    0% {
+      background-position: 0 0;
+    }
+
+    /* line 501, ../sass/common.scss */
+    100% {
+      background-position: -16px 0;
+    }
+}
+
+  @-moz-keyframes pb {
+    /* line 502, ../sass/common.scss */
+    0% {
+      background-position: 0 0;
+    }
+
+    /* line 502, ../sass/common.scss */
+    100% {
+      background-position: -16px 0;
+    }
+}
+
+  -webkit-animation: pb 0.8s linear 0 infinite;
+  background-image: -webkit-linear-gradient(315deg, transparent, transparent 33%, rgba(0, 0, 0, 0.04) 33%, rgba(0, 0, 0, 0.04) 66%, transparent 66%, transparent);
+  background-repeat: repeat-x;
+  background-size: 16px 8px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px inset;
+  -moz-box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 1px inset;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 512, ../sass/common.scss */
+.progressBarSlim .loadingBar.full .innerProcess {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 522, ../sass/common.scss */
+.coverLoadingMask {
+  position: relative;
+}
+/* line 524, ../sass/common.scss */
+.coverLoadingMask:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  display: block;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+}
+/* line 535, ../sass/common.scss */
+.coverLoadingMask:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: '';
+  display: block;
+  z-index: 20;
+}
+
+/* line 546, ../sass/common.scss */
+.block {
+  overflow: hidden;
 }
 
 /* line 4, ../sass/layout.scss */
@@ -850,24 +1172,23 @@ body.signup #footer .inner .wrapper {
 #signupWrap .panel .title {
   font-size: 21px;
   color: #29547a;
-  font-family: Myriad Pro;
   margin-bottom: 10px;
 }
-/* line 49, ../sass/signup.scss */
+/* line 48, ../sass/signup.scss */
 #signupWrap .panel .body {
   text-align: left;
 }
-/* line 51, ../sass/signup.scss */
+/* line 50, ../sass/signup.scss */
 #signupWrap .panel .body input {
   width: 100%;
 }
-/* line 54, ../sass/signup.scss */
+/* line 53, ../sass/signup.scss */
 #signupWrap .panel .body .submitWrap {
   margin-top: 8px;
   text-align: center;
   position: relative;
 }
-/* line 58, ../sass/signup.scss */
+/* line 57, ../sass/signup.scss */
 #signupWrap .panel .body .submitWrap .btn {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -901,25 +1222,25 @@ body.signup #footer .inner .wrapper {
   font-family: Myriad Pro;
   width: 100px;
 }
-/* line 176, ../sass/common.scss */
+/* line 178, ../sass/common.scss */
 #signupWrap .panel .body .submitWrap .btn:hover {
   color: #333;
 }
-/* line 179, ../sass/common.scss */
+/* line 181, ../sass/common.scss */
 #signupWrap .panel .body .submitWrap .btn.disabled {
   opacity: 0.5;
 }
-/* line 181, ../sass/common.scss */
+/* line 183, ../sass/common.scss */
 #signupWrap .panel .body .submitWrap .btn.disabled:active {
   background: gray;
 }
-/* line 64, ../sass/signup.scss */
+/* line 63, ../sass/signup.scss */
 #signupWrap .panel .sending-wrap {
   padding: 10px 0 0 22px;
   position: relative;
   display: inline-block;
 }
-/* line 69, ../sass/signup.scss */
+/* line 68, ../sass/signup.scss */
 #signupWrap .panel .sending-wrap:before {
   content: '';
   margin-right: 5px;
@@ -927,14 +1248,14 @@ body.signup #footer .inner .wrapper {
   left: 0;
   top: 12px;
 }
-/* line 78, ../sass/signup.scss */
+/* line 77, ../sass/signup.scss */
 #signupWrap .panel .activationComponents {
   height: 200px;
   font-size: 14px;
   text-align: left;
   margin-top: 30px;
 }
-/* line 83, ../sass/signup.scss */
+/* line 82, ../sass/signup.scss */
 #signupWrap .panel .activationComponents .emailAddr {
   font-size: 14px;
   text-align: center;
@@ -946,16 +1267,16 @@ body.signup #footer .inner .wrapper {
   -o-text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
 }
-/* line 90, ../sass/signup.scss */
+/* line 89, ../sass/signup.scss */
 #signupWrap .panel .activationComponents .resendBlock {
   margin-top: 40px;
 }
-/* line 93, ../sass/signup.scss */
+/* line 92, ../sass/signup.scss */
 #signupWrap .panel .activationComponents .resendVerificationBtn {
   margin-top: 40px;
   text-align: center;
 }
-/* line 96, ../sass/signup.scss */
+/* line 95, ../sass/signup.scss */
 #signupWrap .panel .activationComponents .resendVerificationBtn .resendVerification {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -993,7 +1314,7 @@ body.signup #footer .inner .wrapper {
   display: inline-block;
   padding: 4px 10px;
 }
-/* line 106, ../sass/common.scss */
+/* line 108, ../sass/common.scss */
 #signupWrap .panel .activationComponents .resendVerificationBtn .resendVerification.active, #signupWrap .panel .activationComponents .resendVerificationBtn .resendVerification:active {
   background: #eeeeee;
   /* Old browsers */
@@ -1014,16 +1335,16 @@ body.signup #footer .inner .wrapper {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 );
   /* IE6-8 */
 }
-/* line 105, ../sass/signup.scss */
+/* line 104, ../sass/signup.scss */
 #signupWrap .field {
   margin-top: 5px;
 }
-/* line 107, ../sass/signup.scss */
+/* line 106, ../sass/signup.scss */
 #signupWrap .field .label {
   font-size: 12px;
   color: #29547a;
 }
-/* line 111, ../sass/signup.scss */
+/* line 110, ../sass/signup.scss */
 #signupWrap .field input {
   width: 250px;
   height: 35px;
@@ -1041,74 +1362,74 @@ body.signup #footer .inner .wrapper {
   line-height: 12px;
   padding: 5px 8px;
 }
-/* line 122, ../sass/signup.scss */
+/* line 121, ../sass/signup.scss */
 #signupWrap .field input::-webkit-input-placeholder {
   padding: 1px;
 }
-/* line 126, ../sass/signup.scss */
+/* line 125, ../sass/signup.scss */
 #signupWrap .field input:-moz-placeholder {
   /* Firefox 18- */
   padding: 1px;
 }
-/* line 130, ../sass/signup.scss */
+/* line 129, ../sass/signup.scss */
 #signupWrap .field input::-moz-placeholder {
   /* Firefox 19+ */
   padding: 1px;
 }
-/* line 134, ../sass/signup.scss */
+/* line 133, ../sass/signup.scss */
 #signupWrap .field input:-ms-input-placeholder {
   padding: 1px;
 }
-/* line 140, ../sass/signup.scss */
+/* line 139, ../sass/signup.scss */
 #signupWrap .page-foot {
   margin-top: 20px;
 }
-/* line 144, ../sass/signup.scss */
+/* line 143, ../sass/signup.scss */
 #signupWrap .method-wrap {
   margin-bottom: 30px;
 }
-/* line 146, ../sass/signup.scss */
+/* line 145, ../sass/signup.scss */
 #signupWrap .method-wrap .wrap {
   width: 49%;
   display: inline-block;
   vertical-align: middle;
   margin-top: 8px;
 }
-/* line 153, ../sass/signup.scss */
+/* line 152, ../sass/signup.scss */
 #signupWrap .method-wrap a:hover {
   text-decoration: none;
 }
-/* line 156, ../sass/signup.scss */
+/* line 155, ../sass/signup.scss */
 #signupWrap .method-wrap .txt {
   font-size: 12px;
   line-height: 12px;
   color: #888;
 }
-/* line 160, ../sass/signup.scss */
+/* line 159, ../sass/signup.scss */
 #signupWrap .method-wrap .txt span.loading {
   position: relative;
 }
-/* line 162, ../sass/signup.scss */
+/* line 161, ../sass/signup.scss */
 #signupWrap .method-wrap .txt span.loading:before {
   position: absolute;
   content: '';
   right: -25px;
   top: 2px;
 }
-/* line 171, ../sass/signup.scss */
+/* line 170, ../sass/signup.scss */
 #signupWrap .method-wrap .icon {
   cursor: pointer;
   margin-top: 7px;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 191, ../sass/signup.scss */
+/* line 190, ../sass/signup.scss */
 #signupWrap .hlineLabel {
   text-align: center;
   width: 100%;
   height: 14px;
 }
-/* line 195, ../sass/signup.scss */
+/* line 194, ../sass/signup.scss */
 #signupWrap .hlineLabel .hline {
   display: inline-block;
   vertical-align: middle;
@@ -1116,7 +1437,7 @@ body.signup #footer .inner .wrapper {
   border-top: solid 1px #cccccc;
   height: 1px;
 }
-/* line 202, ../sass/signup.scss */
+/* line 201, ../sass/signup.scss */
 #signupWrap .hlineLabel .txt {
   width: 22px;
   display: inline-block;
@@ -1125,11 +1446,11 @@ body.signup #footer .inner .wrapper {
   color: #aaaaaa;
 }
 
-/* line 214, ../sass/signup.scss */
+/* line 213, ../sass/signup.scss */
 #loginForm .password-wrap {
   position: relative;
 }
-/* line 216, ../sass/signup.scss */
+/* line 215, ../sass/signup.scss */
 #loginForm .password-wrap .forgetPassword {
   position: absolute;
   width: 20px;
@@ -1147,7 +1468,7 @@ body.signup #footer .inner .wrapper {
   top: 13px;
   cursor: pointer;
 }
-/* line 229, ../sass/signup.scss */
+/* line 228, ../sass/signup.scss */
 #loginForm .password-wrap .forgetPassword .forget-tip {
   opacity: 0;
   position: absolute;
@@ -1172,11 +1493,11 @@ body.signup #footer .inner .wrapper {
   -o-transition-delay: 0.5s, 0;
   transition-delay: 0.5s, 0;
 }
-/* line 238, ../sass/signup.scss */
+/* line 237, ../sass/signup.scss */
 #loginForm .password-wrap .forgetPassword .forget-tip:hover {
   text-decoration: underline;
 }
-/* line 250, ../sass/signup.scss */
+/* line 249, ../sass/signup.scss */
 #loginForm .password-wrap .forgetPassword:hover .forget-tip {
   height: 33px;
   opacity: 1;
@@ -1194,7 +1515,7 @@ body.signup #footer .inner .wrapper {
   transition-delay: 0;
 }
 
-/* line 264, ../sass/signup.scss */
+/* line 263, ../sass/signup.scss */
 #scLogo {
   display: inline-block;
   background: url(../images/sharecity.png) 0 0 no-repeat;
@@ -1202,67 +1523,106 @@ body.signup #footer .inner .wrapper {
   height: 51px;
 }
 
-/* line 271, ../sass/signup.scss */
+/* line 270, ../sass/signup.scss */
 .hello {
   margin: 0;
 }
 
-/* line 1, ../sass/lightbox.scss */
+/* line 3, ../sass/lightbox.scss */
+.lightboxWrap {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  height: 100%;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+/* line 13, ../sass/lightbox.scss */
 .lightbox {
   display: none;
-}
-/* line 3, ../sass/lightbox.scss */
-.lightbox .lightboxBg {
   z-index: 1001;
-  position: fixed;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  table-layout: fixed;
+}
+/* line 24, ../sass/lightbox.scss */
+.lightbox .lightboxBg {
+  display: table-cell;
+  table-layout: fixed;
+  vertical-align: middle;
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
-  top: 0px;
-  left: 0px;
+  text-align: center;
   overflow: auto;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
-  display: box;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-box-pack: center;
-  box-pack: center;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-box-align: center;
-  box-align: center;
 }
-/* line 15, ../sass/lightbox.scss */
+/* line 34, ../sass/lightbox.scss */
 .lightbox .lightboxBg .lightboxContent {
-  margin: 0 auto;
+  text-align: left;
+  display: inline-block;
+  margin: 15px auto;
+}
+/* line 39, ../sass/lightbox.scss */
+.lightbox .lightboxBg .lightboxContent:before {
+  content: '';
+  width: 100%;
+  height: 400px;
+}
+/* line 47, ../sass/lightbox.scss */
+.lightbox .lightboxBg.loading:before {
+  content: "";
+  /* style */
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
-/* line 22, ../sass/lightbox.scss */
+/* line 60, ../sass/lightbox.scss */
 .lightboxPadding {
   margin: 0 auto;
   padding: 8px;
   background: rgba(255, 255, 255, 0.5);
   width: 340px;
 }
-/* line 27, ../sass/lightbox.scss */
+/* line 65, ../sass/lightbox.scss */
 .lightboxPadding .lightboxHeader {
   overflow: hidden;
   background: #222222;
   height: 38px;
   width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
-/* line 32, ../sass/lightbox.scss */
+/* line 73, ../sass/lightbox.scss */
 .lightboxPadding .lightboxHeader .title {
   text-align: center;
   width: 100%;
   color: white;
   height: 38px;
-  line-height: 38px;
+  border-right: solid 38px transparent;
+  border-left: solid 38px transparent;
 }
-/* line 39, ../sass/lightbox.scss */
+/* line 80, ../sass/lightbox.scss */
+.lightboxPadding .lightboxHeader .title .txt {
+  width: 100%;
+  height: 100%;
+  line-height: 38px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+}
+/* line 88, ../sass/lightbox.scss */
 .lightboxPadding .lightboxHeader .closeBtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
   cursor: pointer;
   color: white;
   border-left: 1px solid #444444;
@@ -1271,42 +1631,246 @@ body.signup #footer .inner .wrapper {
   width: 38px;
   text-align: center;
 }
-/* line 40, ../sass/lightbox.scss */
+/* line 92, ../sass/lightbox.scss */
 .lightboxPadding .lightboxHeader .closeBtn:before {
   content: '';
   vertical-align: middle;
   display: inline-block;
   height: 100%;
 }
-/* line 46, ../sass/lightbox.scss */
+/* line 98, ../sass/lightbox.scss */
 .lightboxPadding .lightboxHeader .closeBtn:after {
   content: '';
   vertical-align: middle;
   display: inline-block;
 }
-/* line 61, ../sass/lightbox.scss */
+/* line 113, ../sass/lightbox.scss */
 .lightboxPadding .lightboxBorder {
   border: 1px solid #222222;
+  height: 100%;
+  position: relative;
 }
-/* line 64, ../sass/lightbox.scss */
+/* line 119, ../sass/lightbox.scss */
 .lightboxPadding .lightboxBody {
-  min-height: 150px;
+  background: #F4F4F4;
+  height: 100%;
+  border-top: 38px solid transparent;
+}
+
+/* line 128, ../sass/lightbox.scss */
+.contextMenu .contextMenuBg {
+  z-index: 901;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  overflow: auto;
+}
+/* line 138, ../sass/lightbox.scss */
+.contextMenu .contextMenuList {
+  z-index: 902;
   background: white;
+  border: solid 1px #cccccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px;
+  color: #222222;
+  font-size: 12px;
+  display: inline-block;
+  padding: 5px 0;
+  min-width: 148px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+/* line 152, ../sass/lightbox.scss */
+.contextMenu .contextMenuList .menuItem {
+  height: 26px;
+  line-height: 26px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 0px 10px;
+}
+/* line 158, ../sass/lightbox.scss */
+.contextMenu .contextMenuList .menuItem:last-child {
+  margin-bottom: 0px;
+}
+/* line 161, ../sass/lightbox.scss */
+.contextMenu .contextMenuList .menuItem:hover {
+  background: #eeeeee;
+}
+
+/* line 1, ../sass/detail.scss */
+#imageWrapper {
   text-align: center;
   position: relative;
 }
-/* line 66, ../sass/lightbox.scss */
-.lightboxPadding .lightboxBody.text:before {
-  content: '';
+
+/* line 6, ../sass/detail.scss */
+.detailView .magnify {
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+/* line 13, ../sass/detail.scss */
+.detailView .functions {
+  background: #3E3E3E;
+  text-align: center;
+  width: 100%;
+  height: 47px;
+  padding: 8px;
+}
+/* line 19, ../sass/detail.scss */
+.detailView .functions .share {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #c6c6c6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f8f8), color-stop(100%, #f1f1f1));
+  background: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background: linear-gradient(top, #f8f8f8, #f1f1f1);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 300;
+  padding: 9px 22px;
+  min-width: 53px;
+  text-align: center;
+  color: #666;
+  display: inline-block;
+  position: relative;
+  font-family: Myriad Pro;
+  font-size: 12px;
+  height: 30px;
+  width: 100px;
+  padding: 0px;
+  border-color: #222;
+}
+/* line 178, ../sass/common.scss */
+.detailView .functions .share:hover {
+  color: #333;
+}
+/* line 181, ../sass/common.scss */
+.detailView .functions .share.disabled {
+  opacity: 0.5;
+}
+/* line 183, ../sass/common.scss */
+.detailView .functions .share.disabled:active {
+  background: gray;
+}
+/* line 27, ../sass/detail.scss */
+.detailView .functions .shareTo, .detailView .functions .star, .detailView .functions .save {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #c6c6c6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f8f8), color-stop(100%, #f1f1f1));
+  background: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
+  background: linear-gradient(top, #f8f8f8, #f1f1f1);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 300;
+  padding: 9px 22px;
+  min-width: 53px;
+  text-align: center;
+  color: #666;
+  display: inline-block;
+  position: relative;
+  font-family: Myriad Pro;
+  font-size: 12px;
+  height: 30px;
+  width: 138px;
+  padding: 0px;
+  text-align: center;
+  line-height: 28px;
+}
+/* line 178, ../sass/common.scss */
+.detailView .functions .shareTo:hover, .detailView .functions .star:hover, .detailView .functions .save:hover {
+  color: #333;
+}
+/* line 181, ../sass/common.scss */
+.detailView .functions .shareTo.disabled, .detailView .functions .star.disabled, .detailView .functions .save.disabled {
+  opacity: 0.5;
+}
+/* line 183, ../sass/common.scss */
+.detailView .functions .shareTo.disabled:active, .detailView .functions .star.disabled:active, .detailView .functions .save.disabled:active {
+  background: gray;
+}
+/* line 35, ../sass/detail.scss */
+.detailView .functions .shareTo i, .detailView .functions .star i, .detailView .functions .save i {
   display: inline-block;
   vertical-align: middle;
+  margin: 0px 6px 4px 0px;
+}
+/* line 43, ../sass/detail.scss */
+.detailView .functions.detail .share {
+  display: none;
+}
+/* line 46, ../sass/detail.scss */
+.detailView .functions.attach .shareTo {
+  display: none;
+}
+/* line 47, ../sass/detail.scss */
+.detailView .functions.attach .star {
+  display: none;
+}
+/* line 50, ../sass/detail.scss */
+.detailView.hide {
+  display: none;
 }
 
-/* line 79, ../sass/lightbox.scss */
-.test {
-  width: 300px;
-  height: 500px;
-  background: red;
+/* line 54, ../sass/detail.scss */
+.generalDetail {
+  width: 100%;
+  height: 100%;
+}
+/* line 59, ../sass/detail.scss */
+.generalDetail .wrapper {
+  position: relative;
+  min-height: 300px;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+/* line 67, ../sass/detail.scss */
+.generalDetail .wrapper .detail {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 /* line 2, ../sass/index.scss */
@@ -1315,4 +1879,21 @@ body.signup #footer .inner .wrapper {
   max-width: 1140px;
   margin: 20px auto;
   overflow: hidden;
+}
+/* line 9, ../sass/index.scss */
+#mainView #consultantSec .item {
+  height: 80px;
+  padding: 10px;
+}
+/* line 15, ../sass/index.scss */
+#mainView .sec {
+  margin-top: 10px;
+  overflow: hidden;
+  padding-bottom: 10px;
+  border-bottom: 3px solid silver;
+}
+/* line 21, ../sass/index.scss */
+#mainView .sec .title {
+  font-size: 26px;
+  padding: 10px;
 }

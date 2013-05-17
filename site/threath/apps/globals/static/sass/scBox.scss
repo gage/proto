@@ -1,0 +1,39 @@
+.scBoxParent{
+	display: table;
+}
+.scBox{
+	display: table-cell;
+	position: relative;
+	vertical-align: top;
+	height:100%;
+	
+	.scBoxCell{
+		display: table-cell;
+		position: relative;
+		vertical-align: top;
+		//height:100%;
+	}
+	.scBoxInnerWrap{
+		position: relative;
+		height:100%;
+		width:100%;
+
+	}
+	.scBoxInner{
+		position: absolute;
+		top:0px;
+		left:0px;
+		width: 100%;
+		height: 100%;
+		&.scroll{
+			overflow-y:auto;
+		}
+	}
+}
+
+.scBoxRow{
+	display: table-row;
+	position: relative;
+	height: auto;
+	width:100%;
+}

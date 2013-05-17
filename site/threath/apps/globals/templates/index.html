@@ -1,38 +1,106 @@
-<div id="mainView" class="container">
+<div id="mainView" class="container" ng-controller="indexCtrls.main">
 	<div class="row">
+		<div class="mainBody eightcol">
+			{# mainBody contain #}
 
 
-	<div class="mainBody eightcol">
+			{# consultantSec is for specifying, sec is for style#}
+			<div id="consultantSec" class="sec" ng-controller="consultCtrls.list">
+				<div class="title">
+					Consultants
+				</div>
+				<div class="body">
+					<div class="list-wrap">
+						<ul>
+							<li class="item rflc" ng-repeat="consult in consultList.models">
+								{[consult.username]}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
-    <button ng-click="insertLightbox('/tpl/lightbox_test.html', true)">
-        lightbox demo
-    </button>
-	<div ng-controller="testCtrls.testUpload">
-	    <div class="editImg" ng-class="{loading:uploadingImg}" >
-	        <img class="groupImg" ng-src="{[groupImg]}" ng-show="groupImg!=''" />
-	        <span class="text-btn-3 editLabel fileinput-button">Upload Image<input class="id_file" type="file" size="1" name="file" accept="image/x-png, image/gif, image/jpeg, image/png"></sapn>
-	    </div>
-    </div>
+			<div class="sec" ng-controller="indexCtrls.testAutoGrowth">
+				<div class="title">
+					Test Textarea Autogrowth
+				</div>
+				<div class="body">
+					<textarea class="inputTextarea" autoresize-textarea ng-disabled="disableIt" ng-maxlength="500" maxlength="500" ui-keypress="{13: 'onEnterPressed($event)'}" sc-focus="onFocused"></textarea>
+				</div>
+			</div>
 
-    <div ng-controller="testCtrls.testRemote">
-	    <div class="" ng-repeat="photo in remotePhotos.models">
-	    	<img ng-src="{[photo.getUrl()]}" alt="" width="50" style="float: left;">
-	    </div>
-    </div>
+			<div class="sec" ng-controller="indexCtrls.testRemote" style="overflow: hidden;">
+				<div class="title">
+					Test Remote data
+				</div>
+				<div class="body">
+					<div ng-repeat="photo in remotePhotos.models">
+						<img ng-src="{[lightboxImg.getUrl()]}" alt="" width="50" style="float: left;" lightbox-img="photo" ng-click="showImgLightbox()">
+					</div>
+				</div>
+			</div>
 
+			<div class="sec">
+				<div class="title">
+					Test Broken Image
+				</div>
+				<div class="body">
+					<img src="/static/broken.jpeg" alt="" width="50" height="50">
+				</div>
+			</div>
+
+			<div class="sec">
+				<div class="title">Test Utils</div>
+				<div class="body">
+					<button open-window="{url: 'http://google.com', title:'Google', width:1024, height: 768}">Test Google Window</button>
+					<button ng-click="appendLightbox({source: '/tpl/lightbox/testFitWindow.html'})">Test Fit Window</button>
+
+					<button sc-context-menu="testMenuInit" context-menu-options="{
+					id: 'testContextMenu',
+					offsetX: 5,
+					offsetY: 5
+				}">Test Context Menu</button>
+			</div>
+		</div>
+
+		<div class="sec">
+			<div class="title">
+				Complete Widget. 20/20.
+			</div>
+			<div class="body" ng-controller="indexCtrls.photoWidget">
+				<div id="uploadFile" style="width: 0;height: 0; visibility: hidden; position: absolute;" sc-fileupload="{
+					add:onFileUploadAdd,
+					done:onFileUploadDone,
+					fail:onFileUploadFail,
+					progress:onFileUploadProgress,
+					formData:uploadOption}" accept="image/x-png, image/gif, image/jpeg, image/png, image/jpe" url="/api/photos/">
+				</div>
+				<ul>
+					<li drag-drop-upload="{makeRelative: true, uploadSelector: '#uploadFile .id_file'}"></li>
+					<li ng-repeat="photo in photos" ng-controller="indexCtrls.photoItem">
+						<img ng-src="{[photo.getUrl()]}" alt="" ng-show="photo.available">
+						<div class="progressBarSlim downloading" ng-hide="photo.available">
+							<div class="loadingBar">
+								<div class="innerProcess" style="width:{[uploadingPercent]}%"></div>
+							</div>
+						</div>	
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>{# End of .mainBody #}
+	<div class="sideBar fourcol last">
+		This is Side bar
 	</div>
 
-     <div class="sideBar fourcol last">
-     	This is Side bar
-     </div>
+</div>{# End of .row #}
+
+</div>{# End of #mainView #}
 
 
 
-     </div>
- </div>
-
- <script type="text/ng-template" id="attachCards.html">
- <div class="attachCardsBox">
- this is attachCard
- </div>
- </script>
+<script type="text/ng-template" id="attachCards.html">
+<div class="attachCardsBox">
+this is attachCard
+</div>
+</script>

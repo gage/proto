@@ -1,0 +1,75 @@
+#imageWrapper {
+    text-align: center;
+    position: relative;
+}
+.detailView {
+    .magnify {
+        right: 0;
+        position: absolute;
+        bottom: 0;
+        @extend .icons-magnify_icn;
+        cursor: pointer; 
+    }
+    .functions{
+        background: #3E3E3E;
+        text-align: center;
+        width: 100%;
+        height: 47px;
+        padding: 8px;
+        .share{
+            @include text-btn-3();
+            font-size: 12px;
+            height: 30px;
+            width: 100px;
+            padding: 0px;
+            border-color: #222;
+        }
+        .shareTo, .star, .save{
+            @include text-btn-3();
+            font-size: 12px;
+            height: 30px;
+            width: 138px;
+            padding: 0px;
+            text-align: center;
+            line-height: 28px;
+            i{
+                display:inline-block;
+                vertical-align: middle;
+                margin: 0px 6px 4px 0px;
+            }
+        }
+        
+        &.detail{
+            .share{display:none;}
+        }
+        &.attach{
+            .shareTo{display:none;}
+            .star{display:none;}
+        }
+    }
+    &.hide{
+        display:none;
+    }
+}
+.generalDetail{
+    // .display_box();
+    // .box_orient(block-axis);
+    width: 100%;
+    height: 100%;
+    .wrapper{
+        position: relative;
+        min-height: 300px;
+        text-align: center;
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+        
+        .detail{
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+}
