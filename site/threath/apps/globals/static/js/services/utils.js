@@ -1,4 +1,4 @@
-app.service('utils', [ function(){
+app.service('utils', ['$rootScope', '$q', '$http', function($rootScope, $q, $http){
     var utils = {};
     
 
@@ -84,6 +84,50 @@ app.service('utils', [ function(){
 
         $rootScope.appendLightbox(options);
         return options.deferred.promise;
+    }
+
+    utils.getQueryVariable = function(url, variable) {
+        var query = url.split('?')[1];
+        if (!query) {
+            return '';
+        }
+        var vars = query.split('&');
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split('=');
+            if (decodeURIComponent(pair[0]) == variable) {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+    };
+
+    utils.serialize = function(obj) {
+        var str = [];
+        for(var p in obj)
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        return str.join("&");
+    }
+
+    utils.openYoutubeLightbox = function(youtubeId, title, rawUrl, scope){
+        var newScope = $rootScope.$new();
+        if (!scope) {
+            scope = newScope;
+        }
+        
+        var $container = $('<div><div id="youtubeVideo"><div class="info-content"></div></div></div>');
+        var startTime = '';
+        // Parse start time
+        if (rawUrl) {
+            var startTimeValue = utils.getQueryVariable(rawUrl, 't');
+            if (startTimeValue) {
+                startTime = '#t='+startTimeValue;
+            }
+        }
+        var youtubeSrc = 'http://www.youtube.com/embed/'+youtubeId+'?rel=0&hd=1&vq=hd1080&autoplay=1'+startTime;
+        newScope.youtubeSrc = youtubeSrc;
+        $rootScope.appendLightbox({
+            source: '/tpl/lightbox/youtube.html',
+            level: scope.lightboxLevel + 1
+        }, newScope);
     }
 
 

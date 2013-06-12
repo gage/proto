@@ -2,6 +2,68 @@
 	<div class="row">
 		<div class="mainBody eightcol">
 			{# mainBody contain #}
+			<div class="sec">
+				<div class="title">
+					Google Search
+				</div>
+				<div class="body" ng-controller="indexCtrls.googleWidget as gCtrl">
+					<input type="text" placeholder="Search" maxlength="80" autocomplete="off" tabindex="1" ui-select2="select2Options" ng-model="selected" style="width: 100%;" event-listener="{name:'change', callback: gCtrl.selectCallback}" focus-scroll-to="{offset:-50, eventName: 'select2-focus'}">
+				</div>
+			</div>
+ 			<div class="sec">
+				<div class="title">
+					Google Image Search
+				</div>
+				<div class="body" ng-controller="indexCtrls.googleImageWidget as gCtrl">
+					<input ggl-suggest type="text" placeholder="Search" maxlength="80" autocomplete="off" tabindex="1" ng-model="query" style="width: 100%;" focus-scroll-to="{offset:-50, eventName: 'focus'}" ui-keypress="{13: 'gCtrl.search()'}" event-listener="[{name: 'autocompleteselect', callback: gCtrl.search}]">
+					<div id="googleImgContainer" ng-class="{coverLoadingMask: loading}">
+						<div class="imgWrap" ng-repeat="img in images" ng-animate="{enter: 'fade-animate-enter', leave: 'fade-animate-leave'}">
+							<a href="{[img.url]}" target="_blank">
+								<img ng-src="{[img.tbUrl]}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>           
+
+			<div class="sec">
+				<div class="title">
+					Youtube Search Plugin
+				</div>
+				<div class="body" ng-controller="indexCtrls.youtubeWidget as yCtrl">
+					<input type="text" placeholder="Search youtube" maxlength="80" autocomplete="off" tabindex="1" ui-select2="select2Options" ng-model="selected" style="width: 100%;" focus-scroll-to="{offset:-50, eventName: 'select2-focus'}" event-listener="{name:'change', callback: yCtrl.selectCallback}" >
+				</div>
+			</div>
+
+			<div class="sec" ng-controller="indexCtrls.testRemote" style="overflow: hidden;">
+				<div class="title">
+					Test Remote data
+				</div>
+				<div class="body">
+					<div ng-repeat="photo in remotePhotos.models" ng-animate="{enter: 'fade-animate-enter', leave: 'fade-animate-leave'}">
+						<img ng-src="{[lightboxImg.getUrl()]}" alt="" width="50" style="float: left;" lightbox-img="photo" ng-click="showImgLightbox()">
+					</div>
+				</div>
+			</div>
+			
+			<div class="sec">
+				<div class="title">
+					Tag input plugin. (Usage: Career tag. )
+				</div>
+				<div class="body" ng-controller="indexCtrls.tagWidget">
+					<div class="article">
+						v 1. key up to query server (try fake server, list, use html5 storage to fake one) <br>
+						v 2. up down to select item (flow panel) <br>
+						v 3. press add button to add tag <br>
+						v 4. enter to add tag <br>
+						5. submit to save <br>
+						6. edit button <br>
+					</div> 
+					
+					<input type="text" placeholder="The Career is about.." maxlength="80" autocomplete="off" tabindex="1" ui-select2="select2Options" ng-model="selected">
+				</div>
+			</div>
+
 
 
 			{# consultantSec is for specifying, sec is for style#}
@@ -25,18 +87,7 @@
 					Test Textarea Autogrowth
 				</div>
 				<div class="body">
-					<textarea class="inputTextarea" autoresize-textarea ng-disabled="disableIt" ng-maxlength="500" maxlength="500" ui-keypress="{13: 'onEnterPressed($event)'}" sc-focus="onFocused"></textarea>
-				</div>
-			</div>
-
-			<div class="sec" ng-controller="indexCtrls.testRemote" style="overflow: hidden;">
-				<div class="title">
-					Test Remote data
-				</div>
-				<div class="body">
-					<div ng-repeat="photo in remotePhotos.models">
-						<img ng-src="{[lightboxImg.getUrl()]}" alt="" width="50" style="float: left;" lightbox-img="photo" ng-click="showImgLightbox()">
-					</div>
+					<textarea class="inputTextarea" autoresize-textarea ng-disabled="disableIt" ng-maxlength="500" maxlength="500" ui-keypress="{13: 'onEnterPressed($event)'}" sc-focus="onFocused" focus-scroll-to="{offset:-50, eventName: 'focus'}" ></textarea>
 				</div>
 			</div>
 
@@ -62,6 +113,8 @@
 				}">Test Context Menu</button>
 			</div>
 		</div>
+
+		
 
 		<div class="sec">
 			<div class="title">

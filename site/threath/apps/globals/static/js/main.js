@@ -1,4 +1,4 @@
-var app = angular.module("sc", ['remoteData']);
+var app = angular.module("sc", ['remoteData', 'ui', 'ui.bootstrap', 'ui.select2']);
 
 app.config(function($routeProvider, $locationProvider, $interpolateProvider){
     $locationProvider.html5Mode(true);

@@ -513,49 +513,18 @@ mark {
   width: 10px;
 }
 
-/* line 22, ../sass/common.scss */
-html {
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  background: white;
-}
-
-/* line 30, ../sass/common.scss */
-body {
-  width: 100%;
-  height: 100%;
-  font-family: "Droid Sans", sans-serif;
-}
-
-/* line 37, ../sass/common.scss */
-body.loading {
-  opacity: 0;
-}
-
-/* line 41, ../sass/common.scss */
-body.signup #header {
-  display: none;
-}
-
-/* line 53, ../sass/common.scss */
+/* line 20, ../sass/element/style.scss */
 .error {
   color: #ce3030;
 }
 
-/* line 58, ../sass/common.scss */
-.ng-view {
-  height: 100%;
-  width: 100%;
-}
-
-/* line 190, ../sass/common.scss */
+/* line 26, ../sass/element/style.scss */
 .rflc {
   border: 1px solid #dddddd;
   border-top: 1px solid white;
 }
 
-/* line 195, ../sass/common.scss */
+/* line 99, ../sass/element/button.scss */
 .text-btn-3 {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -589,199 +558,56 @@ body.signup #header {
   font-family: Myriad Pro;
   padding: 5px 16px;
 }
-/* line 178, ../sass/common.scss */
+/* line 87, ../sass/element/button.scss */
 .text-btn-3:hover {
   color: #333;
 }
-/* line 181, ../sass/common.scss */
+/* line 90, ../sass/element/button.scss */
 .text-btn-3.disabled {
   opacity: 0.5;
 }
-/* line 183, ../sass/common.scss */
+/* line 92, ../sass/element/button.scss */
 .text-btn-3.disabled:active {
   background: gray;
 }
 
-/* line 200, ../sass/common.scss */
-#header {
-  height: 35px;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  -webkit-box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
-  -moz-box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
-  box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
-  background-color: #2d2d2d;
-  border-bottom: 1px solid black;
-  z-index: 100;
-}
-/* line 209, ../sass/common.scss */
-#header .inner {
-  margin: 0 auto;
-  padding: 0 11px;
-}
-/* line 213, ../sass/common.scss */
-#header .inner .left {
-  float: left;
-  padding-left: 10px;
-}
-/* line 216, ../sass/common.scss */
-#header .inner .left .logo {
-  margin-top: 8px;
-  display: inline-block;
-}
-/* line 222, ../sass/common.scss */
-#header .inner .right {
-  float: right;
-}
-/* line 224, ../sass/common.scss */
-#header .inner .right .navigation {
+/* line 105, ../sass/element/button.scss */
+.fileinput-button {
+  position: relative;
   overflow: hidden;
 }
-/* line 226, ../sass/common.scss */
-#header .inner .right .navigation .nav {
-  float: left;
-  color: #cccccc;
-  text-shadow: 0px -1px 0px black;
-  cursor: pointer;
-  font-size: 12px;
-  line-height: 13px;
-  padding: 0 20px;
-  border-left: solid 1px #666666;
-  height: 13px;
-  margin-top: 12px;
-  vertical-align: top;
-  position: relative;
-}
-/* line 239, ../sass/common.scss */
-#header .inner .right .navigation .nav .txt {
-  position: relative;
-}
-/* line 243, ../sass/common.scss */
-#header .inner .right .navigation .nav.menu .txt:before {
+/* line 108, ../sass/element/button.scss */
+.fileinput-button input {
   position: absolute;
-  content: '';
-  border-color: white transparent transparent transparent;
-  border-style: solid;
-  border-width: 5px 5px 0 5px;
-  display: block;
-  height: 0;
-  width: 0;
-  top: 4px;
-  right: -20px;
-}
-/* line 252, ../sass/common.scss */
-#header .inner .right .navigation .nav:first-child {
-  border-left: none;
-}
-/* line 255, ../sass/common.scss */
-#header .inner .right .navigation .nav:hover {
-  color: white;
-}
-
-/* line 263, ../sass/common.scss */
-#pageContent {
-  height: 100%;
-  width: 100%;
-  display: table;
-}
-
-/* line 269, ../sass/common.scss */
-#viewContent {
-  display: table-row;
-  position: relative;
-}
-/* line 273, ../sass/common.scss */
-#viewContent #viewContentInner {
-  display: table-cell;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* line 282, ../sass/common.scss */
-#footer {
-  width: 100%;
-  height: 34px;
-  display: table-row;
-  background-color: #2d2d2d;
-  border-bottom: 1px solid black;
-}
-/* line 287, ../sass/common.scss */
-#footer .inner {
-  display: table-cell;
-}
-/* line 290, ../sass/common.scss */
-#footer .inner .wrapper {
-  margin: 0 auto;
-  padding: 0 11px;
-}
-/* line 294, ../sass/common.scss */
-#footer .inner .wrapper .left {
-  float: left;
-}
-/* line 296, ../sass/common.scss */
-#footer .inner .wrapper .left .links {
-  overflow: hidden;
-}
-/* line 298, ../sass/common.scss */
-#footer .inner .wrapper .left .links a:link {
-  color: white;
-  text-decoration: none;
-}
-/* line 299, ../sass/common.scss */
-#footer .inner .wrapper .left .links a:visited {
-  color: white;
-  text-decoration: underline;
-}
-/* line 300, ../sass/common.scss */
-#footer .inner .wrapper .left .links a:hover {
-  color: white;
-  text-decoration: underline;
-}
-/* line 301, ../sass/common.scss */
-#footer .inner .wrapper .left .links a:active {
-  color: white;
-  text-decoration: none;
-}
-/* line 302, ../sass/common.scss */
-#footer .inner .wrapper .left .links .link {
-  float: left;
-  color: white;
-  line-height: 34px;
-  padding: 0px 8px;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: solid transparent;
+  border-width: 0 0 100px 200px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-transform: translate(-300px, 0) scale(4);
+  direction: ltr;
   cursor: pointer;
 }
-/* line 311, ../sass/common.scss */
-#footer .inner .wrapper .right {
-  float: right;
-  color: white;
-  line-height: 34px;
+
+/* line 1, ../sass/element/input.scss */
+input, textarea {
+  outline: 0;
+  border: 1px solid #999999;
+  border-bottom: 1px solid #888888;
+  font-size: 13px;
+  padding: 3px;
+  min-width: 220px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 321, ../sass/common.scss */
-.inputTextarea {
-  background: #f4f4f4;
-  display: block;
-  font-size: 12px;
-  width: 100%;
-  line-height: 16px;
-  height: 30px;
-  padding: 6px;
-  border: solid 1px #222222;
-  color: #222222;
-  resize: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px, rgba(0, 0, 0, 0.3) 0px 2px 5px inset;
-  -moz-box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px, rgba(0, 0, 0, 0.3) 0px 2px 5px inset;
-  box-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px, rgba(0, 0, 0, 0.3) 0px 2px 5px inset;
+/* line 11, ../sass/element/input.scss */
+textarea {
+  padding: 5px;
 }
 
-/* line 336, ../sass/common.scss */
+/* line 15, ../sass/element/input.scss */
 .searchInput {
   background: #a0bf5d;
   /* Old browsers */
@@ -807,7 +633,7 @@ body.signup #header {
   padding: 8px;
   position: relative;
 }
-/* line 342, ../sass/common.scss */
+/* line 21, ../sass/element/input.scss */
 .searchInput input {
   border: solid 1px #476300;
   -webkit-border-radius: 5px;
@@ -825,7 +651,7 @@ body.signup #header {
   padding-left: 23px;
   vertical-align: bottom;
 }
-/* line 353, ../sass/common.scss */
+/* line 32, ../sass/element/input.scss */
 .searchInput:before {
   content: '';
   position: absolute;
@@ -834,73 +660,79 @@ body.signup #header {
   left: 13px;
 }
 
-/* line 364, ../sass/common.scss */
-.fileinput-button {
-  position: relative;
-  overflow: hidden;
-}
-/* line 367, ../sass/common.scss */
-.fileinput-button input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  border: solid transparent;
-  border-width: 0 0 100px 200px;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -moz-transform: translate(-300px, 0) scale(4);
-  direction: ltr;
-  cursor: pointer;
-}
-
-/* line 383, ../sass/common.scss */
+/* line 1, ../sass/element/loading.scss */
 .orange_bar_loading {
   background: url("/static/images/orange_bar_loading.gif") no-repeat;
   width: 16px;
   height: 11px;
 }
 
-/* line 390, ../sass/common.scss */
+/* line 8, ../sass/element/loading.scss */
 .black_bar_loading, .lightbox .lightboxBg.loading:before {
   background: url("/static/images/black_bar_loading.gif") no-repeat;
   width: 16px;
   height: 11px;
 }
 
-/* line 396, ../sass/common.scss */
+/* line 14, ../sass/element/loading.scss */
 .green_bar_loading, #signupWrap .panel .sending-wrap:before, #signupWrap .method-wrap .txt span.loading:before {
   background: url("/static/images/green_bar_loading.gif") no-repeat;
   width: 16px;
   height: 11px;
 }
 
-/* line 402, ../sass/common.scss */
+/* line 20, ../sass/element/loading.scss */
 .green_circle_loading {
   background: url("/static/images/green_circle_loading.gif") no-repeat;
   width: 32px;
   height: 32px;
 }
 
-/* line 408, ../sass/common.scss */
+/* line 26, ../sass/element/loading.scss */
 .black_circle_loading, .isLoading:before, .coverLoadingMask:after {
   background: url("/static/images/black_circle_loading.gif") no-repeat center;
   width: 32px;
   height: 32px;
 }
 
-/* line 414, ../sass/common.scss */
+/* line 32, ../sass/element/loading.scss */
 .isLoading {
   text-align: center;
   padding-top: 50%;
 }
-/* line 417, ../sass/common.scss */
+/* line 35, ../sass/element/loading.scss */
 .isLoading:before {
   content: '';
   display: inline-block;
 }
 
-/* line 424, ../sass/common.scss */
+/* line 44, ../sass/element/loading.scss */
+.coverLoadingMask {
+  position: relative;
+}
+/* line 46, ../sass/element/loading.scss */
+.coverLoadingMask:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  display: block;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+}
+/* line 57, ../sass/element/loading.scss */
+.coverLoadingMask:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  content: '';
+  display: block;
+  z-index: 20;
+}
+
+/* line 1, ../sass/element/widget.scss */
 .id_file {
   position: absolute;
   top: 0px;
@@ -911,7 +743,7 @@ body.signup #header {
   cursor: pointer;
 }
 
-/* line 434, ../sass/common.scss */
+/* line 11, ../sass/element/widget.scss */
 .dragCover {
   position: absolute;
   width: 100%;
@@ -922,7 +754,7 @@ body.signup #header {
   text-align: center;
   z-index: 3;
 }
-/* line 442, ../sass/common.scss */
+/* line 19, ../sass/element/widget.scss */
 .dragCover:before {
   display: inline-block;
   vertical-align: middle;
@@ -930,7 +762,7 @@ body.signup #header {
   color: #fff;
   font-size: 18px;
 }
-/* line 449, ../sass/common.scss */
+/* line 26, ../sass/element/widget.scss */
 .dragCover:after {
   display: inline-block;
   vertical-align: middle;
@@ -938,7 +770,7 @@ body.signup #header {
   content: '';
 }
 
-/* line 458, ../sass/common.scss */
+/* line 35, ../sass/element/widget.scss */
 .progressBarSlim {
   -webkit-box-shadow: #dddddd 0px -1px 2px;
   -moz-box-shadow: #dddddd 0px -1px 2px;
@@ -946,7 +778,7 @@ body.signup #header {
   width: 100%;
   display: none;
 }
-/* line 462, ../sass/common.scss */
+/* line 39, ../sass/element/widget.scss */
 .progressBarSlim .msgTxt {
   opacity: 0;
   position: absolute;
@@ -961,18 +793,18 @@ body.signup #header {
   -o-transition-duration: 1s;
   transition-duration: 1s;
 }
-/* line 470, ../sass/common.scss */
+/* line 47, ../sass/element/widget.scss */
 .progressBarSlim.downloading {
   display: block;
 }
-/* line 473, ../sass/common.scss */
+/* line 50, ../sass/element/widget.scss */
 .progressBarSlim.completing {
   display: block;
   -webkit-box-shadow: #dddddd 0px 0px 0px;
   -moz-box-shadow: #dddddd 0px 0px 0px;
   box-shadow: #dddddd 0px 0px 0px;
 }
-/* line 476, ../sass/common.scss */
+/* line 53, ../sass/element/widget.scss */
 .progressBarSlim.completing .loadingBar {
   opacity: 0;
   -webkit-transition-property: opacity;
@@ -984,7 +816,7 @@ body.signup #header {
   -o-transition-duration: 1s;
   transition-duration: 1s;
 }
-/* line 481, ../sass/common.scss */
+/* line 58, ../sass/element/widget.scss */
 .progressBarSlim.completing .msgTxt {
   opacity: 1;
   -webkit-transition-property: opacity;
@@ -996,7 +828,7 @@ body.signup #header {
   -o-transition-duration: 1s;
   transition-duration: 1s;
 }
-/* line 487, ../sass/common.scss */
+/* line 64, ../sass/element/widget.scss */
 .progressBarSlim .loadingBar {
   width: 100%;
   height: 9px;
@@ -1011,7 +843,7 @@ body.signup #header {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 10px inset;
   padding: 1px;
 }
-/* line 494, ../sass/common.scss */
+/* line 71, ../sass/element/widget.scss */
 .progressBarSlim .loadingBar .innerProcess {
   height: 7px;
   width: 0%;
@@ -1026,24 +858,24 @@ body.signup #header {
   background: #9fbe5d;
   /* Old browsers */
   @-webkit-keyframes pb {
-    /* line 501, ../sass/common.scss */
+    /* line 78, ../sass/element/widget.scss */
     0% {
       background-position: 0 0;
     }
 
-    /* line 501, ../sass/common.scss */
+    /* line 78, ../sass/element/widget.scss */
     100% {
       background-position: -16px 0;
     }
 }
 
   @-moz-keyframes pb {
-    /* line 502, ../sass/common.scss */
+    /* line 79, ../sass/element/widget.scss */
     0% {
       background-position: 0 0;
     }
 
-    /* line 502, ../sass/common.scss */
+    /* line 79, ../sass/element/widget.scss */
     100% {
       background-position: -16px 0;
     }
@@ -1062,7 +894,7 @@ body.signup #header {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 512, ../sass/common.scss */
+/* line 89, ../sass/element/widget.scss */
 .progressBarSlim .loadingBar.full .innerProcess {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1071,35 +903,1358 @@ body.signup #header {
   border-radius: 10px;
 }
 
-/* line 522, ../sass/common.scss */
-.coverLoadingMask {
-  position: relative;
+/* line 4, ../sass/element/testing.scss */
+.select2-drop.searchDrop .select2-results {
+  max-height: 500px;
 }
-/* line 524, ../sass/common.scss */
-.coverLoadingMask:before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  content: '';
-  display: block;
-  background: rgba(0, 0, 0, 0.15);
-  z-index: 10;
-  top: 0px;
-  left: 0px;
+/* line 7, ../sass/element/testing.scss */
+.select2-drop.searchDrop li {
+  padding: 10px;
+  border-top: 1px solid silver;
 }
-/* line 535, ../sass/common.scss */
-.coverLoadingMask:after {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  content: '';
-  display: block;
-  z-index: 20;
+/* line 10, ../sass/element/testing.scss */
+.select2-drop.searchDrop li:hover, .select2-drop.searchDrop li.select2-highlighted {
+  background: #f1f1f1;
+  color: gray;
 }
 
-/* line 546, ../sass/common.scss */
+/* line 17, ../sass/element/testing.scss */
+.youtubeWrap {
+  overflow: hidden;
+}
+/* line 19, ../sass/element/testing.scss */
+.youtubeWrap .title {
+  font-size: 14px;
+}
+/* line 22, ../sass/element/testing.scss */
+.youtubeWrap img {
+  float: left;
+  width: 200px;
+  margin-right: 5px;
+}
+
+/* line 30, ../sass/element/testing.scss */
+#youtubeVideo .info-content {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+/* line 35, ../sass/element/testing.scss */
+#youtubeVideo .info-content iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 49, ../sass/element/testing.scss */
+#googleImgContainer {
+  min-height: 300px;
+}
+/* line 51, ../sass/element/testing.scss */
+#googleImgContainer .imgWrap {
+  width: 25%;
+  display: inline-block;
+}
+
+/* Component containers
+----------------------------------*/
+/* line 60, ../sass/element/testing.scss */
+.ui-widget {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1.1em;
+}
+
+/* line 64, ../sass/element/testing.scss */
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+
+/* line 70, ../sass/element/testing.scss */
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1em;
+}
+
+/* line 74, ../sass/element/testing.scss */
+.ui-widget-content {
+  border: 1px solid #aaaaaa;
+  background: #ffffff;
+  color: #222222;
+}
+
+/* line 79, ../sass/element/testing.scss */
+.ui-widget-content a {
+  color: #222222;
+}
+
+/* line 82, ../sass/element/testing.scss */
+.ui-widget-header {
+  border: 1px solid #aaaaaa;
+  background: #cccccc;
+  color: #222222;
+  font-weight: bold;
+}
+
+/* line 88, ../sass/element/testing.scss */
+.ui-widget-header a {
+  color: #222222;
+}
+
+/* line 93, ../sass/element/testing.scss */
+.ui-menu .ui-menu-item a.ui-state-focus,
+.ui-menu .ui-menu-item a.ui-state-active {
+  background: #f1f1f1;
+  color: gray;
+}
+
+/* line 3, ../sass/element/animate.scss */
+.fade-animate-enter {
+  -webkit-transition: 1s linear all;
+  /* Chrome */
+  transition: 1s linear all;
+  opacity: 0;
+}
+
+/* line 9, ../sass/element/animate.scss */
+.fade-animate-enter.fade-animate-enter-active {
+  opacity: 1;
+}
+
+/* line 16, ../sass/element/animate.scss */
+.move-animate-enter,
+.move-animate-leave {
+  -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -moz-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -ms-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -o-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  position: relative;
+  display: block;
+}
+
+/* line 27, ../sass/element/animate.scss */
+.move-animate-enter.move-animate-enter-active,
+.move-animate-leave {
+  opacity: 1;
+  top: 0;
+  height: 30px;
+}
+
+/* line 34, ../sass/element/animate.scss */
+.move-animate-leave.move-animate-leave-active,
+.move-animate-enter {
+  opacity: 0;
+  top: -50px;
+  height: 0px;
+}
+
+/* line 43, ../sass/element/animate.scss */
+.appear-animate-enter,
+.appear-animate-leave {
+  -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -moz-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -ms-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  -o-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+/* line 57, ../sass/element/animate.scss */
+.appear-animate-leave.appear-animate-leave-active,
+.appear-animate-enter {
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+/* line 64, ../sass/element/animate.scss */
+.appear-animate-enter.appear-animate-enter-active,
+.appear-animate-leave {
+  opacity: 1;
+  width: 150px;
+  height: 30px;
+}
+
+/* line 1, ../sass/thirdParty/angularUI.scss */
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  padding: 5px;
+  border: 1px solid silver;
+  margin-top: 2px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 8, ../sass/thirdParty/angularUI.scss */
+.dropdown-menu li {
+  padding: 3px;
+}
+/* line 10, ../sass/thirdParty/angularUI.scss */
+.dropdown-menu li.active {
+  background: #007FBF;
+  color: white;
+  padding: 3px;
+}
+
+/*
+Version: @@ver@@ Timestamp: @@timestamp@@
+*/
+/* line 4, ../sass/thirdParty/select2.scss */
+.select2-container {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  /* inline-block for ie7 */
+  zoom: 1;
+  *display: inline;
+  vertical-align: middle;
+}
+
+/* line 17, ../sass/thirdParty/select2.scss */
+.select2-container,
+.select2-drop,
+.select2-search,
+.select2-search input {
+  /*
+    Force border-box so that % widths fit the parent
+    container without overlap because of margin/padding.
+
+    More Info : http://www.quirksmode.org/css/box.html
+  */
+  -webkit-box-sizing: border-box;
+  /* webkit */
+  -khtml-box-sizing: border-box;
+  /* konqueror */
+  -moz-box-sizing: border-box;
+  /* firefox */
+  -ms-box-sizing: border-box;
+  /* ie */
+  box-sizing: border-box;
+  /* css3 */
+}
+
+/* line 31, ../sass/thirdParty/select2.scss */
+.select2-container .select2-choice {
+  display: block;
+  height: 26px;
+  padding: 0 0 0 8px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #aaaaaa;
+  white-space: nowrap;
+  line-height: 26px;
+  color: #444;
+  text-decoration: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.5, white));
+  background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 50%);
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, white 50%);
+  background-image: -o-linear-gradient(bottom, #eeeeee 0%, white 50%);
+  background-image: -ms-linear-gradient(top, white 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
+  background-image: linear-gradient(top, #ffffff 0%, #eeeeee 50%);
+}
+
+/* line 69, ../sass/thirdParty/select2.scss */
+.select2-container.select2-drop-above .select2-choice {
+  border-bottom-color: #aaa;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.9, white));
+  background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, white 90%);
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, white 90%);
+  background-image: -o-linear-gradient(bottom, #eeeeee 0%, white 90%);
+  background-image: -ms-linear-gradient(top, #eeeeee 0%, white 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );
+  background-image: linear-gradient(top, #eeeeee 0%, #ffffff 90%);
+}
+
+/* line 85, ../sass/thirdParty/select2.scss */
+.select2-container.select2-allowclear .select2-choice span {
+  margin-right: 42px;
+}
+
+/* line 89, ../sass/thirdParty/select2.scss */
+.select2-container .select2-choice span {
+  margin-right: 26px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+/* line 101, ../sass/thirdParty/select2.scss */
+.select2-container .select2-choice abbr {
+  display: none;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 24px;
+  top: 8px;
+  font-size: 1px;
+  text-decoration: none;
+  border: 0;
+  background: url("select2.png") right top no-repeat;
+  cursor: pointer;
+  outline: 0;
+}
+
+/* line 118, ../sass/thirdParty/select2.scss */
+.select2-container.select2-allowclear .select2-choice abbr {
+  display: inline-block;
+}
+
+/* line 122, ../sass/thirdParty/select2.scss */
+.select2-container .select2-choice abbr:hover {
+  background-position: right -11px;
+  cursor: pointer;
+}
+
+/* line 127, ../sass/thirdParty/select2.scss */
+.select2-drop-undermask {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+  background-color: transparent;
+  filter: alpha(opacity=0);
+}
+
+/* line 139, ../sass/thirdParty/select2.scss */
+.select2-drop-mask {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+}
+
+/* line 149, ../sass/thirdParty/select2.scss */
+.select2-drop {
+  width: 100%;
+  margin-top: -1px;
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  background: #fff;
+  color: #000;
+  border: 1px solid #aaaaaa;
+  border-top: 0;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* line 170, ../sass/thirdParty/select2.scss */
+.select2-drop-auto-width {
+  border-top: 1px solid #aaaaaa;
+  width: auto;
+}
+
+/* line 175, ../sass/thirdParty/select2.scss */
+.select2-drop-auto-width .select2-search {
+  padding-top: 4px;
+}
+
+/* line 179, ../sass/thirdParty/select2.scss */
+.select2-drop.select2-drop-above {
+  margin-top: 1px;
+  border-top: 1px solid #aaaaaa;
+  border-bottom: 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* line 193, ../sass/thirdParty/select2.scss */
+.select2-container .select2-choice div {
+  display: inline-block;
+  width: 18px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 1px solid #aaaaaa;
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  background: #ccc;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.6, #eeeeee));
+  background-image: -webkit-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
+  background-image: -moz-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
+  background-image: -o-linear-gradient(bottom, #cccccc 0%, #eeeeee 60%);
+  background-image: -ms-linear-gradient(top, #cccccc 0%, #eeeeee 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#eeeeee', endColorstr = '#cccccc', GradientType = 0);
+  background-image: linear-gradient(top, #cccccc 0%, #eeeeee 60%);
+}
+
+/* line 220, ../sass/thirdParty/select2.scss */
+.select2-container .select2-choice div b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("select2.png") no-repeat 0 1px;
+}
+
+/* line 227, ../sass/thirdParty/select2.scss */
+.select2-search {
+  display: inline-block;
+  width: 100%;
+  min-height: 26px;
+  margin: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  position: relative;
+  z-index: 10000;
+  white-space: nowrap;
+}
+
+/* line 241, ../sass/thirdParty/select2.scss */
+.select2-search input {
+  width: 100%;
+  height: auto !important;
+  min-height: 26px;
+  padding: 4px 20px 4px 5px;
+  margin: 0;
+  outline: 0;
+  font-family: sans-serif;
+  font-size: 1em;
+  border: 1px solid #aaaaaa;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: white url("select2.png") no-repeat 100% -22px;
+  background: url("select2.png") no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url("select2.png") no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("select2.png") no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("select2.png") no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+  background: url("select2.png") no-repeat 100% -22px, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
+  background: url("select2.png") no-repeat 100% -22px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+}
+
+/* line 270, ../sass/thirdParty/select2.scss */
+.select2-drop.select2-drop-above .select2-search input {
+  margin-top: 4px;
+}
+
+/* line 274, ../sass/thirdParty/select2.scss */
+.select2-search input.select2-active {
+  background: white url("select2-spinner.gif") no-repeat 100%;
+  background: url("select2-spinner.gif") no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+  background: url("select2-spinner.gif") no-repeat 100%, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("select2-spinner.gif") no-repeat 100%, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+  background: url("select2-spinner.gif") no-repeat 100%, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+  background: url("select2-spinner.gif") no-repeat 100%, -ms-linear-gradient(top, white 85%, #eeeeee 99%);
+  background: url("select2-spinner.gif") no-repeat 100%, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+}
+
+/* line 285, ../sass/thirdParty/select2.scss */
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices {
+  border: 1px solid #5897fb;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 294, ../sass/thirdParty/select2.scss */
+.select2-dropdown-open .select2-choice {
+  border-bottom-color: transparent;
+  -webkit-box-shadow: 0 1px 0 white inset;
+  -moz-box-shadow: 0 1px 0 white inset;
+  box-shadow: 0 1px 0 white inset;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  border-bottom-right-radius: 0;
+  background-color: #eee;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, white), color-stop(0.5, #eeeeee));
+  background-image: -webkit-linear-gradient(center bottom, white 0%, #eeeeee 50%);
+  background-image: -moz-linear-gradient(center bottom, white 0%, #eeeeee 50%);
+  background-image: -o-linear-gradient(bottom, white 0%, #eeeeee 50%);
+  background-image: -ms-linear-gradient(top, white 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 );
+  background-image: linear-gradient(top, #ffffff 0%, #eeeeee 50%);
+}
+
+/* line 319, ../sass/thirdParty/select2.scss */
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices {
+  border: 1px solid #5897fb;
+  border-top-color: transparent;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.5, #eeeeee));
+  background-image: -webkit-linear-gradient(center top, white 0%, #eeeeee 50%);
+  background-image: -moz-linear-gradient(center top, white 0%, #eeeeee 50%);
+  background-image: -o-linear-gradient(top, white 0%, #eeeeee 50%);
+  background-image: -ms-linear-gradient(bottom, white 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 );
+  background-image: linear-gradient(bottom, #ffffff 0%, #eeeeee 50%);
+}
+
+/* line 332, ../sass/thirdParty/select2.scss */
+.select2-dropdown-open .select2-choice div {
+  background: transparent;
+  border-left: none;
+  filter: none;
+}
+
+/* line 337, ../sass/thirdParty/select2.scss */
+.select2-dropdown-open .select2-choice div b {
+  background-position: -18px 1px;
+}
+
+/* results */
+/* line 342, ../sass/thirdParty/select2.scss */
+.select2-results {
+  max-height: 200px;
+  padding: 0 0 0 4px;
+  margin: 4px 4px 4px 0;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 352, ../sass/thirdParty/select2.scss */
+.select2-results ul.select2-result-sub {
+  margin: 0;
+  padding-left: 0;
+}
+
+/* line 357, ../sass/thirdParty/select2.scss */
+.select2-results ul.select2-result-sub > li .select2-result-label {
+  padding-left: 20px;
+}
+
+/* line 358, ../sass/thirdParty/select2.scss */
+.select2-results ul.select2-result-sub ul.select2-result-sub > li .select2-result-label {
+  padding-left: 40px;
+}
+
+/* line 359, ../sass/thirdParty/select2.scss */
+.select2-results ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub > li .select2-result-label {
+  padding-left: 60px;
+}
+
+/* line 360, ../sass/thirdParty/select2.scss */
+.select2-results ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub > li .select2-result-label {
+  padding-left: 80px;
+}
+
+/* line 361, ../sass/thirdParty/select2.scss */
+.select2-results ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub > li .select2-result-label {
+  padding-left: 100px;
+}
+
+/* line 362, ../sass/thirdParty/select2.scss */
+.select2-results ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub > li .select2-result-label {
+  padding-left: 110px;
+}
+
+/* line 363, ../sass/thirdParty/select2.scss */
+.select2-results ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub ul.select2-result-sub > li .select2-result-label {
+  padding-left: 120px;
+}
+
+/* line 365, ../sass/thirdParty/select2.scss */
+.select2-results li {
+  list-style: none;
+  display: list-item;
+  background-image: none;
+}
+
+/* line 371, ../sass/thirdParty/select2.scss */
+.select2-results li.select2-result-with-children > .select2-result-label {
+  font-weight: bold;
+}
+
+/* line 375, ../sass/thirdParty/select2.scss */
+.select2-results .select2-result-label {
+  padding: 3px 7px 4px;
+  margin: 0;
+  cursor: pointer;
+  min-height: 1em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 390, ../sass/thirdParty/select2.scss */
+.select2-results .select2-highlighted {
+  background: #3875d7;
+  color: #fff;
+}
+
+/* line 395, ../sass/thirdParty/select2.scss */
+.select2-results li em {
+  background: #feffde;
+  font-style: normal;
+}
+
+/* line 400, ../sass/thirdParty/select2.scss */
+.select2-results .select2-highlighted em {
+  background: transparent;
+}
+
+/* line 404, ../sass/thirdParty/select2.scss */
+.select2-results .select2-highlighted ul {
+  background: white;
+  color: #000;
+}
+
+/* line 412, ../sass/thirdParty/select2.scss */
+.select2-results .select2-no-results,
+.select2-results .select2-searching,
+.select2-results .select2-selection-limit {
+  background: #f4f4f4;
+  display: list-item;
+}
+
+/*
+disabled look for disabled choices in the results dropdown
+*/
+/* line 420, ../sass/thirdParty/select2.scss */
+.select2-results .select2-disabled.select2-highlighted {
+  color: #666;
+  background: #f4f4f4;
+  display: list-item;
+  cursor: default;
+}
+
+/* line 426, ../sass/thirdParty/select2.scss */
+.select2-results .select2-disabled {
+  background: #f4f4f4;
+  display: list-item;
+  cursor: default;
+}
+
+/* line 432, ../sass/thirdParty/select2.scss */
+.select2-results .select2-selected {
+  display: none;
+}
+
+/* line 436, ../sass/thirdParty/select2.scss */
+.select2-more-results.select2-active {
+  background: #f4f4f4 url("select2-spinner.gif") no-repeat 100%;
+}
+
+/* line 440, ../sass/thirdParty/select2.scss */
+.select2-more-results {
+  background: #f4f4f4;
+  display: list-item;
+}
+
+/* disabled styles */
+/* line 447, ../sass/thirdParty/select2.scss */
+.select2-container.select2-container-disabled .select2-choice {
+  background-color: #f4f4f4;
+  background-image: none;
+  border: 1px solid #dddddd;
+  cursor: default;
+}
+
+/* line 454, ../sass/thirdParty/select2.scss */
+.select2-container.select2-container-disabled .select2-choice div {
+  background-color: #f4f4f4;
+  background-image: none;
+  border-left: 0;
+}
+
+/* line 460, ../sass/thirdParty/select2.scss */
+.select2-container.select2-container-disabled .select2-choice abbr {
+  display: none;
+}
+
+/* multiselect */
+/* line 467, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices {
+  height: auto !important;
+  height: 1%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border: 1px solid #aaaaaa;
+  cursor: text;
+  overflow: hidden;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eeeeee), color-stop(15%, white));
+  background-image: -webkit-linear-gradient(top, #eeeeee 1%, white 15%);
+  background-image: -moz-linear-gradient(top, #eeeeee 1%, white 15%);
+  background-image: -o-linear-gradient(top, #eeeeee 1%, white 15%);
+  background-image: -ms-linear-gradient(top, #eeeeee 1%, white 15%);
+  background-image: linear-gradient(top, #eeeeee 1%, #ffffff 15%);
+}
+
+/* line 487, ../sass/thirdParty/select2.scss */
+.select2-locked {
+  padding: 3px 5px 3px 5px !important;
+}
+
+/* line 491, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices {
+  min-height: 26px;
+}
+
+/* line 495, ../sass/thirdParty/select2.scss */
+.select2-container-multi.select2-container-active .select2-choices {
+  border: 1px solid #5897fb;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* line 503, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices li {
+  float: left;
+  list-style: none;
+}
+
+/* line 507, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* line 513, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field input {
+  padding: 5px;
+  margin: 1px 0;
+  font-family: sans-serif;
+  font-size: 100%;
+  color: #666;
+  outline: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: transparent !important;
+}
+
+/* line 528, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices .select2-search-field input.select2-active {
+  background: white url("select2-spinner.gif") no-repeat 100% !important;
+}
+
+/* line 532, ../sass/thirdParty/select2.scss */
+.select2-default {
+  color: #999999 !important;
+}
+
+/* line 536, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice {
+  padding: 3px 5px 3px 18px;
+  margin: 3px 0 3px 5px;
+  position: relative;
+  line-height: 13px;
+  color: #333;
+  cursor: default;
+  border: 1px solid #aaaaaa;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #e4e4e4;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f4f4f4', GradientType=0 );
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -ms-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+}
+
+/* line 574, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice span {
+  cursor: default;
+}
+
+/* line 577, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice-focus {
+  background: #d4d4d4;
+}
+
+/* line 581, ../sass/thirdParty/select2.scss */
+.select2-search-choice-close {
+  display: block;
+  width: 12px;
+  height: 13px;
+  position: absolute;
+  right: 3px;
+  top: 4px;
+  font-size: 1px;
+  outline: none;
+  background: url("select2.png") right top no-repeat;
+}
+
+/* line 594, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-search-choice-close {
+  left: 3px;
+}
+
+/* line 598, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close:hover {
+  background-position: right -11px;
+}
+
+/* line 601, ../sass/thirdParty/select2.scss */
+.select2-container-multi .select2-choices .select2-search-choice-focus .select2-search-choice-close {
+  background-position: right -11px;
+}
+
+/* disabled styles */
+/* line 606, ../sass/thirdParty/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices {
+  background-color: #f4f4f4;
+  background-image: none;
+  border: 1px solid #dddddd;
+  cursor: default;
+}
+
+/* line 613, ../sass/thirdParty/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice {
+  padding: 3px 5px 3px 5px;
+  border: 1px solid #dddddd;
+  background-image: none;
+  background-color: #f4f4f4;
+}
+
+/* line 620, ../sass/thirdParty/select2.scss */
+.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice .select2-search-choice-close {
+  display: none;
+  background: none;
+}
+
+/* end multiselect */
+/* line 627, ../sass/thirdParty/select2.scss */
+.select2-result-selectable .select2-match,
+.select2-result-unselectable .select2-match {
+  text-decoration: underline;
+}
+
+/* line 631, ../sass/thirdParty/select2.scss */
+.select2-offscreen, .select2-offscreen:focus {
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  outline: 0;
+  left: 0px;
+}
+
+/* line 644, ../sass/thirdParty/select2.scss */
+.select2-display-none {
+  display: none;
+}
+
+/* line 648, ../sass/thirdParty/select2.scss */
+.select2-measure-scrollbar {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+}
+
+/* Retina-ize icons */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi) {
+  /* line 659, ../sass/thirdParty/select2.scss */
+  .select2-search input, .select2-search-choice-close, .select2-container .select2-choice abbr, .select2-container .select2-choice div b {
+    background-image: url("select2x2.png") !important;
+    background-repeat: no-repeat !important;
+    background-size: 60px 40px !important;
+  }
+
+  /* line 664, ../sass/thirdParty/select2.scss */
+  .select2-search input {
+    background-position: 100% -21px !important;
+  }
+}
+/*
+ * jQuery UI CSS Framework @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright 2013 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ */
+/* Layout helpers
+----------------------------------*/
+/* line 14, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-helper-hidden {
+  display: none;
+}
+
+/* line 17, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* line 27, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-helper-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  line-height: 1.3;
+  text-decoration: none;
+  font-size: 100%;
+  list-style: none;
+}
+
+/* line 38, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+  content: "";
+  display: table;
+  border-collapse: collapse;
+}
+
+/* line 43, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-helper-clearfix:after {
+  clear: both;
+}
+
+/* line 46, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-helper-clearfix {
+  min-height: 0;
+  /* support: IE7 */
+}
+
+/* line 49, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-helper-zfix {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0;
+  filter: Alpha(Opacity=0);
+}
+
+/* line 59, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-front {
+  z-index: 100;
+}
+
+/* Interaction Cues
+----------------------------------*/
+/* line 66, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-state-disabled {
+  cursor: default !important;
+}
+
+/* Icons
+----------------------------------*/
+/* states and images */
+/* line 75, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+/* Misc visuals
+----------------------------------*/
+/* Overlays */
+/* line 87, ../sass/thirdParty/jquery.ui.core.scss */
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * jQuery UI Autocomplete @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright 2013 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/autocomplete/#theming
+ */
+/* line 11, ../sass/thirdParty/jquery.ui.autocomplete.scss */
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+}
+
+/*
+ * jQuery UI Menu @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright 2013 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/menu/#theming
+ */
+/* line 11, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu {
+  list-style: none;
+  padding: 2px;
+  margin: 0;
+  display: block;
+  outline: none;
+}
+
+/* line 18, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-menu {
+  margin-top: -3px;
+  position: absolute;
+}
+
+/* line 22, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-menu-item {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* support: IE10, see #8844 */
+  list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+
+/* line 29, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-menu-divider {
+  margin: 5px -2px 5px -2px;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 1px 0 0 0;
+}
+
+/* line 36, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-menu-item a {
+  text-decoration: none;
+  display: block;
+  padding: 2px 0.4em;
+  line-height: 1.5;
+  min-height: 0;
+  /* support: IE7 */
+  font-weight: normal;
+}
+
+/* line 45, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-menu-item a.ui-state-focus,
+.ui-menu .ui-menu-item a.ui-state-active {
+  font-weight: normal;
+  margin: -1px;
+}
+
+/* line 50, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-state-disabled {
+  font-weight: normal;
+  margin: 0.4em 0 0.2em;
+  line-height: 1.5;
+}
+
+/* line 55, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-state-disabled a {
+  cursor: default;
+}
+
+/* icon support */
+/* line 60, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu-icons {
+  position: relative;
+}
+
+/* line 63, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu-icons .ui-menu-item a {
+  position: relative;
+  padding-left: 2em;
+}
+
+/* left-aligned */
+/* line 69, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-icon {
+  position: absolute;
+  top: .2em;
+  left: .2em;
+}
+
+/* right-aligned */
+/* line 76, ../sass/thirdParty/jquery.ui.menu.scss */
+.ui-menu .ui-menu-icon {
+  position: static;
+  float: right;
+}
+
+/* line 18, ../sass/common.scss */
+html {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background: white;
+}
+
+/* line 25, ../sass/common.scss */
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 32, ../sass/common.scss */
+body.loading {
+  opacity: 0;
+}
+
+/* line 40, ../sass/common.scss */
+#header {
+  height: 35px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  -webkit-box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
+  -moz-box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
+  box-shadow: black 0 1px 0 inset, rgba(34, 34, 34, 0.2) 0 2px 0;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid black;
+  z-index: 100;
+}
+/* line 49, ../sass/common.scss */
+#header .inner {
+  margin: 0 auto;
+  padding: 0 11px;
+}
+/* line 53, ../sass/common.scss */
+#header .inner .left {
+  float: left;
+  padding-left: 10px;
+}
+/* line 56, ../sass/common.scss */
+#header .inner .left .logo {
+  margin-top: 8px;
+  display: inline-block;
+}
+/* line 62, ../sass/common.scss */
+#header .inner .right {
+  float: right;
+}
+/* line 64, ../sass/common.scss */
+#header .inner .right .navigation {
+  overflow: hidden;
+}
+/* line 66, ../sass/common.scss */
+#header .inner .right .navigation .nav {
+  float: left;
+  color: #cccccc;
+  text-shadow: 0px -1px 0px black;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 13px;
+  padding: 0 20px;
+  border-left: solid 1px #666666;
+  height: 13px;
+  margin-top: 12px;
+  vertical-align: top;
+  position: relative;
+}
+/* line 79, ../sass/common.scss */
+#header .inner .right .navigation .nav .txt {
+  position: relative;
+}
+/* line 83, ../sass/common.scss */
+#header .inner .right .navigation .nav.menu .txt:before {
+  position: absolute;
+  content: '';
+  border-color: white transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  display: block;
+  height: 0;
+  width: 0;
+  top: 4px;
+  right: -20px;
+}
+/* line 92, ../sass/common.scss */
+#header .inner .right .navigation .nav:first-child {
+  border-left: none;
+}
+/* line 95, ../sass/common.scss */
+#header .inner .right .navigation .nav:hover {
+  color: white;
+}
+
+/* line 104, ../sass/common.scss */
+#pageContent {
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+
+/* line 110, ../sass/common.scss */
+#viewContent {
+  display: table-row;
+  position: relative;
+}
+/* line 114, ../sass/common.scss */
+#viewContent #viewContentInner {
+  display: table-cell;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 123, ../sass/common.scss */
+#footer {
+  width: 100%;
+  height: 34px;
+  display: table-row;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid black;
+}
+/* line 128, ../sass/common.scss */
+#footer .inner {
+  display: table-cell;
+}
+/* line 131, ../sass/common.scss */
+#footer .inner .wrapper {
+  margin: 0 auto;
+  padding: 0 11px;
+}
+/* line 135, ../sass/common.scss */
+#footer .inner .wrapper .left {
+  float: left;
+}
+/* line 137, ../sass/common.scss */
+#footer .inner .wrapper .left .links {
+  overflow: hidden;
+}
+/* line 139, ../sass/common.scss */
+#footer .inner .wrapper .left .links a:link {
+  color: white;
+  text-decoration: none;
+}
+/* line 140, ../sass/common.scss */
+#footer .inner .wrapper .left .links a:visited {
+  color: white;
+  text-decoration: underline;
+}
+/* line 141, ../sass/common.scss */
+#footer .inner .wrapper .left .links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+/* line 142, ../sass/common.scss */
+#footer .inner .wrapper .left .links a:active {
+  color: white;
+  text-decoration: none;
+}
+/* line 143, ../sass/common.scss */
+#footer .inner .wrapper .left .links .link {
+  float: left;
+  color: white;
+  line-height: 34px;
+  padding: 0px 8px;
+  cursor: pointer;
+}
+/* line 152, ../sass/common.scss */
+#footer .inner .wrapper .right {
+  float: right;
+  color: white;
+  line-height: 34px;
+}
+
+/* line 161, ../sass/common.scss */
+.ng-view {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 166, ../sass/common.scss */
 .block {
   overflow: hidden;
+}
+
+/* line 170, ../sass/common.scss */
+.article {
+  margin: 5px;
+  padding: 5px;
 }
 
 /* line 4, ../sass/layout.scss */
@@ -1222,15 +2377,15 @@ body.signup #footer .inner .wrapper {
   font-family: Myriad Pro;
   width: 100px;
 }
-/* line 178, ../sass/common.scss */
+/* line 87, ../sass/element/button.scss */
 #signupWrap .panel .body .submitWrap .btn:hover {
   color: #333;
 }
-/* line 181, ../sass/common.scss */
+/* line 90, ../sass/element/button.scss */
 #signupWrap .panel .body .submitWrap .btn.disabled {
   opacity: 0.5;
 }
-/* line 183, ../sass/common.scss */
+/* line 92, ../sass/element/button.scss */
 #signupWrap .panel .body .submitWrap .btn.disabled:active {
   background: gray;
 }
@@ -1314,7 +2469,7 @@ body.signup #footer .inner .wrapper {
   display: inline-block;
   padding: 4px 10px;
 }
-/* line 108, ../sass/common.scss */
+/* line 17, ../sass/element/button.scss */
 #signupWrap .panel .activationComponents .resendVerificationBtn .resendVerification.active, #signupWrap .panel .activationComponents .resendVerificationBtn .resendVerification:active {
   background: #eeeeee;
   /* Old browsers */
@@ -1765,15 +2920,15 @@ body.signup #footer .inner .wrapper {
   padding: 0px;
   border-color: #222;
 }
-/* line 178, ../sass/common.scss */
+/* line 87, ../sass/element/button.scss */
 .detailView .functions .share:hover {
   color: #333;
 }
-/* line 181, ../sass/common.scss */
+/* line 90, ../sass/element/button.scss */
 .detailView .functions .share.disabled {
   opacity: 0.5;
 }
-/* line 183, ../sass/common.scss */
+/* line 92, ../sass/element/button.scss */
 .detailView .functions .share.disabled:active {
   background: gray;
 }
@@ -1816,15 +2971,15 @@ body.signup #footer .inner .wrapper {
   text-align: center;
   line-height: 28px;
 }
-/* line 178, ../sass/common.scss */
+/* line 87, ../sass/element/button.scss */
 .detailView .functions .shareTo:hover, .detailView .functions .star:hover, .detailView .functions .save:hover {
   color: #333;
 }
-/* line 181, ../sass/common.scss */
+/* line 90, ../sass/element/button.scss */
 .detailView .functions .shareTo.disabled, .detailView .functions .star.disabled, .detailView .functions .save.disabled {
   opacity: 0.5;
 }
-/* line 183, ../sass/common.scss */
+/* line 92, ../sass/element/button.scss */
 .detailView .functions .shareTo.disabled:active, .detailView .functions .star.disabled:active, .detailView .functions .save.disabled:active {
   background: gray;
 }

@@ -28,7 +28,7 @@ app.factory('fbConnect', [ function(){
                     },this)
                 });
             }
-        }, {scope: 'user_likes,user_photos,user_birthday'});
+        }, {scope: 'user_likes,user_photos,user_birthday,email'});
 }
 }]);
 

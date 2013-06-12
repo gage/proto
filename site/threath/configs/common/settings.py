@@ -197,7 +197,12 @@ INSTALLED_APPS = (
     'slug',
     # 'testing',
     'user_profiles',
+    'youtube',
 )
+
+
+### Google
+GOOGLE_API_KEY = 'AIzaSyCAIoKgWrtOHRXXNWVslzMGLcOTqCjlnTk'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

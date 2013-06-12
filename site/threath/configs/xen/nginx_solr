@@ -1,0 +1,16 @@
+upstream solr {
+    server xen_solr_ip1:8902;
+    server xen_solr_ip1:8903;
+}
+
+server {
+    listen   8901;
+    server_name localhost;
+
+    access_log /home/gulu/logs/nginx.access.log;
+    error_log /home/gulu/logs/nginx.error.log;
+
+    location /solr {
+        proxy_pass  http://solr;
+    }
+}

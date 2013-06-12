@@ -1,0 +1,16 @@
+.dropdown-menu {
+    position: absolute;
+    background: white;
+    padding: 5px;
+    border: 1px solid silver;
+    margin-top: 2px;
+    @include border-radius(5px);
+    li {
+    	padding: 3px;
+    	&.active {
+			background: #007FBF;
+			color: white;
+			padding: 3px;
+		}
+    }
+}

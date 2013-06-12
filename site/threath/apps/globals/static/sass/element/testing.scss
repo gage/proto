@@ -1,0 +1,96 @@
+// Testing the youtube widget
+
+.select2-drop.searchDrop {
+    .select2-results {
+        max-height: 500px;
+    }    
+    li {
+        padding: 10px;
+        border-top: 1px solid silver;
+        &:hover, &.select2-highlighted {
+            background: #f1f1f1;
+            color: gray;
+        }
+    }
+}
+
+.youtubeWrap {
+    overflow: hidden;
+    .title {
+        font-size: 14px; 
+    }
+    img {
+        float: left;
+        width: 200px;
+        margin-right: 5px;
+    }
+}
+
+#youtubeVideo {
+    .info-content {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+    }
+}
+
+
+// Test for image search
+
+#googleImgContainer {
+    min-height: 300px;
+    .imgWrap {
+        width: 25%;
+        display: inline-block;
+    }
+
+}
+
+/* Component containers
+----------------------------------*/
+.ui-widget {
+    font-family: Verdana,Arial,sans-serif/*{ffDefault}*/;
+    font-size: 1.1em/*{fsDefault}*/;
+}
+.ui-widget .ui-widget {
+    font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font-family: Verdana,Arial,sans-serif/*{ffDefault}*/;
+    font-size: 1em;
+}
+.ui-widget-content {
+    border: 1px solid #aaaaaa/*{borderColorContent}*/;
+    background: #ffffff;
+    color: #222222/*{fcContent}*/;
+}
+.ui-widget-content a {
+    color: #222222/*{fcContent}*/;
+}
+.ui-widget-header {
+    border: 1px solid #aaaaaa/*{borderColorHeader}*/;
+    background: #cccccc;
+    color: #222222/*{fcHeader}*/;
+    font-weight: bold;
+}
+.ui-widget-header a {
+    color: #222222/*{fcHeader}*/;
+}
+
+.ui-menu .ui-menu-item a.ui-state-focus,
+.ui-menu .ui-menu-item a.ui-state-active {
+    background: #f1f1f1;
+    color: gray;
+}

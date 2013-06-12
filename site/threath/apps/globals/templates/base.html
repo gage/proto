@@ -7,7 +7,6 @@
     <title>{% block title %}{{ _("Share City") }}{% endblock %}</title>
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/app.css" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/lib/css3-mediaqueries.js"></script>
 </head>
 
 <body class="loading {% block bodyclass %}{% endblock bodyclass %}" ng-controller="bodyCtrl">
@@ -15,6 +14,9 @@
     {% block body_content %}
 	{% endblock %}    
 	
+	<script type="text/ng-template" id="template/typeahead/typeahead.html">
+	{% include "angularUI/typeahead/typeahead.html" %}
+	</script>
 </body> 
 
 {% csrf_token %}

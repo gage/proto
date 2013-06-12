@@ -1,0 +1,13 @@
+/* line 1, ../../sass/element/angularUI.scss */
+.dropdown-menu {
+  position: absolute;
+  background: white;
+  padding: 5px;
+  border: 1px solid silver;
+  margin-top: 2px;
+}
+/* line 7, ../../sass/element/angularUI.scss */
+.dropdown-menu li.active {
+  background: #D1E5F4;
+  color: white;
+}

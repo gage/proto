@@ -14,8 +14,10 @@ urlpatterns = patterns('',
     (r'^registration/', include('api.handlers.registration.urls')),
     # (r'^settings/', include('api.handlers.settings.urls')),
     (r'^sandbox/', include('api.handlers.sandbox.urls')),
+    (r'^tag/', include('api.handlers.tag.urls')),
     # (r'^slug/', include('api.handlers.slug.urls')),
     (r'^user/', include('api.handlers.user.urls')),
+    (r'^youtube/', include('api.handlers.youtube.urls')),
 
 )
 

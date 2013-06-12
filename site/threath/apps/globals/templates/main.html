@@ -31,11 +31,27 @@
     <script src="{{ STATIC_URL }}js/lib/jquery.autoresize.js"></script>
     <script src="{{ STATIC_URL }}js/lib/underscore-min.js"></script>
     <script src="{{ STATIC_URL }}js/lib/browser_detect.js"></script>
+
+    <script src="{{ STATIC_URL }}js/lib/jquery.ui.core.js"></script>
     <script src="{{ STATIC_URL }}js/lib/jquery.ui.widget.js"></script>
+
+    <script src="{{ STATIC_URL }}js/lib/jquery.ui.position.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery.ui.menu.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery.ui.autocomplete.js"></script>
+
     <script src="{{ STATIC_URL }}js/lib/jquery.iframe-transport.js"></script>
     <script src="{{ STATIC_URL }}js/lib/jquery.fileupload.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery-throttle.min.js"></script>
+    <script src="{{ STATIC_URL }}js/lib/jquery-select2.js"></script> 
 
     <script src="{{ STATIC_URL }}js/lib/angular.min.js"></script>
+
+    <!-- Angular UI -->
+    <script src="{{ STATIC_URL }}js/lib/angular-ui/module.js"></script>  
+    <script src="{{ STATIC_URL }}js/lib/angular-ui/keypress.js"></script>  
+    <script src="{{ STATIC_URL }}js/lib/angular-ui/select2.js"></script>  
+    <script src="{{ STATIC_URL }}js/lib/angular-ui/ui-bootstrap-0.3.0.min.js"></script>  
+    
 
     <!-- Modules -->        
     <script src="{{ STATIC_URL }}js/lib/angular-resource.min.js"></script>
@@ -72,5 +88,7 @@
 <script type="text/ng-template" id="index.html">
 {% include "index.html" %}
 </script>
+
+
 
 {% endblock %}

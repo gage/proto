@@ -1,3 +1,90 @@
+app.directive('eventListener', function(){ 
+   return {
+      restrict: 'A', 
+      link: function(scope, elem, attrs) {
+
+        var options = {
+            callback: function(){
+                console.log('Warning for non-define event listener');
+            },
+            name: 'focus'
+        }
+
+        var args = scope.$eval(attrs.eventListener);
+        if (!angular.isArray(args)) {
+            args = [args];
+        }
+
+        function _bindEvent(opt){
+            var _opt = {};
+            _.extend(_opt,  options);
+            _.extend(_opt,  opt);
+            elem.bind(_opt.name, _opt.callback);
+        }
+
+        _.each(args, function(para){
+            _bindEvent(para);
+        });
+      }
+   };
+});
+
+
+app.directive('gglSuggest', ['$timeout',function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var language = window.navigator.userLanguage || window.navigator.language;
+             $(element).autocomplete({
+                source: function(request, response) {
+                    $.getJSON("http://suggestqueries.google.com/complete/search?callback=?",
+                        { 
+                          "hl":language, // Language
+                          // "ds":"yt", // Restrict lookup to youtube
+                          "jsonp":"suggestCallBack", // jsonp callback function name
+                          "q":request.term, // query term
+                          "client":"youtube" // force youtube style response, i.e. jsonp
+                        }
+                    );
+                    // Global...
+                    suggestCallBack = function (data) {
+                        var suggestions = [];
+                        $.each(data[1], function(key, val) {
+                            suggestions.push({"value":val[0]});
+                        });
+                        suggestions.length = 5; // prune suggestions list to only 5 items
+                        response(suggestions);
+                    };
+                },
+            });
+        }
+    };
+}]);
+
+app.directive('focusScrollTo', ['$timeout',function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            // select2-focus
+            // TODO: change the scroll target
+            var options = {
+                target: 'html, body',
+                offset: 0,
+                eventName: 'focus'
+            };
+            var cOpt = scope.$eval(attrs.focusScrollTo);
+            _.extend(options,  cOpt);
+            $(element).bind(options.eventName, function(){
+                $(options.target).animate({
+                    scrollTop: $(element).offset().top + parseFloat(options.offset)
+                }, 500);
+            });
+
+        }
+    };
+}]);
+
+// From others
 
 app.directive('placeholder', ['$timeout', function($timeout){
     if (!BrowserDetect.browser == 'MSIE' || BrowserDetect.version >= 10) {
@@ -396,7 +483,6 @@ app.directive('scFileupload', [function () {
     return{
         restrict: 'A',
         link: function(scope, element, attrs){
-            console.log(attrs.accept);
             var uploaderEl = $('<input class="id_file" type="file" size="1" name="file" accept="'+attrs.accept+'">');
 
             var options = {

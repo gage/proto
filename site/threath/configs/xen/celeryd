@@ -1,0 +1,49 @@
+# Paths
+CELERYD_CHDIR="/home/gulu/sites/xen_project_name"
+VIRTUALENV="$CELERYD_CHDIR/env"
+VIRTUALENV_PYTHON="$VIRTUALENV/bin/python"
+
+# Django settings and path to manage.py
+DJANGO_MANAGE="$CELERYD_CHDIR/repository/gulu/configs/xen/manage.py"
+
+# Celery cam and daemon executables
+CELERYEV="$DJANGO_MANAGE celerycam"
+CELERYD="$VIRTUALENV_PYTHON $DJANGO_MANAGE celeryd"
+CELERYD_MULTI="$VIRTUALENV_PYTHON $DJANGO_MANAGE celeryd_multi"
+CELERYCTL="$VIRTUALENV_PYTHON $DJANGO_MANAGE celeryctl"
+
+# Extra daemon options
+CELERYD_OPTS="-E -B"
+# -Q:w1 default,w1q -Q:w2 default,w2q -Q:w3 default"
+
+# Celery nodes
+CELERYD_NODES="w1"
+
+# Camera class
+CELERYEV_CAM="djcelery.snapshot.Camera"
+
+# Celery daemon pid and log files
+CELERYD_PID_FILE="/var/run/celery/%n.pid"
+CELERYD_LOG_FILE="/var/log/celery/%n.log"
+
+# Celery cam pid and log files
+CELERYEV_PID_FILE="/var/run/celeryev.pid"
+CELERYEV_LOG_FILE="/var/log/celeryev.log"
+
+# Celery daemon group and user
+CELERYD_USER="www-data"
+CELERYEV_GROUP="www-data"
+
+# Celery cam group and user
+CELERYEV_USER="www-data"
+CELERYEV_GROUP="www-data"
+
+# Python virtualenv path
+VIRTUALENV="$CELERYD_CHDIR/env"
+ENV_PYTHON="$CELERYD_CHDIR/env/bin/python"
+
+# Name of the celery config module.
+CELERY_CONFIG_MODULE="celeryconfig"
+
+# Django settings module
+export DJANGO_SETTINGS_MODULE="gulu.configs.xen.settings"

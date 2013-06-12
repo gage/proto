@@ -1,0 +1,29 @@
+@mixin gradient1(){
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #000;
+}
+
+@mixin gradient2(){
+    background: rgb(160,191,93); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgba(160,191,93,1) 0%, rgba(109,150,0,1) 50%, rgba(160,191,93,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(160,191,93,1)), color-stop(50%,rgba(109,150,0,1)), color-stop(100%,rgba(160,191,93,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(160,191,93,1) 0%,rgba(109,150,0,1) 50%,rgba(160,191,93,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(160,191,93,1) 0%,rgba(109,150,0,1) 50%,rgba(160,191,93,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(160,191,93,1) 0%,rgba(109,150,0,1) 50%,rgba(160,191,93,1) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(160,191,93,1) 0%,rgba(109,150,0,1) 50%,rgba(160,191,93,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0bf5d', endColorstr='#a0bf5d',GradientType=1 ); /* IE6-9 */
+    @include box-shadow(rgba(0,0,0,0.4) 0px 1px 0px inset);
+}
+
+
+// Error font
+.error{
+    color: rgb(206, 48, 48);
+}
+
+
+// Reflect item
+.rflc {
+    border: 1px solid $bd-color;
+    border-top: 1px solid white;
+}

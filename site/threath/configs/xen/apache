@@ -1,0 +1,56 @@
+<VirtualHost *:8080>
+    ServerName 127.0.0.1
+
+    WSGIScriptAlias / /home/gulu/sites/xen_project_name/repository/gulu/configs/xen/xen.wsgi
+ 
+    ErrorLog /home/gulu/logs/xen_project_name.apache.error.log
+    LogLevel warn
+
+    CustomLog /home/gulu/logs/xen_project_name.apache.access.log combined
+    
+    ServerSignature Off
+</VirtualHost>
+
+<VirtualHost *:8081>
+    ServerName 127.0.0.1
+
+    Alias /media/ "/home/gulu/sites/xen_project_name/repository/gulu/media/"
+    <Directory "/home/gulu/sites/xen_project_name/repository/gulu/media/">
+        Options MultiViews FollowSymLinks
+        AllowOverride None
+        Order deny,allow
+        Deny from all
+        Allow from 127.0.0.0/255.0.0.0 ::1/128
+        Header unset ETag
+        FileETag None
+        ExpiresActive on
+        ExpiresDefault "access plus 1 week"
+    </Directory>
+    
+    Alias /static/ "/home/gulu/sites/xen_project_name/repository/gulu/static/"
+    <Directory "/home/gulu/sites/xen_project_name/repository/gulu/static/">
+        Options MultiViews FollowSymLinks
+        AllowOverride None
+        Order deny,allow
+        Deny from all
+        Allow from 127.0.0.0/255.0.0.0 ::1/128
+        Header unset ETag
+        FileETag None
+        ExpiresActive on
+        ExpiresDefault "access plus 1 week"
+    </Directory>
+
+    Alias /tmp/ "/home/gulu/sites/xen_project_name/repository/gulu/tmp/"
+    <Directory "/home/gulu/sites/xen_project_name/repository/gulu/tmp/">
+        Options MultiViews FollowSymLinks
+        AllowOverride None
+        Order deny,allow
+        Deny from all
+        Allow from 127.0.0.0/255.0.0.0 ::1/128
+        Header unset ETag
+        FileETag None
+        ExpiresActive on
+        ExpiresDefault "access plus 1 week"
+    </Directory>
+</VirtualHost>
+

@@ -4,9 +4,12 @@
 @import "compass/css3";
 @import "mixins.scss";
 @import "sprites.scss";
+// ---- Main Lib ----
 @import "common.scss";
+
 @import "layout.scss";
 @import "signup.scss";
 @import "lightbox.scss";
+
 @import "detail.scss";
 @import "index.scss";

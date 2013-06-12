@@ -1,0 +1,18 @@
+{% extends "lightboxFrame.html" %}
+
+{% block lightbox_width %}700{% endblock lightbox_width %}
+{% block lightbox_title %}Youtube{% endblock lightbox_title %}
+
+{% block lightbox_content %}
+
+<div class="youtubeWindow">
+    <div>
+        <div id="youtubeVideo">
+            <div class="info-content">
+                <iframe width="320" height="auto" ng-src="{[youtubeSrc]}" frameborder="0" allowfullscreen></iframe>            
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock lightbox_content %}

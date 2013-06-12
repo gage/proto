@@ -1,0 +1,12 @@
+/* line 1, ../../sass/element/animate.scss */
+.animate-enter {
+  -webkit-transition: 1s linear all;
+  /* Chrome */
+  transition: 1s linear all;
+  opacity: 0;
+}
+
+/* line 7, ../../sass/element/animate.scss */
+.animate-enter.animate-enter-active {
+  opacity: 1;
+}

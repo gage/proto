@@ -1,0 +1,59 @@
+upstream xen_project_name {
+    server 127.0.0.1:8080;
+}
+
+server {
+    listen   80;
+    server_name xen_ip;
+
+    access_log /home/gulu/logs/xen_project_name.nginx.access.log;
+    error_log /home/gulu/logs/xen_project_name.nginx.error.log;
+
+    location / {
+        proxy_pass  http://xen_project_name;
+        include     /etc/nginx/proxy.conf;
+    }
+
+    location /api/video {
+        proxy_pass  http://xen_project_name;
+        client_max_body_size        80m;
+        proxy_read_timeout          200;
+    }
+
+    location /api/photos {
+        proxy_pass  http://xen_project_name;
+        client_max_body_size        12m;
+        proxy_read_timeout          200;
+    }
+
+    location /api/gulubox/files {
+        proxy_pass  http://xen_project_name;
+        client_max_body_size        80m;
+        proxy_read_timeout          200;
+    }
+
+    location  /media/ {
+        proxy_pass  http://127.0.0.1:8081;
+    }
+    
+    location  /static/ {
+        proxy_pass  http://127.0.0.1:8081;
+    }
+
+    location  /tmp/ {
+        proxy_pass  http://127.0.0.1:8081;
+    }
+
+    location /api/no-op {
+        add_header Content-Type "application/json; charset=utf-8";
+        return 200;
+    }
+
+    location /http-bind/ {
+        proxy_pass http://xen_xmpp_domain:5280;
+        proxy_read_timeout 3600;
+        proxy_buffering off;
+    }
+
+}
+
