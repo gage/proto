@@ -35,31 +35,64 @@ app.directive('gglSuggest', ['$timeout',function ($timeout) {
         restrict: 'A',
         link: function (scope, element, attrs) {
             var language = window.navigator.userLanguage || window.navigator.language;
-             $(element).autocomplete({
+            var options = {
+                type: 'google',
+                cbk: function(){}
+            }
+
+            var cOpt = scope.$eval(attrs.gglSuggest);
+            _.extend(options, cOpt);
+            var suggestType = options.type;
+
+            var modelName = attrs.ngModel;
+            function assignNgModel(val){
+                scope[modelName] = val;
+            }
+            $(element).bind('autocompleteselect', function(e, ui){
+                // Assign select value to input model
+                assignNgModel(ui.item.value);
+                options.cbk(e, ui);
+            })
+
+            $(element).autocomplete({
                 source: function(request, response) {
-                    $.getJSON("http://suggestqueries.google.com/complete/search?callback=?",
-                        { 
-                          "hl":language, // Language
-                          // "ds":"yt", // Restrict lookup to youtube
-                          "jsonp":"suggestCallBack", // jsonp callback function name
-                          "q":request.term, // query term
-                          "client":"youtube" // force youtube style response, i.e. jsonp
-                        }
-                    );
-                    // Global...
-                    suggestCallBack = function (data) {
-                        var suggestions = [];
-                        $.each(data[1], function(key, val) {
-                            suggestions.push({"value":val[0]});
+                    assignNgModel(request.term);
+                    if (suggestType == 'map') {
+                        var service = new google.maps.places.AutocompleteService();
+                        service.getQueryPredictions({input: request.term}, function(predictions){
+                            var suggestions = [];
+                            _.each(predictions, function(val){
+                                suggestions.push({value: val.description});
+                            });
+                            response(suggestions);
                         });
-                        suggestions.length = 5; // prune suggestions list to only 5 items
-                        response(suggestions);
-                    };
+                    }
+                    else {
+                        $.getJSON("http://suggestqueries.google.com/complete/search?callback=?",
+                            { 
+                              "hl":language, // Language
+                              // "ds":"yt", // Restrict lookup to youtube
+                              "jsonp":"suggestCallBack", // jsonp callback function name
+                              "q":request.term, // query term
+                              "client":"youtube" // force youtube style response, i.e. jsonp
+                            }
+                        );
+                        // Global...
+                        suggestCallBack = function (data) {
+                            var suggestions = [];
+                            $.each(data[1], function(key, val) {
+                                suggestions.push({"value":val[0]});
+                            });
+                            suggestions.length = 5; // prune suggestions list to only 5 items
+                            response(suggestions);
+                        };
+                    }
                 },
             });
         }
     };
 }]);
+
 
 app.directive('focusScrollTo', ['$timeout',function ($timeout) {
     return {

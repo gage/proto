@@ -1,5 +1,9 @@
-// Testing the youtube widget
+// Pure Testing Style
+#foursquarePlaces {
+    min-height: 100px;
+}
 
+// Testing the youtube widget
 .select2-drop.searchDrop {
     .select2-results {
         max-height: 500px;
@@ -46,7 +50,7 @@
 
 // Test for image search
 
-#googleImgContainer {
+.imgContainer {
     min-height: 300px;
     .imgWrap {
         width: 25%;

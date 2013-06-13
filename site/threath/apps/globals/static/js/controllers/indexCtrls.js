@@ -1,5 +1,4 @@
 app.controller('indexCtrls.main',['$scope','$window', function($scope, $window){
-    
     $scope.testMenuInit = {
         test1: ['Test one', function(){
             alert('test 1');
@@ -65,11 +64,6 @@ app.controller('indexCtrls.tagWidget',['$scope','$window', 'limitToFilter', '$ht
 
 app.controller('indexCtrls.youtubeWidget',['$scope','$window', 'limitToFilter', '$http', 'utils', function($scope, $window, limitToFilter, $http, utils){
 
-    $scope.onAddTag = function(e){
-        // alert($scope.selected);
-
-    };
-
     this.selectCallback = function(e){
         
         var object = e.added;
@@ -115,6 +109,7 @@ app.controller('indexCtrls.youtubeWidget',['$scope','$window', 'limitToFilter', 
     };
 
 }]);
+
 
 app.controller('indexCtrls.googleWidget',['$scope','$window', 'limitToFilter', '$http', 'utils', function($scope, $window, limitToFilter, $http, utils){
     // http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=%E4%BA%94%E6%9C%88%E5%A4%A9&rsz=8
@@ -205,10 +200,10 @@ app.controller('indexCtrls.googleImageWidget',['$scope','$q', 'limitToFilter', '
 
 
 
-app.controller('indexCtrls.photoWidget',['$scope','$window', 'remotePhoto', function($scope, $window, remotePhoto){
+app.controller('indexCtrls.photoWidget',['$scope','$window', 'rPhoto', function($scope, $window, rPhoto){
     $scope.loading = false;
-    $scope.photos = remotePhoto.initCollection();
-    var remotePhotoPromise = remotePhoto.query().then(function(resolved){
+    $scope.photos = rPhoto.initCollection();
+    var rPhotoPromise = rPhoto.query().then(function(resolved){
         $scope.photos = resolved;
         $scope.loading = false;
 
@@ -258,7 +253,7 @@ app.controller('indexCtrls.photoWidget',['$scope','$window', 'remotePhoto', func
 
 }]);
 
-app.controller('indexCtrls.photoItem',['$scope','$window', function($scope, $window, remotePhoto){
+app.controller('indexCtrls.photoItem',['$scope','$window', function($scope, $window, rPhoto){
 
 }]);
 
@@ -269,15 +264,15 @@ app.controller('indexCtrls.photoItem',['$scope','$window', function($scope, $win
 
 // =============== Testing code ==================
 
-app.controller('indexCtrls.testAutoGrowth', ['$scope', '$compile', '$element', 'currentUser', 'remotePhoto', function ($scope, $compile, $element, currentUser, remotePhoto){
+app.controller('indexCtrls.testAutoGrowth', ['$scope', '$compile', '$element', 'currentUser', 'rPhoto', function ($scope, $compile, $element, currentUser, rPhoto){
 
 }]);
 
-app.controller('indexCtrls.testRemote', ['$scope', '$compile', '$element', 'currentUser', 'remotePhoto', function ($scope, $compile, $element, currentUser, remotePhoto){
+app.controller('indexCtrls.testRemote', ['$scope', '$compile', '$element', 'currentUser', 'rPhoto', function ($scope, $compile, $element, currentUser, rPhoto){
     $scope.loading = false;
-    $scope.remotePhotos = remotePhoto.initCollection();
-    var remotePhotoPromise = remotePhoto.query().then(function(resolved){
-        $scope.remotePhotos = resolved;
+    $scope.rPhotos = rPhoto.initCollection();
+    var rPhotoPromise = rPhoto.query().then(function(resolved){
+        $scope.rPhotos = resolved;
         $scope.loading = false;
 
     }, function(errmsg){

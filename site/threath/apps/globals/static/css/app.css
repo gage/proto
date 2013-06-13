@@ -524,7 +524,45 @@ mark {
   border-top: 1px solid white;
 }
 
-/* line 99, ../sass/element/button.scss */
+/* line 32, ../sass/element/style.scss */
+.wrapBox, .dbox {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+/* line 38, ../sass/element/style.scss */
+.dbox {
+  border: 1px solid #dddddd;
+}
+
+/* line 44, ../sass/element/style.scss */
+.op, .clickable {
+  color: #5096a6;
+  cursor: pointer;
+}
+/* line 47, ../sass/element/style.scss */
+.op:hover, .op.active, .clickable:hover, .clickable.active {
+  color: #ea644a;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+/* line 55, ../sass/element/style.scss */
+.label {
+  border: 1px solid #dddddd;
+  background: white;
+  padding: 3px;
+  margin: 1px;
+  display: inline-block;
+}
+
+/* line 101, ../sass/element/button.scss */
 .text-btn-3 {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -546,6 +584,7 @@ mark {
   background: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
   background: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
   background: linear-gradient(top, #f8f8f8, #f1f1f1);
+  cursor: pointer;
   font-size: 14px;
   line-height: 14px;
   font-weight: 300;
@@ -558,25 +597,33 @@ mark {
   font-family: Myriad Pro;
   padding: 5px 16px;
 }
-/* line 87, ../sass/element/button.scss */
+/* line 72, ../sass/element/button.scss */
+.text-btn-3.active, .text-btn-3:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f1f1f1), color-stop(100%, #f8f8f8));
+  background: -webkit-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: -moz-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: -o-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: linear-gradient(top, #f1f1f1, #f8f8f8);
+}
+/* line 89, ../sass/element/button.scss */
 .text-btn-3:hover {
   color: #333;
 }
-/* line 90, ../sass/element/button.scss */
+/* line 92, ../sass/element/button.scss */
 .text-btn-3.disabled {
   opacity: 0.5;
 }
-/* line 92, ../sass/element/button.scss */
+/* line 94, ../sass/element/button.scss */
 .text-btn-3.disabled:active {
   background: gray;
 }
 
-/* line 105, ../sass/element/button.scss */
+/* line 107, ../sass/element/button.scss */
 .fileinput-button {
   position: relative;
   overflow: hidden;
 }
-/* line 108, ../sass/element/button.scss */
+/* line 110, ../sass/element/button.scss */
 .fileinput-button input {
   position: absolute;
   top: 0;
@@ -903,37 +950,42 @@ textarea {
   border-radius: 10px;
 }
 
-/* line 4, ../sass/element/testing.scss */
+/* line 2, ../sass/element/testing.scss */
+#foursquarePlaces {
+  min-height: 100px;
+}
+
+/* line 8, ../sass/element/testing.scss */
 .select2-drop.searchDrop .select2-results {
   max-height: 500px;
 }
-/* line 7, ../sass/element/testing.scss */
+/* line 11, ../sass/element/testing.scss */
 .select2-drop.searchDrop li {
   padding: 10px;
   border-top: 1px solid silver;
 }
-/* line 10, ../sass/element/testing.scss */
+/* line 14, ../sass/element/testing.scss */
 .select2-drop.searchDrop li:hover, .select2-drop.searchDrop li.select2-highlighted {
   background: #f1f1f1;
   color: gray;
 }
 
-/* line 17, ../sass/element/testing.scss */
+/* line 21, ../sass/element/testing.scss */
 .youtubeWrap {
   overflow: hidden;
 }
-/* line 19, ../sass/element/testing.scss */
+/* line 23, ../sass/element/testing.scss */
 .youtubeWrap .title {
   font-size: 14px;
 }
-/* line 22, ../sass/element/testing.scss */
+/* line 26, ../sass/element/testing.scss */
 .youtubeWrap img {
   float: left;
   width: 200px;
   margin-right: 5px;
 }
 
-/* line 30, ../sass/element/testing.scss */
+/* line 34, ../sass/element/testing.scss */
 #youtubeVideo .info-content {
   position: relative;
   padding-bottom: 56.25%;
@@ -941,7 +993,7 @@ textarea {
   padding-top: 25px;
   height: 0;
 }
-/* line 35, ../sass/element/testing.scss */
+/* line 39, ../sass/element/testing.scss */
 #youtubeVideo .info-content iframe {
   position: absolute;
   top: 0;
@@ -950,30 +1002,30 @@ textarea {
   height: 100%;
 }
 
-/* line 49, ../sass/element/testing.scss */
-#googleImgContainer {
+/* line 53, ../sass/element/testing.scss */
+.imgContainer {
   min-height: 300px;
 }
-/* line 51, ../sass/element/testing.scss */
-#googleImgContainer .imgWrap {
+/* line 55, ../sass/element/testing.scss */
+.imgContainer .imgWrap {
   width: 25%;
   display: inline-block;
 }
 
 /* Component containers
 ----------------------------------*/
-/* line 60, ../sass/element/testing.scss */
+/* line 64, ../sass/element/testing.scss */
 .ui-widget {
   font-family: Verdana, Arial, sans-serif;
   font-size: 1.1em;
 }
 
-/* line 64, ../sass/element/testing.scss */
+/* line 68, ../sass/element/testing.scss */
 .ui-widget .ui-widget {
   font-size: 1em;
 }
 
-/* line 70, ../sass/element/testing.scss */
+/* line 74, ../sass/element/testing.scss */
 .ui-widget input,
 .ui-widget select,
 .ui-widget textarea,
@@ -982,19 +1034,19 @@ textarea {
   font-size: 1em;
 }
 
-/* line 74, ../sass/element/testing.scss */
+/* line 78, ../sass/element/testing.scss */
 .ui-widget-content {
   border: 1px solid #aaaaaa;
   background: #ffffff;
   color: #222222;
 }
 
-/* line 79, ../sass/element/testing.scss */
+/* line 83, ../sass/element/testing.scss */
 .ui-widget-content a {
   color: #222222;
 }
 
-/* line 82, ../sass/element/testing.scss */
+/* line 86, ../sass/element/testing.scss */
 .ui-widget-header {
   border: 1px solid #aaaaaa;
   background: #cccccc;
@@ -1002,12 +1054,12 @@ textarea {
   font-weight: bold;
 }
 
-/* line 88, ../sass/element/testing.scss */
+/* line 92, ../sass/element/testing.scss */
 .ui-widget-header a {
   color: #222222;
 }
 
-/* line 93, ../sass/element/testing.scss */
+/* line 97, ../sass/element/testing.scss */
 .ui-menu .ui-menu-item a.ui-state-focus,
 .ui-menu .ui-menu-item a.ui-state-active {
   background: #f1f1f1;
@@ -2365,6 +2417,7 @@ body.signup #footer .inner .wrapper {
   background: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
   background: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
   background: linear-gradient(top, #f8f8f8, #f1f1f1);
+  cursor: pointer;
   font-size: 14px;
   line-height: 14px;
   font-weight: 300;
@@ -2377,15 +2430,23 @@ body.signup #footer .inner .wrapper {
   font-family: Myriad Pro;
   width: 100px;
 }
-/* line 87, ../sass/element/button.scss */
+/* line 72, ../sass/element/button.scss */
+#signupWrap .panel .body .submitWrap .btn.active, #signupWrap .panel .body .submitWrap .btn:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f1f1f1), color-stop(100%, #f8f8f8));
+  background: -webkit-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: -moz-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: -o-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: linear-gradient(top, #f1f1f1, #f8f8f8);
+}
+/* line 89, ../sass/element/button.scss */
 #signupWrap .panel .body .submitWrap .btn:hover {
   color: #333;
 }
-/* line 90, ../sass/element/button.scss */
+/* line 92, ../sass/element/button.scss */
 #signupWrap .panel .body .submitWrap .btn.disabled {
   opacity: 0.5;
 }
-/* line 92, ../sass/element/button.scss */
+/* line 94, ../sass/element/button.scss */
 #signupWrap .panel .body .submitWrap .btn.disabled:active {
   background: gray;
 }
@@ -2904,6 +2965,7 @@ body.signup #footer .inner .wrapper {
   background: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
   background: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
   background: linear-gradient(top, #f8f8f8, #f1f1f1);
+  cursor: pointer;
   font-size: 14px;
   line-height: 14px;
   font-weight: 300;
@@ -2920,15 +2982,23 @@ body.signup #footer .inner .wrapper {
   padding: 0px;
   border-color: #222;
 }
-/* line 87, ../sass/element/button.scss */
+/* line 72, ../sass/element/button.scss */
+.detailView .functions .share.active, .detailView .functions .share:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f1f1f1), color-stop(100%, #f8f8f8));
+  background: -webkit-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: -moz-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: -o-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: linear-gradient(top, #f1f1f1, #f8f8f8);
+}
+/* line 89, ../sass/element/button.scss */
 .detailView .functions .share:hover {
   color: #333;
 }
-/* line 90, ../sass/element/button.scss */
+/* line 92, ../sass/element/button.scss */
 .detailView .functions .share.disabled {
   opacity: 0.5;
 }
-/* line 92, ../sass/element/button.scss */
+/* line 94, ../sass/element/button.scss */
 .detailView .functions .share.disabled:active {
   background: gray;
 }
@@ -2954,6 +3024,7 @@ body.signup #footer .inner .wrapper {
   background: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
   background: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
   background: linear-gradient(top, #f8f8f8, #f1f1f1);
+  cursor: pointer;
   font-size: 14px;
   line-height: 14px;
   font-weight: 300;
@@ -2971,15 +3042,23 @@ body.signup #footer .inner .wrapper {
   text-align: center;
   line-height: 28px;
 }
-/* line 87, ../sass/element/button.scss */
+/* line 72, ../sass/element/button.scss */
+.detailView .functions .shareTo.active, .detailView .functions .shareTo:active, .detailView .functions .star.active, .detailView .functions .star:active, .detailView .functions .save.active, .detailView .functions .save:active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f1f1f1), color-stop(100%, #f8f8f8));
+  background: -webkit-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: -moz-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: -o-linear-gradient(top, #f1f1f1, #f8f8f8);
+  background: linear-gradient(top, #f1f1f1, #f8f8f8);
+}
+/* line 89, ../sass/element/button.scss */
 .detailView .functions .shareTo:hover, .detailView .functions .star:hover, .detailView .functions .save:hover {
   color: #333;
 }
-/* line 90, ../sass/element/button.scss */
+/* line 92, ../sass/element/button.scss */
 .detailView .functions .shareTo.disabled, .detailView .functions .star.disabled, .detailView .functions .save.disabled {
   opacity: 0.5;
 }
-/* line 92, ../sass/element/button.scss */
+/* line 94, ../sass/element/button.scss */
 .detailView .functions .shareTo.disabled:active, .detailView .functions .star.disabled:active, .detailView .functions .save.disabled:active {
   background: gray;
 }

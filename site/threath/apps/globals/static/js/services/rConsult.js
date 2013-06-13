@@ -1,6 +1,6 @@
-app.factory('remoteConsult', ['$remoteData', function($remoteData){
+app.factory('rConsult', ['$remoteData', function($remoteData){
     
-    var remoteConsult = $remoteData({
+    var rConsult = $remoteData({
         url: '/api/user/',
         parse: function(response){
             return response.response;
@@ -10,15 +10,15 @@ app.factory('remoteConsult', ['$remoteData', function($remoteData){
         }
     });
 
-    remoteConsult.loadMore = function(){
+    rConsult.loadMore = function(){
     };
 
-    remoteConsult.prototype.getThing = function(){
+    rConsult.prototype.getThing = function(){
         return '';
     };
 
 
-    return remoteConsult;
+    return rConsult;
 }]);
 
 

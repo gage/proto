@@ -27,3 +27,35 @@
     border: 1px solid $bd-color;
     border-top: 1px solid white;
 }
+
+// Wrap Box
+.wrapBox {
+    margin-top: 5px;
+    padding: 5px;
+}
+
+// Display Box
+.dbox {
+    @extend .wrapBox;
+    border: 1px solid $bd-color;
+}
+
+// Operation button
+.op, .clickable {
+    color: $op_green;
+    cursor:pointer;
+    &:hover, &.active {
+        color: $op_red;
+        @include transition-property(all);
+        @include transition-duration(.1s);
+    }
+}
+
+// Simple clean label
+.label {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 3px;
+    margin: 1px;
+    display: inline-block;
+}

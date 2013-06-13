@@ -2,6 +2,46 @@
 	<div class="row">
 		<div class="mainBody eightcol">
 			{# mainBody contain #}
+
+			<div class="sec" ng-controller="geoCtrls.main">
+				<div class="title">
+					Geo Search
+				</div>
+				<div class="body" ng-controller="geoCtrls.geoSearchWidget as gCtrl">
+					<input type="text" placeholder="Search" maxlength="80" autocomplete="off" tabindex="1" ng-model="query" style="width: 100%;" ggl-suggest="{type:'map', cbk: gCtrl.search}" focus-scroll-to="{offset:-50, eventName: 'focus'}" ui-keypress="{13: 'gCtrl.search()'}">
+					<div ng-class="{coverLoadingMask:loading}" class="dbox" ng-show="geoInfo.data">
+						<div>{[geoInfo.data.formatted_address]}</div>
+						<div>{[geoInfo.data.geometry.location.lat]}, {[geoInfo.data.geometry.location.lng]}</div>
+					</div>
+				</div>
+				<div class="body wrapBox" ng-controller="geoCtrls.fsWidget as fsCtrl">
+					<div id="foursquarePlaces" class="dbox" ng-class="{coverLoadingMask:geoInfo.loading}">
+						<span ng-controller="geoCtrls.placeItem" ng-repeat="place in geoInfo.places" class="op label" ng-class="{active: place == geoInfo.selectedPlace}" ng-click="onClick()">
+							{[place.name]}
+						</span>
+					</div>
+					
+					<div class="dbox imgContainer" ng-show="geoInfo.fsPhotos.length">
+						<div class="text-btn-3">Foursquare</div><br><br>
+						
+						<div class="imgWrap" ng-repeat="photo in geoInfo.fsPhotos" ng-animate="{enter: 'fade-animate-enter', leave: 'fade-animate-leave'}">
+							<a href="{[photo.url]}" target="_blank">
+								<img ng-src="{[photo.sizes.items[1].url]}">
+							</a>
+						</div>
+					</div>
+					<div class="dbox imgContainer" ng-show="geoInfo.instImages.length">
+						<div class="text-btn-3">Instagram</div><br><br>
+						<div class="imgWrap" ng-repeat="img in geoInfo.instImages" ng-animate="{enter: 'fade-animate-enter', leave: 'fade-animate-leave'}">
+							<a href="{[img.images.standard_resolution.url]}" target="_blank">
+								<img ng-src="{[img.images.low_resolution.url]}">
+							</a>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
 			<div class="sec">
 				<div class="title">
 					Google Search
@@ -15,8 +55,8 @@
 					Google Image Search
 				</div>
 				<div class="body" ng-controller="indexCtrls.googleImageWidget as gCtrl">
-					<input ggl-suggest type="text" placeholder="Search" maxlength="80" autocomplete="off" tabindex="1" ng-model="query" style="width: 100%;" focus-scroll-to="{offset:-50, eventName: 'focus'}" ui-keypress="{13: 'gCtrl.search()'}" event-listener="[{name: 'autocompleteselect', callback: gCtrl.search}]">
-					<div id="googleImgContainer" ng-class="{coverLoadingMask: loading}">
+					<input ggl-suggest="{cbk: gCtrl.search}" type="text" placeholder="Search" maxlength="80" autocomplete="off" tabindex="1" ng-model="query" style="width: 100%;" focus-scroll-to="{offset:-50, eventName: 'focus'}" ui-keypress="{13: 'gCtrl.search()'}">
+					<div class="imgContainer" ng-class="{coverLoadingMask: loading}">
 						<div class="imgWrap" ng-repeat="img in images" ng-animate="{enter: 'fade-animate-enter', leave: 'fade-animate-leave'}">
 							<a href="{[img.url]}" target="_blank">
 								<img ng-src="{[img.tbUrl]}">
@@ -40,7 +80,7 @@
 					Test Remote data
 				</div>
 				<div class="body">
-					<div ng-repeat="photo in remotePhotos.models" ng-animate="{enter: 'fade-animate-enter', leave: 'fade-animate-leave'}">
+					<div ng-repeat="photo in rPhotos.models" ng-animate="{enter: 'fade-animate-enter', leave: 'fade-animate-leave'}">
 						<img ng-src="{[lightboxImg.getUrl()]}" alt="" width="50" style="float: left;" lightbox-img="photo" ng-click="showImgLightbox()">
 					</div>
 				</div>

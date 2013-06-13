@@ -191,6 +191,7 @@ INSTALLED_APPS = (
     # 'link',
     # 'notify',
     'photos',
+    'place',
     # 'phonefix',
     'registration',
     'search',
@@ -203,6 +204,14 @@ INSTALLED_APPS = (
 
 ### Google
 GOOGLE_API_KEY = 'AIzaSyCAIoKgWrtOHRXXNWVslzMGLcOTqCjlnTk'
+
+### Foursquare
+FOURSQUARE_API_HOST = 'https://api.foursquare.com'
+# FOURSQUARE_API_PATH = '/v2/venues/search'
+FOURSQUARE_API_PATH = '/v2/venues/explore'
+FOURSQUARE_CONSUMER_KEY = 'WKU5S40TPL0OUM40JIY0TALMYZEN4F4VRJBF0REHVMJUUTSM'
+FOURSQUARE_CONSUMER_SECRET = 'IPZLGEQGCTGRF5O1R4V23IKKLBALS0FDVAVCQMS2TWTVH5AR'
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

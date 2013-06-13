@@ -67,8 +67,10 @@
     @include border-radius(3px);
     @include box-shadow(rgba(0,0,0,0.1) 0px 1px 1px);
     @include background(linear-gradient(top, #f8f8f8, #f1f1f1));
+    cursor: pointer;
 
     &.active, &:active{
+        @include background(linear-gradient(top, #f1f1f1, #f8f8f8));
     }
 }
 

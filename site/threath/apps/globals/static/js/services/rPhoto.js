@@ -1,6 +1,6 @@
-app.factory('remotePhoto', ['$remoteData', function($remoteData){
+app.factory('rPhoto', ['$remoteData', function($remoteData){
     
-    var remotePhoto = $remoteData({
+    var rPhoto = $remoteData({
         url: '/api/photos/',
         parse: function(response){
             return response.response;
@@ -22,13 +22,13 @@ app.factory('remotePhoto', ['$remoteData', function($remoteData){
             
         }
     };
-    _.extend(remotePhoto.prototype,  modelProto);
+    _.extend(rPhoto.prototype,  modelProto);
 
     var collectionProto = {
     };
-    _.extend(remotePhoto.collection.prototype,  collectionProto);
+    _.extend(rPhoto.collection.prototype,  collectionProto);
 
-    return remotePhoto;
+    return rPhoto;
 }]);
 
 
