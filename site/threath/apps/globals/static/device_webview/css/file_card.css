@@ -1,0 +1,16 @@
+#fileCardWrapper .main-info {
+  height: 75px;
+}
+#fileCardWrapper .info {
+  height: 75px;
+  border-left: 70px solid transparent;
+}
+#fileCardWrapper .size {
+  line-height: 20px;
+}
+#fileCardWrapper .title {
+  word-wrap: break-word;
+}
+#fileCardWrapper .file-source {
+  line-height: 20px;
+}

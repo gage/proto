@@ -131,5 +131,25 @@ app.service('utils', ['$rootScope', '$q', '$http', function($rootScope, $q, $htt
     }
 
 
+    utils.openDetailLightbox = function(scope, options){
+        // defaults show the specs of options
+        var defaults = {
+            apiPrefix: '',
+            iframeUrl: '',
+            iframeObj: null
+        };
+
+        var newScope = $rootScope.$new();
+        _.extend(newScope, options);
+
+        $rootScope.appendLightbox({
+            source: '/tpl/lightbox/detail.html',
+            level: scope.lightboxLevel + 1,
+            isDefer: true
+        }, newScope);
+    }
+
+
+
     return utils;
 }]);

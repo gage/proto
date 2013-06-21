@@ -37,7 +37,7 @@ class PlaceFoursquareHandler(BaseHandler):
         force_update_cache = request.CLEANED.get('force_update_cache')
         q = request.CLEANED['q']
 
-        rounded_latlon = "%s,%s" % (round(float(lat),2), round(float(lon),2))
+        rounded_latlon = "%s,%s" % (lat, lon)
         version = '1'
         cache_key = 'fsplace_'+rounded_latlon+section+'_'+q+version+str(radius)
         if not cache.get(cache_key) or force_update_cache:
@@ -46,7 +46,7 @@ class PlaceFoursquareHandler(BaseHandler):
 
         results = cache.get(cache_key)
 
-        if section:
+        if section and section!="topPicks":
             results = filter(lambda x: x.section==section, results)
         return [result.to_json(request=request) for result in results]
 
@@ -55,3 +55,17 @@ class PlaceFoursquareObjectHandler(BaseObjectHandler):
     query_model = FoursquarePlace
     allowed_methods = ('GET',)
     read_auth_exempt = True
+
+
+class PlaceFoursquarePhotoHandler(BaseHandler):
+    allowed_methods = ('GET',)
+    read_auth_exempt = True
+
+    def read_validate(self, query_dict, fs_id, **kwargs):
+        pass
+
+    def read(self, request, fs_id):
+        limit = request.CLEANED['limit']
+        return FoursquarePlace.objects.get_photos(fs_id, limit=limit)
+
+

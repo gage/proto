@@ -83,6 +83,7 @@ ERROR_CHATROOM_NOT_EDITABLE             = 11800 #: Chatroom is not editable
 ERROR_CHATROOM_NAME_TOO_LONG            = 11801 #: Chatroom name should be shorter than 30 chars
 ERROR_LINK_INVALID_URL                  = 11901 #: The Url is invalid.
 ERROR_YOUTUBE_QUERY_PARA_NOT_MATCH      = 12100 #: The parameters of youtube api is not correct
+ERROR_SOUNDCLOUD_NO_TOP_SOUNDS          = 12200 #: The top sounds for soundcloud are not generated
 
 API_ERRORS = {
     ERROR_GENERAL_NO_ERROR: "No Error.",
@@ -161,4 +162,5 @@ API_ERRORS = {
     ERROR_CHATROOM_NAME_TOO_LONG: "Chatroom name should be shorter than 30 chars",
     ERROR_LINK_INVALID_URL: "The URL is invalid",
     ERROR_YOUTUBE_QUERY_PARA_NOT_MATCH: "The parameters of youtube api is not correct",
+    ERROR_SOUNDCLOUD_NO_TOP_SOUNDS: 'The top sounds for soundcloud are not generated',
 }

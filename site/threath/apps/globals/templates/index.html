@@ -3,6 +3,21 @@
 		<div class="mainBody eightcol">
 			{# mainBody contain #}
 
+			<div class="sec" ng-controller="soundcloudCtrls.main as sCtrl">
+				<div class="title">
+					SoundCloud Search
+				</div>
+				<div class="body">
+					<input type="text" placeholder="Search" maxlength="80" autocomplete="off" tabindex="1" ng-model="query" style="width: 100%;" ggl-suggest="{cbk: sCtrl.search}" focus-scroll-to="{offset:-50, eventName: 'focus'}" ui-keypress="{13: 'sCtrl.search()'}">
+					<div id="soundcloudSounds" ng-class="{coverLoadingMask:loading}" class="dbox">
+						<div class="sound" ng-repeat="sound in sounds.models" ng-controller="soundcloudCtrls.item" ng-click="openDetail()">
+							<img style="width: 50px; height:50px;" ng-src="{[sound.thumbnail]}" alt=""> {[sound.title]}
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 			<div class="sec" ng-controller="geoCtrls.main">
 				<div class="title">
 					Geo Search
@@ -26,7 +41,7 @@
 						
 						<div class="imgWrap" ng-repeat="photo in geoInfo.fsPhotos" ng-animate="{enter: 'fade-animate-enter', leave: 'fade-animate-leave'}">
 							<a href="{[photo.url]}" target="_blank">
-								<img ng-src="{[photo.sizes.items[1].url]}">
+								<img ng-src="{[photo.thumb]}">
 							</a>
 						</div>
 					</div>

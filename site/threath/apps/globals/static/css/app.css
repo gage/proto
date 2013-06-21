@@ -955,37 +955,48 @@ textarea {
   min-height: 100px;
 }
 
-/* line 8, ../sass/element/testing.scss */
+/* line 6, ../sass/element/testing.scss */
+#soundcloudSounds {
+  min-height: 100px;
+  max-height: 300px;
+  overflow: auto;
+}
+/* line 10, ../sass/element/testing.scss */
+#soundcloudSounds .sound {
+  cursor: pointer;
+}
+
+/* line 17, ../sass/element/testing.scss */
 .select2-drop.searchDrop .select2-results {
   max-height: 500px;
 }
-/* line 11, ../sass/element/testing.scss */
+/* line 20, ../sass/element/testing.scss */
 .select2-drop.searchDrop li {
   padding: 10px;
   border-top: 1px solid silver;
 }
-/* line 14, ../sass/element/testing.scss */
+/* line 23, ../sass/element/testing.scss */
 .select2-drop.searchDrop li:hover, .select2-drop.searchDrop li.select2-highlighted {
   background: #f1f1f1;
   color: gray;
 }
 
-/* line 21, ../sass/element/testing.scss */
+/* line 30, ../sass/element/testing.scss */
 .youtubeWrap {
   overflow: hidden;
 }
-/* line 23, ../sass/element/testing.scss */
+/* line 32, ../sass/element/testing.scss */
 .youtubeWrap .title {
   font-size: 14px;
 }
-/* line 26, ../sass/element/testing.scss */
+/* line 35, ../sass/element/testing.scss */
 .youtubeWrap img {
   float: left;
   width: 200px;
   margin-right: 5px;
 }
 
-/* line 34, ../sass/element/testing.scss */
+/* line 43, ../sass/element/testing.scss */
 #youtubeVideo .info-content {
   position: relative;
   padding-bottom: 56.25%;
@@ -993,7 +1004,7 @@ textarea {
   padding-top: 25px;
   height: 0;
 }
-/* line 39, ../sass/element/testing.scss */
+/* line 48, ../sass/element/testing.scss */
 #youtubeVideo .info-content iframe {
   position: absolute;
   top: 0;
@@ -1002,11 +1013,11 @@ textarea {
   height: 100%;
 }
 
-/* line 53, ../sass/element/testing.scss */
+/* line 62, ../sass/element/testing.scss */
 .imgContainer {
   min-height: 300px;
 }
-/* line 55, ../sass/element/testing.scss */
+/* line 64, ../sass/element/testing.scss */
 .imgContainer .imgWrap {
   width: 25%;
   display: inline-block;
@@ -1014,18 +1025,18 @@ textarea {
 
 /* Component containers
 ----------------------------------*/
-/* line 64, ../sass/element/testing.scss */
+/* line 73, ../sass/element/testing.scss */
 .ui-widget {
   font-family: Verdana, Arial, sans-serif;
   font-size: 1.1em;
 }
 
-/* line 68, ../sass/element/testing.scss */
+/* line 77, ../sass/element/testing.scss */
 .ui-widget .ui-widget {
   font-size: 1em;
 }
 
-/* line 74, ../sass/element/testing.scss */
+/* line 83, ../sass/element/testing.scss */
 .ui-widget input,
 .ui-widget select,
 .ui-widget textarea,
@@ -1034,19 +1045,19 @@ textarea {
   font-size: 1em;
 }
 
-/* line 78, ../sass/element/testing.scss */
+/* line 87, ../sass/element/testing.scss */
 .ui-widget-content {
   border: 1px solid #aaaaaa;
   background: #ffffff;
   color: #222222;
 }
 
-/* line 83, ../sass/element/testing.scss */
+/* line 92, ../sass/element/testing.scss */
 .ui-widget-content a {
   color: #222222;
 }
 
-/* line 86, ../sass/element/testing.scss */
+/* line 95, ../sass/element/testing.scss */
 .ui-widget-header {
   border: 1px solid #aaaaaa;
   background: #cccccc;
@@ -1054,12 +1065,12 @@ textarea {
   font-weight: bold;
 }
 
-/* line 92, ../sass/element/testing.scss */
+/* line 101, ../sass/element/testing.scss */
 .ui-widget-header a {
   color: #222222;
 }
 
-/* line 97, ../sass/element/testing.scss */
+/* line 106, ../sass/element/testing.scss */
 .ui-menu .ui-menu-item a.ui-state-focus,
 .ui-menu .ui-menu-item a.ui-state-active {
   background: #f1f1f1;
@@ -2920,6 +2931,11 @@ body.signup #footer .inner .wrapper {
 /* line 161, ../sass/lightbox.scss */
 .contextMenu .contextMenuList .menuItem:hover {
   background: #eeeeee;
+}
+
+/* line 169, ../sass/lightbox.scss */
+.detailWindow {
+  height: 100%;
 }
 
 /* line 1, ../sass/detail.scss */

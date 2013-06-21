@@ -1,0 +1,74 @@
+/* line 114, device-icons/*.png */
+.device-icons-sprite,
+.device-icons-gray_call_icon,
+.device-icons-gray_collect_icon,
+.device-icons-gray_email_icon,
+.device-icons-gray_location_icon,
+.device-icons-gray_share_icon,
+.device-icons-green_location_icon,
+.device-icons-green_time_icon,
+.device-icons-rotten_tomato_icon,
+.device-icons-video_play_watermark,
+.device-icons-yelp_icon {
+  background: url('../images/device-icons-s7c8048fd96.png') no-repeat;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-gray_call_icon {
+  background-position: 0 -253px;
+  height: 32px;
+  width: 32px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-gray_collect_icon {
+  background-position: 0 -413px;
+  height: 32px;
+  width: 32px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-gray_email_icon {
+  background-position: 0 -381px;
+  height: 32px;
+  width: 32px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-gray_location_icon {
+  background-position: 0 -317px;
+  height: 32px;
+  width: 33px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-gray_share_icon {
+  background-position: 0 -349px;
+  height: 32px;
+  width: 32px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-green_location_icon {
+  background-position: 0 -285px;
+  height: 32px;
+  width: 33px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-green_time_icon {
+  background-position: 0 -221px;
+  height: 32px;
+  width: 32px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-rotten_tomato_icon {
+  background-position: 0 -151px;
+  height: 70px;
+  width: 70px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-video_play_watermark {
+  background-position: 0 0;
+  height: 109px;
+  width: 108px;
+}
+/* line 60, ../../../../../../../../../Desktop/CodeKit.app/Contents/Resources/engines/compass/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.device-icons-yelp_icon {
+  background-position: 0 -109px;
+  height: 42px;
+  width: 80px;
+}

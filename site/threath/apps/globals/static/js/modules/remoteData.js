@@ -112,11 +112,10 @@ angular.module('remoteData', [])
             }
             var queryUrl = typeof this.url=='function'? this.url():this.url;
             if(data){
-                var keys = _.keys(data);
-                var dataStr = '';
-                for(var i=0,len=keys.length;i<len;i++){
-                    dataStr = dataStr + keys[i] + '=' + data[keys[i]] + '&';
-                }
+                var str = [];
+                for(var p in data)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(data[p]));
+                var dataStr = str.join("&");
                 queryUrl = queryUrl + '?' + dataStr;
             }
             $http.get(queryUrl)

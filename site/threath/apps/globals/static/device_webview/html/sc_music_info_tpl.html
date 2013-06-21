@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/device_info.css" type="text/css" />
+    <script src="../js/utils.js"></script>
+    <script type='application/javascript' src='../js/fastclick.js'></script>
+    <script type='application/javascript' src='../js/mediaelement.min.js'></script>
+</head>
+<body class="hide" onresize="DeUtils.resize();">
+    <div id="scMusicInfoWrapper" class="info-wrapper">
+        <div id="scMusicCardInfo" class="card-info">
+            <div class="main-info">
+                <div class="coverWrap">
+                    <div class="coverImg" style=""></div>
+                </div>
+                <div class="info">
+                    <div class="title"></div>
+                    <div class="artist">
+                        <span class="name"></span>
+                    </div>
+                    <div class="length duration"></div>
+                    <a href="" target="_blank" class="powerBy">Powered by SoundClould</a>
+                </div>
+                
+                <div class="shareBtn greenBtn">Share</div>
+            </div>
+        </div>
+        
+        <div class="info-row">
+            <div class="info-title">Play Music</div>
+        </div>
+        <div class="info-content">
+            <audio id="scAudio" src="" type="audio/mp3"></audio>
+            <div class="mainCover" style="">
+                <div class="playinfo">
+                    <div class="nowplay">00:00</div>
+                    <div class="progress">
+                        <span class="bar">
+                            <span class="fill"></span>
+                            <span class="mask" onclick="var event = arguments[0] || window.event; DeUtils.seekBar(event);"></span>
+                            <span class="ctrl"></span>
+                        </span>
+                    </div>
+                    <div class="totaltime duration"></div>
+                </div>
+                <div class="volume">
+                    <span class="bar">
+                        <span class="fill"></span>
+                        <span class="mask" onclick="var event = arguments[0] || window.event; DeUtils.volumeBar(event);"></span>
+                        <span class="ctrl"></span>
+                    </span>
+                </div>
+                <div class="play_icon" onclick="var event = arguments[0] || window.event; DeUtils.playToggle(event)">
+            </div>
+        </div>
+        
+    </div>
+    <div id="debug">
+    </div>
+    <script type="text/javascript">
+        DeUtils.initFastClick(FastClick);
+
+        if (DeUtils.debug) {
+            var debugEl;
+            debugEl = document.getElementById('debug');
+        }
+
+        var DeUtils = (function (_DeUtils) {
+            var Mouse = {x:0, y:0};
+
+            /* Position */
+
+            var Position =
+            {
+                get: function(obj)
+                {
+                    var curleft = curtop = 0;
+                    if(obj.offsetParent)
+                    {
+                        do
+                        {
+                            curleft += obj.offsetLeft;
+                            curtop += obj.offsetTop;
+                        }
+                        while((obj = obj.offsetParent));
+                    }
+                    return [curleft, curtop];
+                }
+            };
+
+            document.onmousemove = function(e)
+            {
+                var posx = 0, posy = 0;
+                if(!e)
+                {
+                    e = window.event;
+                }
+                if(e.pageX || e.pageY)
+                {
+                    posx = e.pageX;
+                    posy = e.pageY;
+                }
+                else if(e.clientX || e.clientY)
+                {
+                    posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                    posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                }
+                Mouse.x = posx;
+                Mouse.y = posy;
+
+            }
+
+            document.onmouseup = function(e)
+            {
+                document.querySelector('.progress .ctrl').dragging = false;
+                document.querySelector('.volume .ctrl').dragging = false;
+            }
+
+            function initDragging(ctrl, container, callback){
+                
+                ctrl.offset = {};
+                ctrl.onmousedown = function(e){
+                    this.focus();
+                    ctrl.dragging = true;
+                    ctrl.offset.mouse = Mouse.x - Position.get(ctrl)[0];
+
+                }
+                ctrl.interval = setInterval(function(){ ctrl.draw() }, 60);
+                ctrl.draw = function()
+                {
+                    if(!ctrl.dragging)
+                    {
+                        return;
+                    }
+                    var totalWidth = container.clientWidth;
+                    var containerX = 42;
+                    var offset = Mouse.x - containerX;
+                    var percentage = offset/totalWidth;
+                    if (percentage < 0) {
+                        percentage = 0;
+                    }
+                    if (percentage > 1) {
+                        percentage = 1;
+                    }
+                    callback(percentage);
+
+                }
+
+            }
+
+            function initProgress() {
+                var ctrl = document.querySelector('.progress .ctrl');
+                var container = document.querySelector('.progress .bar');
+                initDragging(ctrl, container, _DeUtils.toProgressPercentage);
+            }
+
+            function initVolume() {
+                var ctrl = document.querySelector('.volume .ctrl');
+                var container = document.querySelector('.volume .bar');
+                var callback = function(percentage){
+                    _DeUtils.scAudio.volume = percentage;
+                    _DeUtils.volumeChange(percentage);
+                }
+                initDragging(ctrl, container, callback);
+            }
+
+            function getProgressLen(){
+                return document.querySelector('.playinfo .progress').clientWidth;
+            };
+
+            function getVolumeLen(){
+                return document.querySelector('.volume').clientWidth;
+            };
+
+            function play(play_icon){
+            	_DeUtils.scAudio.play();
+            	if(!_DeUtils.hasClass(play_icon, 'pause'))
+	            	_DeUtils.addClass(play_icon, 'pause');
+            }
+
+            function pause(play_icon){
+            	_DeUtils.scAudio.pause();
+            	if(_DeUtils.hasClass(play_icon, 'pause'))
+	            	_DeUtils.removeClass(play_icon, 'pause');
+            }
+
+            _DeUtils.resize = function(){
+            	_DeUtils.volumeChange(_DeUtils.scAudio.volume);
+            	_DeUtils.playTimeUpdate(_DeUtils.scAudio.currentTime);
+            };
+
+            _DeUtils.toProgressPercentage = function(percentage){
+                var duration = _DeUtils.scAudio.duration;
+                var goTo = duration*percentage;
+                if (!duration) {
+                    return;
+                }
+                console.log(goTo, percentage);
+                var play_icon = document.querySelector('.play_icon')
+                _DeUtils.scAudio.currentTime = goTo;
+                play(play_icon);
+            }
+
+            _DeUtils.seekBar = function(e){
+                if(e.target.className != 'ctrl'){
+                    var pg_len = getProgressLen();
+                    var percentage = e.offsetX/pg_len;
+                    var duration = _DeUtils.scAudio.duration;
+                    if (!duration) {
+                        return;
+                    }
+                    var goTo = duration*percentage;
+                    var play_icon = document.querySelector('.play_icon')
+                    _DeUtils.scAudio.currentTime = goTo;
+                    play(play_icon);
+                }
+                // console.log(e.offsetX, e);
+            }
+
+            _DeUtils.volumeBar = function(e){
+                if(e.target.className != 'ctrl'){
+                    var pg_len = getProgressLen();
+                    var percentage = e.offsetX/pg_len;
+                    var duration = _DeUtils.scAudio.duration;
+                    console.log(e.offsetX, e, percentage);
+                    // var goTo = duration*percentage;
+                    _DeUtils.scAudio.volume = percentage;
+                }
+            }
+
+            _DeUtils.playToggle = function(e){
+	            e.stopPropagation();
+				var play_icon = e.target;
+	            if(!_DeUtils.scAudio.playing){
+	                play(play_icon);
+	            }else{
+	                pause(play_icon);
+	            }
+	            return false;
+	        };
+
+            _DeUtils.movePlayCtrl = function(percentage){
+                if (percentage < 0) {
+                    percentage = 0;
+                }
+                if (percentage > 1) {
+                    percentage = 1;
+                }
+                var pg_len = getProgressLen();
+                var len = pg_len*percentage;
+                document.querySelector('.progress .fill').style.width = len+"px";
+                document.querySelector('.progress .ctrl').style.left = len+"px";
+                document.querySelector('.progress .ctrl').style.marginLeft = -15*percentage+"px";
+            };
+
+            _DeUtils.volumeChange = function(p){
+                var v_len = getVolumeLen();
+                var len = v_len*p;
+                document.querySelector('.volume .fill').style.width = len+"px";
+                document.querySelector('.volume .ctrl').style.left = len+"px";
+                document.querySelector('.volume .ctrl').style.marginLeft = ((-15*p)-5)+"px";
+            };
+
+            _DeUtils.playTimeUpdate = function(t){
+                // console.log(t);
+                var currentT = _DeUtils.formatDuration(t);
+                document.querySelector('.playinfo .nowplay').innerText = currentT;
+                var duration = _DeUtils.scAudio.duration;
+                if (duration) {
+                    var percentage = t/duration;
+                    _DeUtils.movePlayCtrl(percentage);
+                }
+            }
+
+            _DeUtils.renderObj = function(jsonStr, options) {
+                
+                var obj = _DeUtils.initRenderInfo(jsonStr, options);
+                if (options==null) {
+                    options = {};
+                }
+                document.getElementById('scAudio').src = obj['stream_url']
+                var domain = '#scMusicInfoWrapper .';
+
+                document.querySelector(domain+'title').innerText = obj.title
+                document.querySelector(domain+'artist .name').innerText = obj.user.username
+                document.querySelector(domain+'powerBy').href = obj.permalink_url
+                var durationDisplay = _DeUtils.formatDuration(obj.duration/1000.0);
+                document.querySelector(domain+'info-content .duration').innerHTML = durationDisplay;
+                document.querySelector('#scMusicCardInfo .duration').innerHTML = durationDisplay;
+
+                // Render Cover
+                var coverDom = document.querySelector(domain+'coverImg');
+                _DeUtils.setBackground(coverDom, obj.thumb);
+                var mainCoverDom = document.querySelector(domain+'mainCover');
+                _DeUtils.setBackground(mainCoverDom, obj.cover);
+
+                initProgress();
+                initVolume();
+
+                _DeUtils.scAudio = new MediaElement('scAudio',{
+                     success: function (mediaElement, domObject) { 
+                        mediaElement.volume = 0.8;
+                        // console.log('song success');
+                        mediaElement.addEventListener('loadeddata', function(e){
+                        	// console.log(123);
+                        });
+                        mediaElement.addEventListener('loadedmetadata', function(e) {
+                            var strDuration = _DeUtils.formatDuration(mediaElement.duration);
+                            document.querySelector('#scMusicCardInfo .duration').innerText = strDuration;
+                            document.querySelector('.playinfo .duration').innerText = strDuration;
+                            // console.log(strDuration);
+                        }, false);
+                        mediaElement.addEventListener('timeupdate', function(e) {
+                            _DeUtils.playTimeUpdate(mediaElement.currentTime);
+                        }, false);
+                        mediaElement.addEventListener('canplay', function(e) {
+                            _DeUtils.scAudio.canplay = true;
+                        }, false);
+                        mediaElement.addEventListener('play', function(e) {
+                            // console.log('play');
+                        }, false);
+                        mediaElement.addEventListener('ended', function(e) {
+                            _DeUtils.scAudio.currentTime = 0;
+                        }, false);
+                        mediaElement.addEventListener('volumechange', function(e) {
+                            _DeUtils.volumeChange(e.target.volume);
+                        }, false);
+                        mediaElement.addEventListener('playing', function(e) {
+                            _DeUtils.scAudio.playing = true;
+                            // console.log('playing');
+                        }, false);
+                        mediaElement.addEventListener('pause', function(e) {
+                            _DeUtils.scAudio.playing = false;
+                        }, false);
+                    }
+                });
+                _DeUtils.removeClass(document.querySelector('body'), 'hide');
+            };
+            return _DeUtils;
+        }(DeUtils));
+
+    // var options = {displayAs: 'cardDetail', device: 'desktop'};
+    var options = {displayAs: 'attach', device: 'desktop'};
+    // var options = {displayAs: 'cardDetail'};
+    // var options = {displayAs: 'attach'};
+
+    if (DeUtils.debug) {
+        var testMusicCardDetail = {
+            "playback_count": 272678,
+            "title": "Robin Thicke - Blurred Lines (feat. T.I. & Pharrell)",
+            "cover": "http://i1.sndcdn.com/artworks-000043961901-riim65-t500x500.jpg?fdf18bf",
+            "thumb": "http://i1.sndcdn.com/artworks-000043961901-riim65-t200x200.jpg?fdf18bf",
+            "duration": 90103,
+            "user": {
+                "username": "Interscope Records",
+                "permalink": "interscope",
+                "kind": "user",
+                "uri": "http://api.soundcloud.com/users/1377057",
+                "avatar_url": "http://i1.sndcdn.com/avatars-000001660373-fnvv9k-large.jpg?fdf18bf",
+                "permalink_url": "http://soundcloud.com/interscope",
+                "id": 1377057
+            },
+            "sid": "85085126",
+            "stream_url": "http://api.soundcloud.com/tracks/85085126/stream?client_id=1fc2fd9753cd0ef4560355e9e40d40da",
+            "permalink_url": "http://soundcloud.com/interscope/robin-thicke-blurred-lines",
+            "id": "51c27b02f01bc86ce477d693"
+        }
+        DeUtils.renderObj(testMusicCardDetail, options);
+        // DeUtils.renderObj(testData);
+    }
+
+    </script>
+</body>
+</html>

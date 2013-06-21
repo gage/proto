@@ -1,0 +1,283 @@
+{
+    "version": "_VERSION_HASH",
+    
+    "link": {
+        "type_id": 1,
+        "html": "link_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 250,
+                "height": 117
+            },
+            "youtube": {
+                "width": 250,
+                "height": 150
+            },
+            "desktop_normal": {
+                "width": 275,
+                "height": 126
+            },
+            "desktop_youtube": {
+                "width": 275,
+                "height": 165
+            }
+
+        },
+        "save": "card",
+        "name": "Link",
+        "title": {
+            "singular": "shared a link",
+            "plural": "shared Links"
+        }
+    },
+    "photo": {
+        "type_id": 2,
+        "html": "photo_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 160,
+                "height": 160
+            },
+            "desktop_normal": {
+                "width": 160,
+                "height": 160
+            }
+        },
+        "save": "card",
+        "name": "Photo",
+        "title": {
+            "singular": "shared a photo",
+            "plural": "shared photos"
+        }
+    },
+    "video": {
+        "type_id": 3,
+        "html": "video_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 250,
+                "height": 150
+            },
+            "rotate": {
+                "width": 150,
+                "height": 250
+            },
+            "desktop_normal": {
+                "width": 275,
+                "height": 165
+            },
+            "desktop_rotate": {
+                "width": 165,
+                "height": 275
+            }
+        },
+        "save": "device",
+        "name": "Video",
+        "title": {
+            "singular": "shared a video",
+            "plural": "shared videos"
+        }
+    },
+    "movie": {
+        "type_id": 4,
+        "html": "movie_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 250,
+                "height": 133
+            },
+            "movie_only": {
+                "width": 250,
+                "height": 133
+            },
+            "desktop_normal": {
+                "width": 300,
+                "height": 180
+            },
+            "desktop_movie_only": {
+                "width": 300,
+                "height": 180
+            }
+        },
+        "save": "card",
+        "name": "Movie showtime",
+        "title": {
+            "singular": "shared a movie showtime",
+            "plural": "shared movie showtimes"
+        }
+    },
+    "rtmovie": {
+        "type_id": 8,
+        "html": "movie_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 250,
+                "height": 133
+            },
+            "movie_only": {
+                "width": 250,
+                "height": 133
+            },
+            "desktop_normal": {
+                "width": 300,
+                "height": 180
+            },
+            "desktop_movie_only": {
+                "width": 300,
+                "height": 180
+            }
+        },
+        "save": "card",
+        "name": "Movie showtime",
+        "title": {
+            "singular": "shared a movie showtime",
+            "plural": "shared movie showtimes"
+        }
+    },
+    "restaurant": {
+        "type_id": 5,
+        "html": "restaurant_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 250,
+                "height": 112
+            },
+            "deal": {
+                "width": 250,
+                "height": 112
+            },
+            "desktop_normal": {
+                "width": 300,
+                "height": 156
+            },
+            "desktop_deal": {
+                "width": 300,
+                "height": 156
+            }
+        },
+        "save": "card",
+        "name": "Restaurant",
+        "title": {
+            "singular": "shared a restaurant",
+            "plural": "shared restaurants"
+        }
+    },
+    "contact": {
+        "type_id": 6,
+        "html": "contact_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 150,
+                "height": 32
+            },
+            "desktop_normal": {
+                "width": 150,
+                "height": 32
+            }
+        },
+        "save": "device",
+        "name": "Contact",
+        "title": {
+            "singular": "shared a contact",
+            "plural": "shared contacts"
+        }
+    },
+    "file": {
+        "type_id": 7,
+        "html": "file_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 230,
+                "height": 52
+            },
+            "desktop_normal": {
+                "width": 230,
+                "height": 52
+            }
+        },
+        "save": "card",
+        "name": "File",
+        "title": {
+            "singular": "shared a file",
+            "plural": "shared files"
+        }
+    },
+    "fsrestaurant": {
+        "type_id": 9,
+        "html": "fs_restaurant_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 250,
+                "height": 112
+            },
+            "deal": {
+                "width": 250,
+                "height": 112
+            },
+            "desktop_normal": {
+                "width": 300,
+                "height": 156
+            },
+            "desktop_deal": {
+                "width": 300,
+                "height": 156
+            }
+        },
+        "save": "card",
+        "name": "Restaurant",
+        "title": {
+            "singular": "shared a restaurant",
+            "plural": "shared restaurants"
+        }
+    },
+    "ytvideo": {
+        "type_id": 10,
+        "html": "link_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 250,
+                "height": 150
+            },
+            "youtube": {
+                "width": 250,
+                "height": 150
+            },
+            "desktop_normal": {
+                "width": 275,
+                "height": 165
+            },
+            "desktop_youtube": {
+                "width": 275,
+                "height": 165
+            }
+
+        },
+        "save": "card",
+        "name": "YouTube Video",
+        "title": {
+            "singular": "shared a youtube video",
+            "plural": "shared youtube videos"
+        }
+    },
+    "scmusic": {
+        "type_id": 11,
+        "html": "sc_music_card_tpl.html",
+        "size": {
+            "normal": {
+                "width": 250,
+                "height": 90
+            },
+            "desktop_normal": {
+                "width": 300,
+                "height": 120
+            }
+        },
+        "save": "card",
+        "name": "Soundcloud Music",
+        "title": {
+            "singular": "shared a soundcloud music",
+            "plural": "shared soundcloud musics"
+        }
+    }
+
+}

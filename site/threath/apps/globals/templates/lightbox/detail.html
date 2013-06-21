@@ -1,0 +1,16 @@
+{% extends "lightboxFrame.html" %}
+
+{% block lightbox_width %}500{% endblock lightbox_width %}
+{% block lightbox_title %}Info{% endblock lightbox_title %}
+
+{% block lightbox_content %}
+
+<div class="detailWindow" ng-controller="detailCtrls.window">
+    <div id="iframeDetail" class="generalDetail detailView" ng-class="{coverLoadingMask:isLoading}">
+        <div id="iframeWrapper" class="wrapper" ng-style="wrapperStyle">
+            <div detail-iframe="{iframeUrl: iframeUrl, apiPrefix: apiPrefix, iframeObj: iframeObj }" style="height:100%;"></div>
+        </div>
+    </div>
+</div>
+
+{% endblock lightbox_content %}

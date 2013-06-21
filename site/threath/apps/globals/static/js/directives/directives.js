@@ -54,6 +54,13 @@ app.directive('gglSuggest', ['$timeout',function ($timeout) {
                 options.cbk(e, ui);
             })
 
+            $(element).bind('keypress', function(e, ui){
+                var code = (e.keyCode ? e.keyCode : e.which);
+                if (code == 13){
+                    $(element).autocomplete('close');
+                };
+            })
+
             $(element).autocomplete({
                 source: function(request, response) {
                     assignNgModel(request.term);
@@ -333,8 +340,12 @@ function($compile, $templateCache, $http, $rootScope){
             $rootScope.lightboxMap = $rootScope.lightboxMap || {};
             scope.close = function(){
                 scope.lightboxLevel = null;
+                
+                element.find('object,embed,iframe').attr("src", "");
+                element.find('object,embed,iframe').remove();
                 element.remove();
                 $rootScope.lightboxMap[options.level] = null;
+                scope.$destroy();
             };
 
             scope.closeAllLightbox = function(){
@@ -705,5 +716,62 @@ app.directive('scContextMenu', ['$timeout','utils',function ($timeout, utils) {
         }
     };
 }]);
+
+
+app.directive('detailIframe', ['$q', '$http', function($q, $http){
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs){
+            var options = {
+                apiPrefix: '',
+                iframeUrl: '',
+                iframeObj: null
+            };
+
+            var _options = scope.$eval(attrs.detailIframe);
+            _.extend(options, _options);
+            var objData = options.iframeObj;
+            var detailLink = options.apiPrefix+objData.id+'/?detail=true';
+
+            var deferred = $q.defer();
+            $http.get(detailLink).success(function(data, status){
+                if (data.success) {
+                    deferred.resolve(data.response);
+                }
+                deferred.reject('fail');
+            }).error(function(data, status, headers, config){
+                var errmsg = '';
+                deferred.reject(errmsg);
+            });
+
+            deferred.promise.then(function(resolved){
+                var detailObj = resolved;
+                var iframe = $('<iframe class="detail" style="display:none"></iframe>');
+                var path = options.iframeUrl;
+                var attr = {src: path};
+
+                iframe.on('load', function(){
+                    this.contentWindow.DeUtils.renderObj(detailObj, {
+                        device: 'desktop'
+                    });
+
+                    scope.$apply(function(){
+                        if (scope.lightboxHeight) {
+                            scope.lightboxFrameOptions.style.height = scope.lightboxHeight;
+                        }
+                        scope.showLightboxContent();
+                    })
+                    
+                    this.style.display = 'block';
+                    
+                });
+                iframe.attr(attr); 
+                element.append(iframe);
+            });
+            
+        }
+    }
+}]);
+
 
 

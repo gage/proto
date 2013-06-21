@@ -116,6 +116,14 @@ TEMPLATE_LOADERS = (
     'coffin.template.loaders.Loader',
 )
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
+
+
 import jinja2
 JINJA2_ENVIRONMENT_OPTIONS = {
     'bytecode_cache': jinja2.FileSystemBytecodeCache(os.path.join(SITE_ROOT, 'configs/common/jinja_cache'), '%s.cache')
@@ -180,6 +188,8 @@ INSTALLED_APPS = (
     'djangotoolbox',
     'imagekit',
     'haystack',
+    'mongo_cache',
+    'diff_match_patch',
     # 'djcelery',
     # 'phonenumbers',
 
@@ -196,6 +206,7 @@ INSTALLED_APPS = (
     'registration',
     'search',
     'slug',
+    'soundcloud',
     # 'testing',
     'user_profiles',
     'youtube',
@@ -212,7 +223,9 @@ FOURSQUARE_API_PATH = '/v2/venues/explore'
 FOURSQUARE_CONSUMER_KEY = 'WKU5S40TPL0OUM40JIY0TALMYZEN4F4VRJBF0REHVMJUUTSM'
 FOURSQUARE_CONSUMER_SECRET = 'IPZLGEQGCTGRF5O1R4V23IKKLBALS0FDVAVCQMS2TWTVH5AR'
 
-
+# SoundCloud
+SOUNDCLOUD_CLIENT_ID = '1fc2fd9753cd0ef4560355e9e40d40da'
+SOUNDCLOUD_SECRET = 'aeef7d7ad4301306b2c8900d760665e7'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.

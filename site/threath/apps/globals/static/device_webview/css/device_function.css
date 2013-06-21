@@ -1,0 +1,116 @@
+/*Font, colors*/
+/* --------------------------- */
+/* Local variable */
+/* --------------------------- */
+/*Spacing*/
+/*Size*/
+/*Font size*/
+/*Functions*/
+/*Styles*/
+.hide {
+  display: none;
+}
+/*Modules*/
+/* Both Use */
+/*Cards*/
+/*Info*/
+.row-dec {
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 2px solid #DFDFDF;
+}
+/*Operation Button*/
+@media all and (max-width: 1024px) {
+  /* styles for narrow desktop browsers and iPad landscape */
+}
+@media all and (max-width: 768px) {
+  /* styles for narrower desktop browsers and iPad portrait */
+}
+@media all and (max-width: 480px) {
+  /* styles for iPhone/Android landscape (and really narrow browser windows) */
+}
+@media all and (max-width: 320px) {
+  /* styles for iPhone/Android portrait */
+}
+@media all and (max-width: 240px) {
+  /* styles for smaller devices */
+}
+.greenBtn {
+  z-index: 1;
+  padding: 5px;
+  font-weight: 300;
+  padding: 6px 22px;
+  min-width: 53px;
+  text-align: center;
+  color: white;
+  text-shadow: 0 -1px #000000;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: solid 1px #476330;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  background: #a0bf5d;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #a0bf5d 0%, #6d9600 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a0bf5d), color-stop(100%, #6d9600));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #a0bf5d 0%, #6d9600 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #a0bf5d 0%, #6d9600 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #a0bf5d 0%, #6d9600 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #a0bf5d 0%, #6d9600 100%);
+  /* W3C */
+
+}
+.greenBtn.disabled {
+  opacity: 0.5;
+}
+.greenBtn.disabled:active {
+  background: gray;
+}
+.greenBtn.active,
+.greenBtn:active {
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(0, 0, 0, 0.2);
+  background: #6d9600;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #6d9600 0%, #a0bf5d 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6d9600), color-stop(100%, #a0bf5d));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #6d9600 0%, #a0bf5d 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #6d9600 0%, #a0bf5d 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #6d9600 0%, #a0bf5d 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #6d9600 0%, #a0bf5d 100%);
+  /* W3C */
+
+}

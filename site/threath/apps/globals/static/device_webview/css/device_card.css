@@ -1,0 +1,1204 @@
+#linkCardWrapper {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+#linkCardWrapper .main-info {
+  background-color: #DDDDDD;
+}
+#linkCardWrapper .domain {
+  color: #666666;
+}
+#linkCardWrapper.youtube .title {
+  line-height: 20px;
+  max-height: 20px;
+  overflow: hidden;
+}
+#linkCardWrapper.youtube .infoTail .icon {
+  background: url('../images/device-icons/youtube_icon.png') no-repeat;
+  background-size: 100% auto;
+  width: 41px;
+  height: 19px;
+  margin-top: 3px;
+}
+#linkCardWrapper.youtube .domain {
+  display: none;
+}
+#linkCardWrapper.youtube .description-wrapper {
+  display: none;
+}
+#linkCardWrapper.youtube .coverImg {
+  height: 150px;
+  width: 250px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+  text-align: center;
+}
+#linkCardWrapper.youtube .coverImg:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+#linkCardWrapper.youtube .coverImg:after {
+  content: '';
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  vertical-align: middle;
+  /*position: absolute;*/
+
+  /*top: 60px;*/
+
+  /*left: 105px;*/
+
+  background: url('../images/device-icons/dark_play_watermark.png') no-repeat;
+  background-size: 100% auto;
+}
+#linkCardWrapper.youtube .info {
+  height: 100px;
+  border-left: 110px solid transparent;
+}
+#linkCardWrapper .description-wrapper {
+  background: #f5f5f5;
+  padding: 2px 6px;
+  color: #666666;
+  height: 60px;
+  padding: 5px 7px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+
+}
+#linkCardWrapper .description-wrapper:empty {
+  padding: 0;
+  margin: 0;
+}
+#linkCardWrapper .description-wrapper:last-child {
+  margin-bottom: 0;
+}
+#linkCardWrapper .description {
+  line-height: 16px;
+  overflow: hidden;
+  max-height: 46px;
+}
+#linkCardWrapper .coverImg {
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+#linkCardWrapper .info {
+  height: 60px;
+  border-left: 70px solid transparent;
+}
+#linkCardWrapper.desktop .info {
+  height: 66px;
+  border-left: 76px solid transparent;
+}
+#linkCardWrapper.desktop .coverImg {
+  width: 66px;
+  height: 66px;
+}
+#linkCardWrapper.desktop.youtube .coverImg {
+  height: 165px;
+  width: 275px;
+}
+#contactCardWrapper {
+  width: 150px;
+}
+#contactCardWrapper .title {
+  max-width: 116px;
+  text-overflow: ellipsis;
+}
+#contactCardWrapper .main-icon {
+  background: url('../images/device-icons/green_contact_icon.png') no-repeat;
+  background-size: 100% auto;
+  width: 10px;
+  height: 15px;
+}
+#videoCardWrapper.rotate {
+  width: 150px;
+}
+#videoCardWrapper.rotate .coverImg {
+  width: 150px;
+  height: 250px;
+}
+#videoCardWrapper.rotate .infoTail {
+  width: 150px;
+}
+#videoCardWrapper .cover-wrapper {
+  display: inline-block;
+}
+#videoCardWrapper .coverImg {
+  position: relative;
+  text-align: center;
+}
+#videoCardWrapper .coverImg:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+#videoCardWrapper .coverImg:after {
+  content: '';
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  vertical-align: middle;
+  /*position: absolute;*/
+
+  /*top: 60px;*/
+
+  /*left: 105px;*/
+
+  background: url('../images/device-icons/dark_play_watermark.png') no-repeat;
+  background-size: 100% auto;
+}
+#videoCardWrapper .runtime {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  display: inline-block;
+}
+#movieCardWrapper .row-info {
+  min-height: 63px;
+}
+#movieCardWrapper .thirdPartyIcon {
+  width: 14px;
+  height: 14px;
+  margin-right: 2px;
+  vertical-align: middle;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  background: url('../images/device-icons/rotten_tomato_icon.png') no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+}
+#movieCardWrapper .thirdPartyIcon.fresh {
+  background: url('../images/device-icons/fresh_tomato_icon.png') no-repeat;
+  background-size: 100% auto;
+  height: 14px;
+  width: 16px;
+}
+#movieCardWrapper .play_icon {
+  position: absolute;
+  vertical-align: middle;
+  top: 50%;
+  left: 50%;
+  margin-left: -18px;
+  margin-top: -18px;
+  background: url('../images/device-icons/dark_play_watermark.png') no-repeat;
+  background-size: 100% auto;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+}
+#movieCardWrapper .movieLength {
+  margin-top: 6px;
+  font-size: 12px;
+}
+#movieCardWrapper .expiry_str {
+  height: 16px;
+}
+#movieCardWrapper .mpaa_rating:after {
+  content: ",";
+}
+#movieCardWrapper .mpaa_rating:empty:after {
+  content: "";
+}
+#movieCardWrapper .theater_name {
+  font-size: 12px;
+}
+#movieCardWrapper .movie-time-info {
+  position: relative;
+  overflow: hidden;
+}
+#movieCardWrapper .movie-time-info .date {
+  margin: 0 0 2px;
+}
+#movieCardWrapper .movie-time-info .showTime {
+  max-height: 32px;
+}
+#movieCardWrapper .movie-time-info .showTime .item {
+  width: 35px;
+  padding: 3px 0 0px 0;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+
+  line-height: 12px;
+  font-size: 12px;
+}
+#movieCardWrapper .castItem {
+  display: inline-block;
+}
+#movieCardWrapper .cast-info {
+  margin-top: 12px;
+}
+#movieCardWrapper .cast-info .bd {
+  max-height: 32px;
+}
+#movieCardWrapper.desktop .row-info {
+  min-height: 88px;
+}
+#movieCardWrapper.desktop .movie-time-info .showTime .item {
+  font-size: 12px;
+  width: 38px;
+}
+#movieCardWrapper.desktop .thirdPartyIcon {
+  width: 26px;
+  height: 26px;
+  margin-right: 2px;
+  vertical-align: middle;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  background: url('../images/device-icons/rotten_tomato_icon.png') no-repeat;
+  background-size: 100% auto;
+}
+#movieCardWrapper.desktop .thirdPartyIcon.fresh {
+  background: url('../images/device-icons/fresh_tomato_icon.png') no-repeat;
+  background-size: 100% auto;
+  height: 26px;
+  width: 30px;
+}
+#movieCardWrapper.desktop .movieLength {
+  margin-top: 3px;
+  font-size: 12px;
+}
+#movieCardWrapper.desktop .theater_name {
+  line-height: 18px;
+}
+#movieCardWrapper.desktop .movie-time-info .showTime {
+  height: 55px;
+}
+#movieCardWrapper.desktop .movie-time-info .showTime .item {
+  width: 40px;
+  padding: 0px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+
+  line-height: 18px;
+  font-size: 12px;
+}
+#movieCardWrapper.desktop .castItem {
+  display: inline-block;
+}
+#movieCardWrapper.desktop .cast-info {
+  margin-top: 18px;
+}
+#movieCardWrapper.desktop .cast-info .bd {
+  max-height: 54px;
+}
+#restaurantCardWrapper.clear {
+  height: 112px;
+}
+#restaurantCardWrapper .clear-main-info {
+  height: 112px;
+}
+#restaurantCardWrapper .infoLeft {
+  height: 112px;
+}
+#restaurantCardWrapper .coverImg {
+  height: 90px;
+}
+#restaurantCardWrapper .infoRight {
+  padding-top: 0px;
+}
+#restaurantCardWrapper .row-info {
+  min-height: 63px;
+}
+#restaurantCardWrapper .deal-info {
+  max-height: 52px;
+  min-height: 0px;
+  overflow: hidden;
+}
+#restaurantCardWrapper .deal-info i {
+  width: 16px;
+  height: 9.5px;
+  display: block;
+  margin-top: 2px;
+  background: url('../images/device-icons/green_deal_icon.png') no-repeat;
+  background-size: 100% auto;
+  float: left;
+}
+#restaurantCardWrapper .deal-info .dealTitle {
+  padding-left: 22px;
+}
+#restaurantCardWrapper .rating-info {
+  background: #222;
+}
+#restaurantCardWrapper .rating-info .thirdPartyIcon {
+  width: 28px;
+  height: 14.666666666666666px;
+  margin-right: 2px;
+  margin-top: -2px;
+  background: url('../images/device-icons/yelp_icon.png') no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+#restaurantCardWrapper .rating-info .ratingImg {
+  height: 8px;
+  width: 44.266666666666666px;
+  display: inline-block;
+  vertical-align: middle;
+}
+#restaurantCardWrapper .category {
+  max-height: 32px;
+  line-height: 16px;
+}
+#restaurantCardWrapper .address-info {
+  margin-top: 3px;
+}
+#restaurantCardWrapper .address-info .bd {
+  max-height: 36px;
+}
+#restaurantCardWrapper.desktop.clear {
+  height: 156px;
+}
+#restaurantCardWrapper.desktop .clear-main-info {
+  height: 156px;
+}
+#restaurantCardWrapper.desktop .infoLeft {
+  height: 156px;
+}
+#restaurantCardWrapper.desktop .infoRight {
+  padding-top: 0px;
+}
+#restaurantCardWrapper.desktop .row-info {
+  min-height: 63px;
+}
+#restaurantCardWrapper.desktop .coverImg {
+  height: 120px;
+}
+#restaurantCardWrapper.desktop .infoRight {
+  padding-top: 2px;
+}
+#restaurantCardWrapper.desktop .row-info {
+  min-height: 88px;
+  padding-top: 4px;
+}
+#restaurantCardWrapper.desktop .deal-info i {
+  width: 16px;
+  height: 9.5px;
+  display: block;
+  margin-top: 3px;
+  background: url('../images/device-icons/green_deal_icon.png') no-repeat;
+  background-size: 100% auto;
+  float: left;
+}
+#restaurantCardWrapper.desktop .deal-info .dealTitle {
+  padding-left: 22px;
+}
+#restaurantCardWrapper.desktop .rating-info {
+  padding-left: 5px;
+}
+#restaurantCardWrapper.desktop .rating-info .thirdPartyIcon {
+  width: 50px;
+  height: 26.25px;
+}
+#restaurantCardWrapper.desktop .rating-info .ratingImg {
+  height: 9px;
+  width: 49.8px;
+}
+#restaurantCardWrapper.desktop .category {
+  max-height: 36px;
+  line-height: 18px;
+}
+#restaurantCardWrapper.desktop .address-info {
+  margin-top: 9px;
+}
+#restaurantCardWrapper.desktop .address-info .bd {
+  max-height: 36px;
+}
+#fsRestaurantCardWrapper.clear {
+  height: 112px;
+}
+#fsRestaurantCardWrapper .clear-main-info {
+  height: 112px;
+}
+#fsRestaurantCardWrapper .infoLeft {
+  height: 112px;
+}
+#fsRestaurantCardWrapper .coverImg {
+  height: 90px;
+}
+#fsRestaurantCardWrapper .infoRight {
+  padding-top: 0px;
+}
+#fsRestaurantCardWrapper .row-info {
+  min-height: 63px;
+}
+#fsRestaurantCardWrapper .rating-info {
+  background: #222;
+}
+#fsRestaurantCardWrapper .rating-info .thirdPartyIcon {
+  width: 15px;
+  height: 15px;
+  margin-right: 2px;
+  margin-top: -2px;
+  background: url('../images/device-icons/foursquare_logo.png') no-repeat;
+  background-size: 100% auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+#fsRestaurantCardWrapper .rating-info .score {
+  color: white;
+  font-size: 12px;
+  height: 12px;
+  line-height: 12px;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  margin-left: 2px;
+}
+#fsRestaurantCardWrapper .rating-info .score.notAvailable:after {
+  content: '';
+}
+#fsRestaurantCardWrapper .rating-info .score:after {
+  content: '/10';
+  font-size: 10px;
+  position: absolute;
+  right: -20px;
+  top: -2px;
+}
+#fsRestaurantCardWrapper .category {
+  max-height: 32px;
+  line-height: 16px;
+}
+#fsRestaurantCardWrapper .address-info {
+  /*margin-top: 3px;*/
+
+  margin-top: 1px;
+}
+#fsRestaurantCardWrapper .address-info .bd {
+  max-height: 36px;
+}
+#fsRestaurantCardWrapper.desktop.clear {
+  height: 156px;
+}
+#fsRestaurantCardWrapper.desktop .clear-main-info {
+  height: 156px;
+}
+#fsRestaurantCardWrapper.desktop .infoLeft {
+  height: 156px;
+}
+#fsRestaurantCardWrapper.desktop .coverImg {
+  height: 120px;
+}
+#fsRestaurantCardWrapper.desktop .infoRight {
+  padding-top: 2px;
+}
+#fsRestaurantCardWrapper.desktop .row-info {
+  min-height: 88px;
+  padding-top: 4px;
+}
+#fsRestaurantCardWrapper.desktop .deal-info i {
+  width: 16px;
+  height: 9.5px;
+  display: block;
+  margin-top: 3px;
+  background: url('../images/device-icons/green_deal_icon.png') no-repeat;
+  background-size: 100% auto;
+  float: left;
+}
+#fsRestaurantCardWrapper.desktop .deal-info .dealTitle {
+  padding-left: 22px;
+}
+#fsRestaurantCardWrapper.desktop .rating-info {
+  padding-left: 5px;
+}
+#fsRestaurantCardWrapper.desktop .rating-info .thirdPartyIcon {
+  width: 17px;
+  height: 17px;
+  margin-left: 7px;
+}
+#fsRestaurantCardWrapper.desktop .rating-info .score {
+  font-size: 18px;
+  line-height: 18px;
+  height: 18px;
+}
+#fsRestaurantCardWrapper.desktop .rating-info .score:after {
+  top: -4px;
+  right: -22px;
+}
+#fsRestaurantCardWrapper.desktop .rating-info .score:empty:after {
+  top: -2px;
+  font-size: 16px;
+}
+#fsRestaurantCardWrapper.desktop .category {
+  max-height: 36px;
+  line-height: 18px;
+}
+#fsRestaurantCardWrapper.desktop .address-info {
+  margin-top: 15px;
+}
+#fsRestaurantCardWrapper.desktop .address-info .bd {
+  max-height: 36px;
+}
+#fileCardWrapper .main-info {
+  height: 75px;
+}
+#fileCardWrapper .info {
+  height: 20px;
+  border-left: 22px solid transparent;
+}
+#fileCardWrapper .size {
+  line-height: 20px;
+  display: inline-block;
+}
+#fileCardWrapper .title {
+  /*word-wrap: break-word;*/
+
+}
+#fileCardWrapper .file-source {
+  line-height: 20px;
+  display: inline-block;
+}
+#fileCardWrapper .main-icon {
+  background: url('../images/device-icons/green_file_icon.png') no-repeat;
+  background-size: 100% auto;
+  width: 12px;
+  height: 16px;
+}
+/*Font, colors*/
+/* --------------------------- */
+/* Local variable */
+/* --------------------------- */
+/*Spacing*/
+/*Size*/
+/*Font size*/
+/*Functions*/
+/*Styles*/
+.hide {
+  display: none;
+}
+/*Modules*/
+/* Both Use */
+/*Cards*/
+/*Info*/
+.row-dec {
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 2px solid #DFDFDF;
+}
+/*Operation Button*/
+@media all and (max-width: 1024px) {
+  /* styles for narrow desktop browsers and iPad landscape */
+}
+@media all and (max-width: 768px) {
+  /* styles for narrower desktop browsers and iPad portrait */
+}
+@media all and (max-width: 480px) {
+  /* styles for iPhone/Android landscape (and really narrow browser windows) */
+}
+@media all and (max-width: 320px) {
+  /* styles for iPhone/Android portrait */
+}
+@media all and (max-width: 240px) {
+  /* styles for smaller devices */
+}
+.greenBtn {
+  z-index: 1;
+  padding: 5px;
+  font-weight: 300;
+  padding: 6px 22px;
+  min-width: 53px;
+  text-align: center;
+  color: white;
+  text-shadow: 0 -1px #000000;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: solid 1px #476330;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  background: #a0bf5d;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #a0bf5d 0%, #6d9600 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a0bf5d), color-stop(100%, #6d9600));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #a0bf5d 0%, #6d9600 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #a0bf5d 0%, #6d9600 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #a0bf5d 0%, #6d9600 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #a0bf5d 0%, #6d9600 100%);
+  /* W3C */
+
+}
+.greenBtn.disabled {
+  opacity: 0.5;
+}
+.greenBtn.disabled:active {
+  background: gray;
+}
+.greenBtn.active,
+.greenBtn:active {
+  -moz-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 1px 0px rgba(0, 0, 0, 0.2);
+  background: #6d9600;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #6d9600 0%, #a0bf5d 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6d9600), color-stop(100%, #a0bf5d));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #6d9600 0%, #a0bf5d 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #6d9600 0%, #a0bf5d 100%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #6d9600 0%, #a0bf5d 100%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #6d9600 0%, #a0bf5d 100%);
+  /* W3C */
+
+}
+#photoCardWrapper {
+  width: 160px;
+  padding: 0px;
+}
+#photoCardWrapper .coverImg {
+  width: 160px;
+  height: 160px;
+}
+#scMusicCardWrapper {
+  height: 90px;
+}
+#scMusicCardWrapper audio {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+#scMusicCardWrapper .clear-main-info {
+  height: 90px;
+}
+#scMusicCardWrapper .clear-main-info .infoLeft {
+  position: relative;
+  height: 90px;
+  margin-right: 6px;
+}
+#scMusicCardWrapper .clear-main-info .infoRight {
+  padding: 0px;
+  position: relative;
+  height: 90px;
+}
+#scMusicCardWrapper .clear-main-info .infoRight .powerBy {
+  position: absolute;
+  color: #aaa;
+  font-size: 10px;
+  font-weight: 200;
+  bottom: 5px;
+}
+#scMusicCardWrapper .play_icon {
+  position: absolute;
+  vertical-align: middle;
+  top: 50%;
+  left: 50%;
+  margin-left: -18px;
+  margin-top: -18px;
+  background: url('../images/device-icons/dark_play_watermark.png') no-repeat;
+  background-size: 100% auto;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+}
+#scMusicCardWrapper .play_icon.pause {
+  background: url('../images/device-icons/dark_pause_watermark.png') no-repeat;
+  background-size: 100% auto;
+}
+#scMusicCardWrapper .progressBar {
+  overflow: hidden;
+  height: 10px;
+  width: 100%;
+  padding: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background: #000;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+#scMusicCardWrapper .progressBar.hide {
+  display: none;
+}
+#scMusicCardWrapper .fill {
+  width: 0%;
+  height: 6px;
+  display: block;
+  background: #a0bf5d;
+}
+#scMusicCardWrapper .row-info {
+  padding: 6px 5px 5px 0px;
+}
+#scMusicCardWrapper .row-info .title {
+  font-size: 16px;
+  line-height: 20px;
+  max-height: 20px;
+  color: #666;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 200;
+}
+#scMusicCardWrapper .row-info .artist,
+#scMusicCardWrapper .row-info .length {
+  font-weight: 200;
+  line-height: 15px;
+  font-size: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#scMusicCardWrapper .coverImg {
+  height: 90px;
+  background-size: 90px 90px;
+}
+#scMusicCardWrapper.desktop {
+  height: 120px;
+}
+#scMusicCardWrapper.desktop .coverImg {
+  width: 120px;
+  height: 120px;
+  background-size: 120px 120px;
+}
+#scMusicCardWrapper.desktop .clear-main-info {
+  height: 120px;
+}
+#scMusicCardWrapper.desktop .clear-main-info .infoLeft {
+  height: 120px;
+}
+#scMusicCardWrapper.desktop .clear-main-info .infoRight {
+  height: 120px;
+}
+#scMusicCardWrapper.desktop .clear-main-info .infoRight .powerBy {
+  font-size: 12px;
+  bottom: 5px;
+}
+#scMusicCardWrapper.desktop .progressBar {
+  height: 14px;
+  padding: 3px;
+}
+#scMusicCardWrapper.desktop .fill {
+  width: 0%;
+  height: 8px;
+}
+#scMusicCardWrapper.desktop .row-info {
+  padding: 6px 5px 5px 0px;
+}
+#scMusicCardWrapper.desktop .row-info .title {
+  font-size: 16px;
+  line-height: 20px;
+  max-height: 40px;
+  white-space: normal;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+#scMusicCardWrapper.desktop .row-info .artist {
+  margin-bottom: 5px;
+  white-space: normal;
+  max-height: 32px;
+}
+#scMusicCardWrapper.desktop .row-info .artist,
+#scMusicCardWrapper.desktop .row-info .length {
+  font-weight: normal;
+  line-height: 16px;
+  font-size: 12px;
+}
+/* styles for smaller devices */
+html,
+body {
+  margin: 0;
+  font-size: 12px;
+  color: #444444;
+  background-color: transparent;
+}
+.title {
+  font-size: 14px;
+  line-height: 17px;
+  max-height: 34px;
+  overflow: hidden;
+}
+#ruler {
+  visibility: hidden;
+  white-space: nowrap;
+  height: 0;
+  font-size: 14px;
+  font-family: Helvetica Neue, Arial, Helvetica, Sans-Serif;
+}
+.card-wrapper {
+  overflow: hidden;
+  display: inline-block;
+  font-family: Helvetica Neue, Arial, Helvetica, Sans-Serif;
+  color: #666666;
+  width: 250px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+
+}
+.card-wrapper .card-row {
+  padding: 6px 0 7px;
+  border-top: 1px solid #CCCCCC;
+  /*border-bottom: 1px solid #CCCCCC;*/
+
+  /*.border-bright-top();
+	.border-dark-bottom();*/
+
+}
+.card-wrapper .card-row.first {
+  border-top: 0px solid #CCCCCC;
+}
+.card-wrapper .card-row:last-child {
+  border-bottom-width: 0;
+}
+.card-wrapper .card-row:first-child {
+  border-top-width: 0;
+}
+.card-wrapper.fashion .card-row {
+  margin: 0 8px;
+}
+.card-wrapper.fashion .card-row i {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.card-wrapper.fashion .card-row .row-info {
+  margin-top: 3px;
+  display: inline-block;
+  vertical-align: top;
+  width: 210px;
+}
+.card-wrapper.small {
+  width: 230px;
+}
+.card-wrapper.small.desktop {
+  width: 230px;
+}
+.card-wrapper.clear {
+  height: 133px;
+}
+.card-wrapper.desktop {
+  width: 275px;
+}
+.card-wrapper.desktop .infoHead {
+  /*width: @card-width*@desktop-ratio;*/
+
+}
+.card-wrapper.desktop .infoTail {
+  /*width: @card-width*@desktop-ratio;*/
+
+}
+.card-wrapper.desktop.fashion .coverImg {
+  height: 165px;
+  width: 275px;
+}
+.card-wrapper.desktop.clear {
+  width: 300px;
+  height: 180px;
+}
+.card-wrapper.desktop.clear .clear-main-info {
+  height: 180px;
+}
+.card-wrapper.desktop.clear .clear-main-info .coverImg {
+  height: 180px;
+  width: 120px;
+}
+.card-wrapper.desktop.clear .clear-main-info .infoLeft {
+  height: 180px;
+  margin-right: 10px;
+}
+.card-wrapper.desktop.clear .clear-main-info .infoRight {
+  font-size: 12px;
+}
+.card-wrapper.desktop.clear .clear-main-info .title {
+  font-size: 18px;
+  line-height: 22px;
+  max-height: 44px;
+}
+.card-wrapper.desktop.clear .clear-main-info .row-info {
+  padding: 7px 0px;
+}
+.card-wrapper.desktop.clear .clear-main-info .rating-info {
+  height: 36px;
+  line-height: 36px;
+  padding-left: 5px;
+}
+.card-wrapper.desktop.clear .clear-main-info .rating {
+  line-height: 36px;
+  font-size: 18px;
+  color: #fff;
+}
+.card-wrapper.desktop.clear .clear-main-info .rating span {
+  font-size: 12px;
+}
+.card-wrapper.desktop.clear .clear-main-info .hd {
+  font-size: 12px;
+  line-height: 18px;
+}
+.card-wrapper.desktop.clear .clear-main-info .bd {
+  font-size: 12px;
+  line-height: 18px;
+}
+/*TODO: desktop*/
+.small-main-info {
+  padding: 8px;
+}
+.small-main-info .main-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+.small-main-info .title {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+  white-space: nowrap;
+  max-width: 190px;
+  overflow: hidden;
+}
+.fashion-main-info {
+  overflow: hidden;
+  position: relative;
+}
+.fashion-main-info .category {
+  margin-bottom: 3px;
+}
+.fashion-main-info .coverImg {
+  height: 150px;
+  width: 250px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.fashion-main-info .infoHead {
+  top: 0;
+  color: white;
+  position: absolute;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  min-height: 25px;
+  max-height: 40px;
+  padding: 4px 8px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+
+  padding: 5px 8px;
+}
+.fashion-main-info .infoTail {
+  bottom: 0;
+  color: white;
+  position: absolute;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  min-height: 25px;
+  max-height: 40px;
+  padding: 4px 8px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+
+}
+.fashion-main-info .thirdPartyIcon {
+  display: inline-block;
+}
+.clear-main-info {
+  height: 133px;
+  overflow: hidden;
+}
+.clear-main-info .coverImg {
+  height: 133px;
+  width: 90px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.clear-main-info .row-info {
+  overflow: hidden;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 5px 0px;
+}
+.clear-main-info .title {
+  font-size: 16px;
+  line-height: 18px;
+  max-height: 36px;
+}
+.clear-main-info .infoLeft {
+  float: left;
+  position: relative;
+  height: 133px;
+  margin-right: 8px;
+}
+.clear-main-info .infoRight {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 2px 8px 2px 98px;
+  font-size: 12px;
+}
+.clear-main-info .thirdPartyIcon {
+  display: inline-block;
+  vertical-align: middle;
+}
+.clear-main-info .category {
+  margin-top: 3px;
+  overflow: hidden;
+}
+.clear-main-info hr {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  border-bottom: 1px solid #ddd;
+}
+.clear-main-info .rating-info {
+  height: 22px;
+  line-height: 22px;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding-left: 4px;
+}
+.clear-main-info .rating {
+  vertical-align: middle;
+  line-height: 22px;
+  color: #fff;
+}
+.clear-main-info .rating span {
+  font-size: 8px;
+}
+.clear-main-info .hd {
+  font-size: 12px;
+  line-height: 16px;
+  color: #aaa;
+}
+.clear-main-info .bd {
+  font-size: 12px;
+  line-height: 16px;
+  overflow: hidden;
+}
+/* Old style */
+.main-info {
+  overflow: hidden;
+}
+.main-info.card-row {
+  padding: 0;
+  position: relative;
+}
+.main-info .coverImg {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+
+  height: 100px;
+  width: 100px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.main-info .info {
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  padding-top: 5px;
+  border-left: 110px solid transparent;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+
+}
+.main-info .title {
+  color: #666666;
+  line-height: 16px;
+  max-height: 32px;
+  overflow: hidden;
+  margin-right: 8px;
+}
+.desktop.card-wrapper {
+  font-weight: 200;
+}

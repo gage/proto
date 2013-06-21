@@ -20,7 +20,7 @@ app.controller('geoCtrls.main',['$scope','$window', function($scope, $window){
 
 app.controller('geoCtrls.fsWidget',['$scope','$window', 'limitToFilter', '$http', 'rPlace', function($scope, $window, limitToFilter, $http, rPlace){
     // http://localhost:8090/api/place/fs/search/?latlon=34.693738,135.502165
-
+    
     $scope.geoInfo.selectedPlace = null;
 
     $scope.$watch('geoInfo.data', function(){
@@ -28,7 +28,7 @@ app.controller('geoCtrls.fsWidget',['$scope','$window', 'limitToFilter', '$http'
         if ($scope.geoInfo.data) {
             $scope.geoInfo.loading = true;
         }
-        var deferred = rPlace.getData({latlon: latlon, radius: 1000});
+        var deferred = rPlace.getData({latlon: latlon, radius: 1000, section: 'topPicks'});
         deferred.then(function(places){
             $scope.geoInfo.places = places.models;
             $scope.geoInfo.loading = false;
@@ -39,14 +39,7 @@ app.controller('geoCtrls.fsWidget',['$scope','$window', 'limitToFilter', '$http'
 
 app.controller('geoCtrls.placeItem',['$scope','$window', 'limitToFilter', '$http', 'utils', function($scope, $window, limitToFilter, $http, utils){
     // https://api.instagram.com/v1/locations/search
-    var INST_CLIENT_ID = 'b838a9fe16a345709c9d2300650929e2';
     var INST_TOKEN = '19342402.1fb234f.6afd663e3d5546b9b9f1fa930888c5a2';
-
-    var fsPara = {
-        client_id: 'WKU5S40TPL0OUM40JIY0TALMYZEN4F4VRJBF0REHVMJUUTSM',
-        client_secret: 'IPZLGEQGCTGRF5O1R4V23IKKLBALS0FDVAVCQMS2TWTVH5AR',
-        callback: 'JSON_CALLBACK'
-    };
 
     $scope.onClick = function(){
         $scope.geoInfo.selectedPlace = $scope.place;
@@ -63,22 +56,17 @@ app.controller('geoCtrls.placeItem',['$scope','$window', 'limitToFilter', '$http
             if (data.length) {
                 var instagramId = data[0].id;
                 $http.jsonp('https://api.instagram.com/v1/locations/'+instagramId+'/media/recent?'+serialPara).then(function(response){
-                    // console.log(response.data.data, response);
                     $scope.geoInfo.instImages = response.data.data;
                 });
             }
         });
 
-        var serialFsPara = utils.serialize(fsPara);
-        $http.jsonp('https://api.foursquare.com/v2/venues/'+$scope.place.fid+'/photos?'+serialFsPara).then(function(r){
-            var data = r.data;
-            if (data) {
-               $scope.geoInfo.fsPhotos = data.response.photos.groups[1].items;
+        $http.get('/api/place/fs/'+$scope.place.fid+'/photos/').success(function(data){
+            if (data.success) {
+                $scope.geoInfo.fsPhotos = data.response;
             }
         });
     }
-
-    
     
 
 }]);

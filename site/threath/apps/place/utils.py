@@ -8,6 +8,52 @@ from place.models import FoursquarePlace
 
 class FoursquarePlaceProcessor(object):
     @classmethod
+    def __fs_photo_parse(cls, raw):
+        json_data = json.loads(raw)
+        photos = []
+        for item in json_data['response']['photos']['items']:
+            prefix = item['prefix']
+            suffix = item['suffix']
+            photo = {
+                'url': prefix + 'original'  + suffix,
+                'thumb': prefix + '300x300'  + suffix,
+                'prefix': prefix,
+                'suffix': suffix
+            }
+            photos.append(photo)
+
+        return photos
+
+    @classmethod
+    def get_venue_photos(cls, venue_id, limit=200, offset=0):
+        cls.FS_PHOTO_URL = "%s%s" % (settings.FOURSQUARE_API_HOST, '/v2/venues/'+venue_id+'/photos')
+        para = {
+            'client_id': settings.FOURSQUARE_CONSUMER_KEY,
+            'client_secret': settings.FOURSQUARE_CONSUMER_SECRET,
+            'limit': limit,
+            'offset': offset,
+            'v': '20130604'
+        }
+
+        encode_para = urllib.urlencode(para)
+
+        url = '%(fs_photo_url)s?%(para)s' % {
+            'para': encode_para,
+            'fs_photo_url': cls.FS_PHOTO_URL,
+        }
+
+        try:
+            data = urllib2.urlopen(url).read()
+            photos = cls.__fs_photo_parse(data)
+            return photos
+        except urllib2.HTTPError, e:
+            print "HTTP error: %d" % e.code
+            return []
+        except urllib2.URLError, e:
+            print "Network error: %s" % e.reason.args[1]
+            return []
+
+    @classmethod
     def spatial_search(cls, ll, q='', radius=100000, limit=10, section=None):
         cls.FS_SEARCH_URL = "%s%s" % (settings.FOURSQUARE_API_HOST, settings.FOURSQUARE_API_PATH)
         url = '%(fs_search_url)s?venuePhotos=1&radius=%(radius)s&v=20130604&ll=%(ll)s&query=%(q)s&limit=%(limit)s&client_id=%(client_id)s&client_secret=%(client_secret)s' % {
@@ -31,6 +77,7 @@ class FoursquarePlaceProcessor(object):
         except urllib2.URLError, e:
             print "Network error: %s" % e.reason.args[1]
             return []
+
 
     @classmethod
     def __fs_venue_parse(cls, raw):
@@ -59,7 +106,7 @@ class FoursquarePlaceProcessor(object):
                     break
             photos = v['photos']
             fs_photo = None
-            if photos['count'] is not 0:
+            if photos['count'] is not 0 and len(photos['groups']):
                 fs_photo = photos['groups'][0]['items'][0]
             fs_venue_model = {
                 'fid': v['id'],

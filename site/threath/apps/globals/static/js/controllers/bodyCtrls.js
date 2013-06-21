@@ -34,14 +34,10 @@ app.controller('bodyCtrl', ['$rootScope', '$scope', '$compile', 'currentUser', '
 
 
 app.controller('lightboxFrameCtrl',['$scope','$window', function($scope, $window){
-    
-    // console.log($scope.lightboxOptions)
     $scope.lightboxFrameOptions = {
         title: $scope.lightboxOptions.title,
         style:{}
     };
-    // $scope.lightboxFrameTitle = $scope.lightboxOptions.title;
-    // $scope.lightboxFrameStyle = {};
     if($scope.lightboxOptions.width){
         $scope.lightboxFrameOptions.style.width = $scope.lightboxOptions.width;
     }

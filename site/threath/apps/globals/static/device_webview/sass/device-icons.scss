@@ -1,0 +1,5 @@
+@import "compass/utilities/sprites";
+$device-icons-clean-up: true;
+$device-icons-sprite-dimensions:true;
+@import "device-icons/*.png";
+@include all-device-icons-sprites;

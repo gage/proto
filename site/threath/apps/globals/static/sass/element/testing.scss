@@ -3,6 +3,15 @@
     min-height: 100px;
 }
 
+#soundcloudSounds {
+    min-height: 100px;
+    max-height: 300px;
+    overflow: auto;
+    .sound {
+        cursor: pointer;
+    }
+}
+
 // Testing the youtube widget
 .select2-drop.searchDrop {
     .select2-results {

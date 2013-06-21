@@ -1,0 +1,41 @@
+#fileInfoWrapper {
+  /*min-height: 600px;*/
+
+  height: 100%;
+  text-align: center;
+}
+#fileInfoWrapper:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 68%;
+}
+#fileInfoWrapper #fileIconWrap {
+  display: inline-block;
+  vertical-align: middle;
+  width: 200px;
+  height: 90px;
+  text-align: center;
+}
+#fileInfoWrapper #fileIconWrap .file-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 64px;
+  height: 90px;
+  background: url('../images/device-icons/file_detail_icon.png');
+  background-size: cover;
+}
+#fileInfoWrapper #fileIconWrap .title {
+  margin-top: 10px;
+  font-size: 14px;
+  min-height: 18px;
+  line-height: 18px;
+  color: #222222;
+  word-wrap: break-word;
+}
+#fileInfoWrapper #fileIconWrap .size {
+  height: 18px;
+  line-height: 18px;
+  color: #666666;
+  margin-top: 2px;
+}

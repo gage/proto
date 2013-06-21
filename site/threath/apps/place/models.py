@@ -41,6 +41,11 @@ class FoursquarePlaceManager(MongoDBManager):
         venues = FoursquarePlaceProcessor.spatial_search(ll=ll, q=q, radius=radius, limit=limit, section=section)
         return venues
 
+    def get_photos(self, venue_id, limit=200, offset=0):
+        from place.utils import FoursquarePlaceProcessor
+        photos = FoursquarePlaceProcessor.get_venue_photos(venue_id=venue_id, limit=limit, offset=offset)
+        return photos
+
 class FoursquarePlace(BasePlace):
 
     ICON_SIZES = {
