@@ -37,6 +37,18 @@ h2{
     
 }
 
+a{
+    font-size: 14px;
+    color: $link_black;
+    &:link, &:visited {
+        color: $link_black;
+    }
+    &:active, &:hover {
+        color: $link_blue;
+    }
+    
+}
+
 #header{
     height:35px;
     // position:fixed;

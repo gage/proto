@@ -12,7 +12,7 @@
             </div>
             <div class="right">
                 <ul class="navigation">
-                    <li class="nav logout">Log out</li>
+                    <a href="/logout"><li class="nav logout">Log out</li></a>
                     <li class="nav menu"><span class="txt">Menu</span></li>
                 </ul>
             </div>
@@ -21,7 +21,7 @@
     <div id="pageContent" >
         <div id="viewContent">
             <div id="viewContentInner">
-                <div class="ng-view"></div>
+                <div ui-view></div>
             </div>
         </div>
         {% include "footer.html" %}
@@ -52,6 +52,7 @@
     <script src="{{ STATIC_URL }}js/lib/angular-ui/keypress.js"></script>  
     <script src="{{ STATIC_URL }}js/lib/angular-ui/select2.js"></script>  
     <script src="{{ STATIC_URL }}js/lib/angular-ui/ui-bootstrap-0.3.0.min.js"></script>  
+    <script src="{{ STATIC_URL }}js/lib/angular-ui/angular-ui-router.min.js"></script>  
     
 
     <!-- Modules -->        
@@ -92,9 +93,7 @@
     </script>
 
 <script type="text/ng-template" id="index.html">
-{% include "index.html" %}
+   {% include "index.html" %}
 </script>
-
-
 
 {% endblock %}

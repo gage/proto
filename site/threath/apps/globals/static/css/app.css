@@ -2147,6 +2147,20 @@ body.loading {
 }
 
 /* line 40, ../sass/common.scss */
+a {
+  font-size: 14px;
+  color: #333333;
+}
+/* line 43, ../sass/common.scss */
+a:link, a:visited {
+  color: #333333;
+}
+/* line 46, ../sass/common.scss */
+a:active, a:hover {
+  color: #4183c4;
+}
+
+/* line 52, ../sass/common.scss */
 #header {
   height: 35px;
   top: 0px;
@@ -2159,30 +2173,30 @@ body.loading {
   border-bottom: 1px solid black;
   z-index: 100;
 }
-/* line 49, ../sass/common.scss */
+/* line 61, ../sass/common.scss */
 #header .inner {
   margin: 0 auto;
   padding: 0 11px;
 }
-/* line 53, ../sass/common.scss */
+/* line 65, ../sass/common.scss */
 #header .inner .left {
   float: left;
   padding-left: 10px;
 }
-/* line 56, ../sass/common.scss */
+/* line 68, ../sass/common.scss */
 #header .inner .left .logo {
   margin-top: 8px;
   display: inline-block;
 }
-/* line 62, ../sass/common.scss */
+/* line 74, ../sass/common.scss */
 #header .inner .right {
   float: right;
 }
-/* line 64, ../sass/common.scss */
+/* line 76, ../sass/common.scss */
 #header .inner .right .navigation {
   overflow: hidden;
 }
-/* line 66, ../sass/common.scss */
+/* line 78, ../sass/common.scss */
 #header .inner .right .navigation .nav {
   float: left;
   color: #cccccc;
@@ -2197,11 +2211,11 @@ body.loading {
   vertical-align: top;
   position: relative;
 }
-/* line 79, ../sass/common.scss */
+/* line 91, ../sass/common.scss */
 #header .inner .right .navigation .nav .txt {
   position: relative;
 }
-/* line 83, ../sass/common.scss */
+/* line 95, ../sass/common.scss */
 #header .inner .right .navigation .nav.menu .txt:before {
   position: absolute;
   content: '';
@@ -2214,28 +2228,28 @@ body.loading {
   top: 4px;
   right: -20px;
 }
-/* line 92, ../sass/common.scss */
+/* line 104, ../sass/common.scss */
 #header .inner .right .navigation .nav:first-child {
   border-left: none;
 }
-/* line 95, ../sass/common.scss */
+/* line 107, ../sass/common.scss */
 #header .inner .right .navigation .nav:hover {
   color: white;
 }
 
-/* line 104, ../sass/common.scss */
+/* line 116, ../sass/common.scss */
 #pageContent {
   height: 100%;
   width: 100%;
   display: table;
 }
 
-/* line 110, ../sass/common.scss */
+/* line 122, ../sass/common.scss */
 #viewContent {
   display: table-row;
   position: relative;
 }
-/* line 114, ../sass/common.scss */
+/* line 126, ../sass/common.scss */
 #viewContent #viewContentInner {
   display: table-cell;
   position: relative;
@@ -2243,7 +2257,7 @@ body.loading {
   height: 100%;
 }
 
-/* line 123, ../sass/common.scss */
+/* line 135, ../sass/common.scss */
 #footer {
   width: 100%;
   height: 34px;
@@ -2251,44 +2265,44 @@ body.loading {
   background-color: #2d2d2d;
   border-bottom: 1px solid black;
 }
-/* line 128, ../sass/common.scss */
+/* line 140, ../sass/common.scss */
 #footer .inner {
   display: table-cell;
 }
-/* line 131, ../sass/common.scss */
+/* line 143, ../sass/common.scss */
 #footer .inner .wrapper {
   margin: 0 auto;
   padding: 0 11px;
 }
-/* line 135, ../sass/common.scss */
+/* line 147, ../sass/common.scss */
 #footer .inner .wrapper .left {
   float: left;
 }
-/* line 137, ../sass/common.scss */
+/* line 149, ../sass/common.scss */
 #footer .inner .wrapper .left .links {
   overflow: hidden;
 }
-/* line 139, ../sass/common.scss */
+/* line 151, ../sass/common.scss */
 #footer .inner .wrapper .left .links a:link {
   color: white;
   text-decoration: none;
 }
-/* line 140, ../sass/common.scss */
+/* line 152, ../sass/common.scss */
 #footer .inner .wrapper .left .links a:visited {
   color: white;
   text-decoration: underline;
 }
-/* line 141, ../sass/common.scss */
+/* line 153, ../sass/common.scss */
 #footer .inner .wrapper .left .links a:hover {
   color: white;
   text-decoration: underline;
 }
-/* line 142, ../sass/common.scss */
+/* line 154, ../sass/common.scss */
 #footer .inner .wrapper .left .links a:active {
   color: white;
   text-decoration: none;
 }
-/* line 143, ../sass/common.scss */
+/* line 155, ../sass/common.scss */
 #footer .inner .wrapper .left .links .link {
   float: left;
   color: white;
@@ -2296,25 +2310,25 @@ body.loading {
   padding: 0px 8px;
   cursor: pointer;
 }
-/* line 152, ../sass/common.scss */
+/* line 164, ../sass/common.scss */
 #footer .inner .wrapper .right {
   float: right;
   color: white;
   line-height: 34px;
 }
 
-/* line 161, ../sass/common.scss */
+/* line 173, ../sass/common.scss */
 .ng-view {
   height: 100%;
   width: 100%;
 }
 
-/* line 166, ../sass/common.scss */
+/* line 178, ../sass/common.scss */
 .block {
   overflow: hidden;
 }
 
-/* line 170, ../sass/common.scss */
+/* line 182, ../sass/common.scss */
 .article {
   margin: 5px;
   padding: 5px;

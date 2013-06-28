@@ -3,6 +3,17 @@
 		<div class="mainBody eightcol">
 			{# mainBody contain #}
 
+			<div class="sec">
+				<div class="title">
+					Routing Structure
+				</div>
+				<div class="body">
+					<a href="/sidebar/A">Sidbar A</a> /
+					<a href="/sidebar/B">Sidbar B</a>
+				</div>
+			</div>
+
+
 			<div class="sec" ng-controller="soundcloudCtrls.main as sCtrl">
 				<div class="title">
 					SoundCloud Search
@@ -198,7 +209,8 @@
 		</div>
 	</div>{# End of .mainBody #}
 	<div class="sideBar fourcol last">
-		This is Side bar
+		<div ui-view="sidebar">Default</div>
+		<div ui-view="sidebarSub"></div>
 	</div>
 
 </div>{# End of .row #}
@@ -206,6 +218,22 @@
 </div>{# End of #mainView #}
 
 
+<script type="text/ng-template" id="sidebarA.html">
+ This is sidebar A
+</script>
+
+<script type="text/ng-template" id="sidebarB.html">
+ This is sidebar B
+</script>
+
+
+<script type="text/ng-template" id="sidebarSubA.html">
+ AAAAAAAAAAAAAA
+</script>
+
+<script type="text/ng-template" id="sidebarSubB.html">
+ BBBBBBBBBBBBBb
+</script>
 
 <script type="text/ng-template" id="attachCards.html">
 <div class="attachCardsBox">

@@ -41,6 +41,12 @@ class FoursquarePlaceManager(MongoDBManager):
         venues = FoursquarePlaceProcessor.spatial_search(ll=ll, q=q, radius=radius, limit=limit, section=section)
         return venues
 
+    def square_search(self, sw, ne, q='', limit=20, section=None):
+        from place.utils import FoursquarePlaceProcessor
+
+        venues = FoursquarePlaceProcessor.square_search(sw=sw, ne=ne, q=q, limit=limit, section=section)
+        return venues
+
     def get_photos(self, venue_id, limit=200, offset=0):
         from place.utils import FoursquarePlaceProcessor
         photos = FoursquarePlaceProcessor.get_venue_photos(venue_id=venue_id, limit=limit, offset=offset)
@@ -89,6 +95,10 @@ class FoursquarePlace(BasePlace):
 
     # Photo processed
     _pp = models.BooleanField(default=False)
+
+    # Has detail
+    _hd = models.BooleanField(default=True)
+
 
     # Section
     _section = models.CharField(max_length=50, null=True, blank=True)
@@ -171,6 +181,7 @@ class FoursquarePlace(BasePlace):
             'section': self.section,
             'fs_photo': self.fs_photo,
             'distance': self._distance,
+            'category_url': self.get_catetory_icon()
         })
         if detail:
             rtn.update({

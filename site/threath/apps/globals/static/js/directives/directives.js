@@ -285,7 +285,7 @@ app.directive('stopEvent', [function () {
     };
 }]);
 
-app.directive('body', function($rootScope){
+app.directive('body', ['$rootScope', '$window', function($rootScope, $window){
     return {
         restrict: 'E',
         link: function(scope, element, attrs){
@@ -293,9 +293,32 @@ app.directive('body', function($rootScope){
                 element.removeClass('loading');
                 $rootScope.$broadcast('bodyLoaded');
             });
+
+            element.ready(function(){
+                $window.document.title = 'NxtWill';
+                $rootScope.windowFocus = true;
+                element.removeClass('loading');
+                $rootScope.$broadcast('bodyLoaded');
+            });
+            
+            angular.element($window).bind('blur', function(){
+                $rootScope.windowFocus = false;
+                $rootScope.$broadcast('windowBlurred');
+
+            })
+
+            angular.element($window).bind('focus', function(){
+                $rootScope.windowFocus = true;
+                $rootScope.$broadcast('windowFocused');
+            })
+
+            // $rootScope.$watch('windowTitle', function(newVal, oldVal){
+            //     $window.document.title = newVal;
+            // });
+
         }
     }
-});
+}]);
 
 
 // app.directive('flexbox', function ($timeout) {

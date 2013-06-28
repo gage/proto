@@ -12,6 +12,10 @@ ADMINS = (
 # EXT:
 SITE_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
+
+# Prevent django to auto-append '/' at the end of url.
+APPEND_SLASH = False
+
 MANAGERS = ADMINS
 """
 DATABASES = {

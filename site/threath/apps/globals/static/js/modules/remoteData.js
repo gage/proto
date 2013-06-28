@@ -104,7 +104,7 @@ angular.module('remoteData', [])
 
 
         // An alternate way to fetch data.
-        dataCollection.prototype.fetch = function(data){
+        dataCollection.prototype.fetch = function(data, cachePara){
             var _this = this;
             var deferred = $q.defer();
             if (!this.url) {
@@ -116,19 +116,63 @@ angular.module('remoteData', [])
                 for(var p in data)
                     str.push(encodeURIComponent(p) + "=" + encodeURIComponent(data[p]));
                 var dataStr = str.join("&");
-                queryUrl = queryUrl + '?' + dataStr;
+                if (dataStr) {
+                    queryUrl = queryUrl + '?' + dataStr;
+                }
             }
-            $http.get(queryUrl)
-                .success(function(data, status, headers, config){
-                    // Collection === this
+
+            var hasResolved = false;
+            // Code review
+            if (cachePara) {
+                // cachePara.key
+                if (!cachePara.key) {
+                    console.error('no key for cache');
+                }
+                
+                if (window.localStorage.getItem(cachePara.key)) {
+                    var rtnData = JSON.parse(window.localStorage.getItem(cachePara.key));
                     var collection = _this.init({
-                        models: parse(data),
-                        raw: data,
+                        models: parse(rtnData),
+                        raw: rtnData,
                         comparator: params.comparator
                     });
                     collection.sort();
-
                     deferred.resolve(collection);
+                    hasResolved = true;
+                }
+            }
+
+            $http.get(queryUrl)
+                .success(function(data, status, headers, config){
+                    if (!data.success) {
+                        deferred.reject();
+                        if (!$.isEmptyObject(cachePara)) {
+                            // Clear the storage
+                            window.localStorage.removeItem(cachePara.key);
+                        }
+                        return;
+                    }
+                    
+                    if (cachePara) {
+                        window.localStorage[cachePara.key] = JSON.stringify(data);
+                    }
+
+                    if (!hasResolved) {
+                        // Collection === this
+                        var collection = _this.init({
+                            models: parse(data),
+                            raw: data,
+                            comparator: params.comparator
+                        });
+                        collection.sort();
+                        deferred.resolve(collection);
+                    }
+                    else {
+                        var callback = cachePara && cachePara.callback ? cachePara.callback: null;
+                        _this.rebuildData(data, callback)
+                    }
+
+                    
                 })
                 .error(function(data, status, headers, config){
                     var errmsg = '';
@@ -145,7 +189,7 @@ angular.module('remoteData', [])
             }
         }
 
-        var fnList = ['each', 'first', 'last', 'find', 'uniq','filter', 'contains'];
+        var fnList = ['each', 'first', 'last', 'find', 'uniq','filter', 'contains', 'pluck'];
         // can add but need verify (add them when needed)
         // ['map']
 
@@ -185,30 +229,21 @@ angular.module('remoteData', [])
         }
 
         dataCollection.prototype.add = function(objs) {
-            var _this = this;
-            var isAddModel = false;
-            if(Object.prototype.toString.call(objs) !== '[object Array]'){
-                // Model
-                isAddModel = true;
-                objs = [objs];
-            }
-
-            var wrapObjs = format(objs, this);
-            var objIds = _.pluck(wrapObjs, 'id');
-            _.each(wrapObjs, function(wrapObj){
-                var existObj = _this.find(function(obj){return obj.id==wrapObj.id;});
-                if (!existObj) {
-                    _this.models.push(wrapObj);
+            var isInputArray = angular.isArray(objs);
+            var wrapObjs = isInputArray ? format(objs, this) : format([objs], this);
+            
+            angular.forEach(wrapObjs, angular.bind(this, function(wrapObj){
+                var existObj = this.get(wrapObj.id);
+                if (existObj) {
+                    existObj.set(wrapObj); // Set attributes of new object into existing object
+                }else{
+                    this.models.push(wrapObj);
                 }
-                else {
-                    // Set attributes of new object into existing object
-                    existObj.set(wrapObj);
-                }
-            });
+            }));
+            
             this.sort();
-            // Find the added objects to return
-            var addedModels = this.filter(function(obj){return _.contains(objIds, obj.id);});
-            return isAddModel ? wrapObjs[0]:wrapObjs;
+            
+            return isInputArray ? wrapObjs : wrapObjs[0];
         }
 
         dataCollection.prototype.length= function() {
@@ -237,6 +272,34 @@ angular.module('remoteData', [])
             return target;
         }
 
+        dataCollection.prototype.rebuildData = function(data, callback) {
+            // This function should be used with cache system.
+            // If you get your first data from cache, then you can make an http request
+            // and get the real result.
+            // Put the result into this function, and it will rebuild(find & replace, remove) the models.
+            // It will not delete existing models, so don't worry about it.
+
+            // TODO: sorting?
+            var parsedData = parse(data);
+            var _this = this
+            // Add new item into cache list
+            this.add(parsedData);
+
+            // Remove item from cache list
+            var idList = this.pluck('id');
+            var goldenIdList = _.pluck(parsedData, 'id');
+            _.each(idList, function(id){
+                if (!_.contains(goldenIdList, id)) {
+                    _this.remove(id);
+                }
+            })
+
+            if (callback) {
+                callback()
+            }
+        }
+
+
         // Attach collection for each remoteData usage
         // e.g. friendList.collection.prototype.loadMore = function() {};
         dataObj.collection = dataCollection;
@@ -246,21 +309,4 @@ angular.module('remoteData', [])
 
     return remoteDataFactory;
 }]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

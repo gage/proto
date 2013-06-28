@@ -23,7 +23,7 @@ app.factory('rPlace', ['$remoteData', '$http', '$q', 'geoLocation', 'utils',  fu
 
         options.latlon = latlonStr;
         var para = utils.serialize(options);
-        var queryUrl = '/api/place/fs/search/?'+para;
+        var queryUrl = '/api/place/fs/explore/?'+para;
         
         $http.get(queryUrl)
         .success(function(data, status, headers, config){

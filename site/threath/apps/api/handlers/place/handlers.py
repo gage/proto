@@ -37,7 +37,7 @@ class PlaceFoursquareHandler(BaseHandler):
         force_update_cache = request.CLEANED.get('force_update_cache')
         q = request.CLEANED['q']
 
-        rounded_latlon = "%s,%s" % (lat, lon)
+        rounded_latlon = "%s,%s" % (round(float(lat),4), round(float(lon),4))
         version = '1'
         cache_key = 'fsplace_'+rounded_latlon+section+'_'+q+version+str(radius)
         if not cache.get(cache_key) or force_update_cache:
@@ -49,6 +49,35 @@ class PlaceFoursquareHandler(BaseHandler):
         if section and section!="topPicks":
             results = filter(lambda x: x.section==section, results)
         return [result.to_json(request=request) for result in results]
+
+
+class PlaceFoursquareSearchHandler(BaseHandler):
+    allowed_methods = ('GET',)
+    read_kwargs = ('q', 'section', 'sw', 'ne')
+    read_auth_exempt = True
+
+    def read_validate(self, query_dict, **kwargs):
+        query_dict['q'] = query_dict.get('q', '')
+        
+        if not query_dict.get('sw') or not query_dict.get('ne'):
+            raise api_errors.APIException(api_errors.ERROR_GENERAL_BAD_SIGNATURE)
+        
+        query_dict['section'] = query_dict.get('section', '')
+
+    def read(self, request):
+        # TODO: latlon and radius
+
+        sw = request.CLEANED.get('sw')
+        ne = request.CLEANED.get('ne')
+        q = request.CLEANED['q']
+
+        version = '1'
+
+        if sw and ne:
+            results = FoursquarePlace.objects.square_search(sw=sw, ne=ne, q=q)
+
+        return [result.to_json(request=request) for result in results]
+
 
 
 class PlaceFoursquareObjectHandler(BaseObjectHandler):
